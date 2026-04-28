@@ -407,8 +407,10 @@ function showFatalError(msg) {
   const container = document.getElementById('error-container');
   if (container) {
     container.hidden = false;
-    const pre = container.querySelector('pre');
+    const pre = document.getElementById('error-detail');
     if (pre) pre.textContent = msg;
+    const urlSpan = document.getElementById('error-page-url');
+    if (urlSpan) urlSpan.textContent = window.location.href;
   }
 }
 

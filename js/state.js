@@ -3,26 +3,31 @@ export const VERSION = '1.0.0';
 
 const STORAGE_KEY = 'dama_assessment_v1';
 
+// Resolve content file paths relative to this module, then step up to root.
+// Using import.meta.url ensures paths are correct regardless of the page URL
+// or whether the site is served from a subdirectory (e.g. GitHub Pages).
+const BASE = new URL('../', import.meta.url).href;
+
 const CONTENT_FILES = {
-  dimensions:       'content/dimensions.json',
-  maturityLevels:   'content/maturity-levels.json',
-  contextQuestions: 'content/context-questions.json',
-  questions:        'content/questions.json',
-  recommendations:  'content/recommendations.json',
-  tools:            'content/tools-catalogue.json',
-  narrative:        'content/narrative-snippets.json',
+  dimensions:       `${BASE}content/dimensions.json`,
+  maturityLevels:   `${BASE}content/maturity-levels.json`,
+  contextQuestions: `${BASE}content/context-questions.json`,
+  questions:        `${BASE}content/questions.json`,
+  recommendations:  `${BASE}content/recommendations.json`,
+  tools:            `${BASE}content/tools-catalogue.json`,
+  narrative:        `${BASE}content/narrative-snippets.json`,
 };
 
 // ─── Content loading ──────────────────────────────────────────────────────────
 
 export async function loadContent() {
   const entries = await Promise.all(
-    Object.entries(CONTENT_FILES).map(async ([key, path]) => {
+    Object.entries(CONTENT_FILES).map(async ([key, url]) => {
       let response;
       try {
-        response = await fetch(path);
+        response = await fetch(url);
       } catch (err) {
-        if (err instanceof TypeError) {
+        if (window.location.protocol === 'file:') {
           throw new Error(
             'Cannot load content files from a file:// URL.\n\n' +
             'Start a local server instead:\n' +
@@ -30,16 +35,16 @@ export async function loadContent() {
             'Then open: http://localhost:8080'
           );
         }
-        throw err;
+        throw new Error(`Network error loading ${url}:\n${err.message}`);
       }
       if (!response.ok) {
-        throw new Error(`Failed to load ${path}: HTTP ${response.status}`);
+        throw new Error(`Failed to load ${url}: HTTP ${response.status}`);
       }
       let data;
       try {
         data = await response.json();
       } catch (err) {
-        throw new Error(`Invalid JSON in ${path}: ${err.message}`);
+        throw new Error(`Invalid JSON in ${url}: ${err.message}`);
       }
       return [key, data];
     })
