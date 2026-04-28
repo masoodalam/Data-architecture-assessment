@@ -600,6 +600,156 @@
         }
       ],
       "allow_unknown": true
+    },
+    {
+      "id": "pip_001",
+      "dimension": "pipelines",
+      "question": "How are data pipelines built and scheduled in your organisation?",
+      "help_text": "A pipeline is any process that moves or transforms data \u2014 from a nightly export to a real-time stream. This question is about how that work is automated and managed.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Largely manual \u2014 data is moved by exporting files and uploading them, or running scripts by hand on an ad hoc basis."
+        },
+        {
+          "level": 2,
+          "label": "Some scheduled automation exists (cron jobs, simple scripts) but it is fragile, not monitored, and only the original author can maintain it."
+        },
+        {
+          "level": 3,
+          "label": "Pipelines are built using a consistent framework and managed by an orchestration tool that handles scheduling and dependencies."
+        },
+        {
+          "level": 4,
+          "label": "All significant pipelines run through an orchestrator. Dependencies are explicit. Failures are retried automatically and alert the on-call team."
+        },
+        {
+          "level": 5,
+          "label": "Pipelines are declaratively defined, version-controlled, and self-healing where possible. New source onboarding follows a repeatable, documented process."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "pip_002",
+      "dimension": "pipelines",
+      "question": "How does your organisation find out when a data pipeline has failed or produced unexpected results?",
+      "help_text": "Pipeline failures include: a job not running, a job running but producing no rows, a job completing but loading corrupt or duplicated data.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "We find out when a downstream consumer notices \u2014 a dashboard is empty, a report looks wrong, or someone complains."
+        },
+        {
+          "level": 2,
+          "label": "The pipeline logs failures but someone has to check the logs manually. There are no automated alerts."
+        },
+        {
+          "level": 3,
+          "label": "Automated alerts notify the data team when pipelines fail. Someone is responsible for responding within a defined timeframe."
+        },
+        {
+          "level": 4,
+          "label": "Monitoring covers failures and anomalies (e.g. row count drops, late arrivals). Alerts are routed to the right owner. SLAs are tracked."
+        },
+        {
+          "level": 5,
+          "label": "Observability is end-to-end \u2014 freshness, volume, and schema changes are all monitored. Alerts are actionable and rarely false-positive."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "pip_003",
+      "dimension": "pipelines",
+      "question": "Are your data pipelines version-controlled and tested before being deployed to production?",
+      "help_text": "Version control means pipeline code is stored in a system like Git. Testing means there is some check \u2014 automated or manual \u2014 that a change works before it goes live.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 pipeline code is not version-controlled. Changes are made directly in production. There is no testing step."
+        },
+        {
+          "level": 2,
+          "label": "Some pipeline code is in version control but it is not consistent. Changes go to production with minimal or no testing."
+        },
+        {
+          "level": 3,
+          "label": "Pipeline code is version-controlled and goes through a review process. Basic tests run before deployment to catch obvious breakage."
+        },
+        {
+          "level": 4,
+          "label": "All pipeline changes are reviewed, tested, and deployed through a consistent CI/CD (continuous integration and deployment) process."
+        },
+        {
+          "level": 5,
+          "label": "Pipelines have automated test suites covering ingestion, transformation, and loading. Test coverage is measured. Deployments are fully automated."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "pip_004",
+      "dimension": "pipelines",
+      "question": "Are your data pipelines documented so that someone other than the original author can understand, maintain, and debug them?",
+      "help_text": "Documentation here means anything that helps an unfamiliar engineer \u2014 comments in code, a README, a runbook, or entries in a data catalogue.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No documentation. Only the person who built a pipeline can maintain it. Bus-factor (single point of knowledge) is high throughout."
+        },
+        {
+          "level": 2,
+          "label": "Some pipelines have comments or a brief description, but it is inconsistent and often out of date."
+        },
+        {
+          "level": 3,
+          "label": "Key pipelines are documented with enough context for another engineer to maintain them. Documentation is a checklist item for new pipelines."
+        },
+        {
+          "level": 4,
+          "label": "All production pipelines are documented. Documentation includes data sources, transformation logic, dependencies, and known issues."
+        },
+        {
+          "level": 5,
+          "label": "Pipeline documentation is auto-generated where possible and linked to the data catalogue. New engineers can onboard to the pipeline estate independently."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "pip_005",
+      "dimension": "pipelines",
+      "question": "Do your most important data pipelines have agreed freshness guarantees \u2014 a defined time by which data must be available \u2014 and are those guarantees met consistently?",
+      "help_text": "Freshness guarantees (sometimes called SLAs \u2014 service level agreements) define when data consumers can expect data to be ready. For example: 'the finance dashboard reflects data as of midnight, available by 6am'.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No freshness guarantees. Consumers do not know when data will be ready and are often surprised by delays."
+        },
+        {
+          "level": 2,
+          "label": "Informal expectations exist ('it usually runs overnight') but they are not documented or measured."
+        },
+        {
+          "level": 3,
+          "label": "Freshness SLAs are defined and documented for our most critical pipelines and are met most of the time."
+        },
+        {
+          "level": 4,
+          "label": "SLAs are defined for all significant pipelines, tracked as metrics, and reported when breached. Breach rates are improving over time."
+        },
+        {
+          "level": 5,
+          "label": "Freshness SLAs are contractually agreed with data consumers, automatically monitored, and breaches trigger real-time alerts and root cause investigation."
+        }
+      ],
+      "allow_unknown": false
     }
   ]
 }
