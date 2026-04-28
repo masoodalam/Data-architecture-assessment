@@ -1306,6 +1306,95 @@
       ],
       "url": "https://www.keycloak.org",
       "one_line": "Open-source identity and access management \u2014 the standard self-hosted alternative to Okta or Azure AD for SSO, OAuth2, and OIDC integration across your data platform."
+    },
+    {
+      "id": "microsoft_presidio",
+      "name": "Microsoft Presidio",
+      "category": "data_privacy",
+      "licence": "MIT",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "embedded"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "public_sector",
+        "regulated_private"
+      ],
+      "constraints": [
+        "NLP-based PII detection \u2014 detection quality depends on model quality and language support",
+        "requires Python integration into your pipeline",
+        "false positive/negative rates need tuning for domain-specific data"
+      ],
+      "url": "https://microsoft.github.io/presidio/",
+      "one_line": "Microsoft's open-source PII detection and anonymisation library \u2014 integrates into data pipelines to identify and redact personal data at ingestion or transformation time."
+    },
+    {
+      "id": "apache_atlas",
+      "name": "Apache Atlas",
+      "category": "data_privacy",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "large_org",
+        "public_sector",
+        "on_prem"
+      ],
+      "constraints": [
+        "primarily a Hadoop-ecosystem metadata and governance platform \u2014 less relevant outside HDP/CDH environments",
+        "heavy to operate; development has slowed relative to newer catalogue tools",
+        "overlaps significantly with metadata catalogue tools \u2014 consider DataHub or OpenMetadata instead for modern architectures"
+      ],
+      "url": "https://atlas.apache.org",
+      "one_line": "Apache's metadata governance and classification platform for the Hadoop ecosystem \u2014 useful for tagging sensitive data in HDFS and Hive, but largely superseded by modern catalogues for new architectures."
+    },
+    {
+      "id": "mlflow",
+      "name": "MLflow",
+      "category": "ml_platform",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas",
+        "aws_marketplace",
+        "azure_marketplace"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "experiment tracking and model registry focus \u2014 not a full ML platform (no feature store, no serving infrastructure without extensions)",
+        "managed offerings (Databricks Managed MLflow, Azure ML MLflow integration) are commercial"
+      ],
+      "url": "https://mlflow.org",
+      "one_line": "The standard open-source ML experiment tracking and model registry \u2014 lightweight to adopt, integrates with most ML frameworks, and the default starting point for teams building machine learning workflows."
+    },
+    {
+      "id": "kubeflow",
+      "name": "Kubeflow",
+      "category": "ml_platform",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "large_org"
+      ],
+      "constraints": [
+        "Kubernetes-native \u2014 requires a mature Kubernetes platform to operate",
+        "high operational complexity \u2014 running Kubeflow in production requires dedicated platform engineering effort",
+        "overkill for teams not running ML at significant scale"
+      ],
+      "url": "https://www.kubeflow.org",
+      "one_line": "CNCF ML platform for running end-to-end ML pipelines on Kubernetes \u2014 the right choice for large organisations with Kubernetes expertise and genuine ML at scale; not for early-stage ML teams."
     }
   ]
 }
