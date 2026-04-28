@@ -240,6 +240,124 @@
       ],
       "url": "https://www.bigeye.com",
       "one_line": "Automated data quality monitoring that infers rules from historical patterns \u2014 reduces manual rule-writing effort but requires existing data history to be effective."
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "category": "oltp_database",
+      "licence": "PostgreSQL Licence (permissive, MIT-like)",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "aws_marketplace",
+        "azure_marketplace",
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org",
+        "on_prem",
+        "public_sector"
+      ],
+      "constraints": [
+        "operational database \u2014 not designed for large-scale analytical queries",
+        "self-managed replication and HA (high availability) require operational effort"
+      ],
+      "url": "https://www.postgresql.org",
+      "one_line": "The default choice for open-source relational data storage \u2014 mature, reliable, and extensible, with managed offerings on every major cloud."
+    },
+    {
+      "id": "mariadb",
+      "name": "MariaDB",
+      "category": "oltp_database",
+      "licence": "GPL 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "aws_marketplace",
+        "azure_marketplace"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "on_prem"
+      ],
+      "constraints": [
+        "GPL licence has copyleft implications for embedded use",
+        "smaller ecosystem than PostgreSQL for analytical extensions",
+        "MariaDB Corporation's commercial backing has changed ownership twice"
+      ],
+      "url": "https://mariadb.org",
+      "one_line": "MySQL-compatible open-source database that forked from MySQL after Oracle's acquisition \u2014 solid operational database with broad hosting support."
+    },
+    {
+      "id": "aws_rds",
+      "name": "Amazon RDS",
+      "category": "oltp_database",
+      "licence": "Commercial managed service",
+      "type": "managed_service",
+      "deployment": [
+        "aws_marketplace"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org",
+        "aws"
+      ],
+      "constraints": [
+        "AWS-only",
+        "managed overhead removed but AWS lock-in introduced",
+        "costs add up at scale \u2014 especially Multi-AZ and read replicas"
+      ],
+      "url": "https://aws.amazon.com/rds/",
+      "one_line": "AWS-managed relational database supporting PostgreSQL, MySQL, MariaDB, and others \u2014 removes operational overhead at the cost of cloud lock-in."
+    },
+    {
+      "id": "azure_db_postgresql",
+      "name": "Azure Database for PostgreSQL",
+      "category": "oltp_database",
+      "licence": "Commercial managed service",
+      "type": "managed_service",
+      "deployment": [
+        "azure_marketplace"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org",
+        "azure",
+        "public_sector"
+      ],
+      "constraints": [
+        "Azure-only",
+        "Flexible Server is the current recommended SKU \u2014 Hyperscale (Citus) has a separate pricing model"
+      ],
+      "url": "https://azure.microsoft.com/en-us/products/postgresql/",
+      "one_line": "Microsoft's managed PostgreSQL offering \u2014 the natural choice for Azure-primary organisations, with UK public sector pricing via Crown Commercial Service."
+    },
+    {
+      "id": "cloud_sql",
+      "name": "Cloud SQL",
+      "category": "oltp_database",
+      "licence": "Commercial managed service",
+      "type": "managed_service",
+      "deployment": [
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org",
+        "gcp"
+      ],
+      "constraints": [
+        "GCP-only",
+        "AlloyDB is Google's higher-performance PostgreSQL-compatible alternative for larger workloads"
+      ],
+      "url": "https://cloud.google.com/sql",
+      "one_line": "Google Cloud's managed database service supporting PostgreSQL, MySQL, and SQL Server \u2014 the default choice for GCP-primary teams."
     }
   ]
 }
