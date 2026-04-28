@@ -519,6 +519,102 @@
       ],
       "url": "https://cloud.google.com/bigquery",
       "one_line": "Google's serverless analytical database \u2014 no infrastructure to manage, scales to petabytes, and deeply integrated with the GCP ecosystem."
+    },
+    {
+      "id": "apache_iceberg",
+      "name": "Apache Iceberg",
+      "category": "lakehouse_table_format",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "aws_marketplace",
+        "azure_marketplace",
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "high_data_volume",
+        "aws",
+        "azure",
+        "gcp"
+      ],
+      "constraints": [
+        "a table format, not a storage system \u2014 requires an object store (S3, ADLS, GCS) and a query engine (Trino, Spark, DuckDB)",
+        "catalogue integration (Hive, Glue, Nessie, REST) adds configuration complexity"
+      ],
+      "url": "https://iceberg.apache.org",
+      "one_line": "The leading open table format for lakehouse architectures \u2014 provides ACID transactions, time travel, and schema evolution on top of object storage."
+    },
+    {
+      "id": "delta_lake",
+      "name": "Delta Lake",
+      "category": "lakehouse_table_format",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "aws_marketplace",
+        "azure_marketplace",
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "originated in Databricks \u2014 deepest integration is with Spark and Databricks SQL",
+        "Delta Sharing is a separate commercial feature in some contexts",
+        "interoperability with non-Spark engines has improved but Iceberg has broader ecosystem support"
+      ],
+      "url": "https://delta.io",
+      "one_line": "Databricks-originated open table format with strong Spark integration \u2014 ACID, time travel, and schema evolution, with the richest ecosystem if you are already on Spark."
+    },
+    {
+      "id": "apache_hudi",
+      "name": "Apache Hudi",
+      "category": "lakehouse_table_format",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "aws_marketplace"
+      ],
+      "good_for": [
+        "large_org",
+        "high_data_volume",
+        "aws"
+      ],
+      "constraints": [
+        "strongest on AWS (originated at Uber, adopted heavily by Amazon EMR)",
+        "more operationally complex than Iceberg for simple use cases",
+        "smaller ecosystem than Iceberg or Delta Lake"
+      ],
+      "url": "https://hudi.apache.org",
+      "one_line": "Open table format built for record-level upserts and incremental processing \u2014 best suited to change data capture (CDC) workloads where frequent updates are the norm."
+    },
+    {
+      "id": "minio",
+      "name": "MinIO",
+      "category": "lakehouse_table_format",
+      "licence": "AGPL 3.0 (open source) \u2014 commercial licence available for proprietary use",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "on_prem"
+      ],
+      "constraints": [
+        "AGPL 3.0 licence requires open-sourcing code that links to it \u2014 commercial licence needed for proprietary embedding",
+        "object storage only, not a table format \u2014 used as the storage layer beneath Iceberg/Delta/Hudi"
+      ],
+      "url": "https://min.io",
+      "one_line": "S3-compatible object storage you can self-host \u2014 the standard choice for building an on-premises lakehouse storage layer without cloud vendor dependency."
     }
   ]
 }
