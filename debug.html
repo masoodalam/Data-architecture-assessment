@@ -128,7 +128,16 @@
     card('fail', 'loadContent()', 'THREW AN ERROR', e.message);
   }
 
-  // 7 — Show intercepted console log
+  // 7 — Try calling init()
+  try {
+    const { init } = await import('./js/app.js');
+    await init();
+    card('pass', 'init()', 'Completed without throwing');
+  } catch(e) {
+    card('fail', 'init()', 'THREW AN ERROR', e.message + (e.stack ? '\n' + e.stack.split('\n').slice(0,5).join('\n') : ''));
+  }
+
+  // 8 — Show intercepted console log
   const logDiv = document.createElement('div');
   logDiv.className = 'card info';
   logDiv.innerHTML = '<div class="label">Console log (errors &amp; warnings)</div><div id="log"></div>';
