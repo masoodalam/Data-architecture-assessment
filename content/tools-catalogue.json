@@ -358,6 +358,167 @@
       ],
       "url": "https://cloud.google.com/sql",
       "one_line": "Google Cloud's managed database service supporting PostgreSQL, MySQL, and SQL Server \u2014 the default choice for GCP-primary teams."
+    },
+    {
+      "id": "duckdb",
+      "name": "DuckDB",
+      "category": "olap_database",
+      "licence": "MIT",
+      "type": "open_source",
+      "deployment": [
+        "embedded",
+        "self_hosted"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "low_ops_overhead"
+      ],
+      "constraints": [
+        "single-node only \u2014 not designed for concurrent multi-user workloads",
+        "no built-in access control \u2014 not suitable as a shared multi-tenant store"
+      ],
+      "url": "https://duckdb.org",
+      "one_line": "Embedded columnar analytical database that runs in-process \u2014 extraordinary performance for single-analyst or small-team workloads, with zero infrastructure to manage."
+    },
+    {
+      "id": "clickhouse",
+      "name": "ClickHouse",
+      "category": "olap_database",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas",
+        "aws_marketplace",
+        "azure_marketplace",
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "optimised for append-heavy workloads \u2014 updates and deletes are expensive",
+        "SQL dialect has quirks that differ from ANSI SQL",
+        "operational complexity when self-hosting at scale"
+      ],
+      "url": "https://clickhouse.com",
+      "one_line": "Exceptionally fast columnar OLAP database designed for real-time analytics at high volume \u2014 strong choice when query latency matters and data is largely immutable."
+    },
+    {
+      "id": "apache_druid",
+      "name": "Apache Druid",
+      "category": "olap_database",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "operationally complex \u2014 requires multiple node types (historical, broker, coordinator)",
+        "steep learning curve",
+        "best suited to time-series event analytics"
+      ],
+      "url": "https://druid.apache.org",
+      "one_line": "High-throughput real-time OLAP store originally built for time-series event data \u2014 powerful at scale but carries significant operational complexity."
+    },
+    {
+      "id": "starrocks",
+      "name": "StarRocks",
+      "category": "olap_database",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "younger project than ClickHouse or Druid \u2014 ecosystem still maturing",
+        "managed cloud offering (CelerData) is commercial"
+      ],
+      "url": "https://www.starrocks.io",
+      "one_line": "Fast open-source OLAP database that supports both batch and real-time ingestion \u2014 competitive with ClickHouse and gaining traction as a Druid alternative."
+    },
+    {
+      "id": "snowflake",
+      "name": "Snowflake",
+      "category": "olap_database",
+      "licence": "Commercial",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "regulated_private",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "per-second compute pricing can escalate unexpectedly",
+        "data stored in Snowflake's proprietary format \u2014 egress costs apply",
+        "SaaS-only, no on-premises option"
+      ],
+      "url": "https://www.snowflake.com",
+      "one_line": "Market-leading cloud data warehouse with near-zero operational overhead, strong governance features, and a large ecosystem \u2014 expensive at scale but genuinely easy to operate."
+    },
+    {
+      "id": "databricks_sql",
+      "name": "Databricks SQL",
+      "category": "olap_database",
+      "licence": "Commercial",
+      "type": "commercial",
+      "deployment": [
+        "aws_marketplace",
+        "azure_marketplace",
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "large_org",
+        "high_data_volume",
+        "regulated_private"
+      ],
+      "constraints": [
+        "complex pricing combining compute, DBUs (Databricks Units), and cloud storage",
+        "requires comfort with the broader Databricks platform",
+        "overkill for organisations without ML or large-scale Spark workloads"
+      ],
+      "url": "https://www.databricks.com/product/databricks-sql",
+      "one_line": "SQL analytics layer on the Databricks Lakehouse platform \u2014 the right choice if you are already using Databricks for ML and want unified compute."
+    },
+    {
+      "id": "bigquery",
+      "name": "BigQuery",
+      "category": "olap_database",
+      "licence": "Commercial managed service",
+      "type": "managed_service",
+      "deployment": [
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "gcp",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "GCP-only",
+        "on-demand pricing ($6.25/TB scanned) can surprise teams not using slot reservations",
+        "data stored in Google's infrastructure"
+      ],
+      "url": "https://cloud.google.com/bigquery",
+      "one_line": "Google's serverless analytical database \u2014 no infrastructure to manage, scales to petabytes, and deeply integrated with the GCP ecosystem."
     }
   ]
 }
