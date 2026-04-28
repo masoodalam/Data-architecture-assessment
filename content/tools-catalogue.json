@@ -1,4 +1,116 @@
 {
   "_comment": "Open-source-first catalogue of data tooling, organised by category. Used to populate recommendation alternative_tools lists. See content/schemas/tools-catalogue.schema.json for the full schema.",
-  "tools": []
+  "tools": [
+    {
+      "id": "datahub",
+      "name": "DataHub",
+      "category": "metadata_catalogue",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_acryl"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "public_sector",
+        "regulated_private"
+      ],
+      "constraints": [
+        "requires Kubernetes or equivalent to self-host reliably",
+        "moderate ops overhead",
+        "onboarding takes several weeks for full coverage"
+      ],
+      "url": "https://datahubproject.io",
+      "one_line": "LinkedIn-originated metadata platform with strong lineage, schema history, and governance features \u2014 powerful but demands real infrastructure commitment."
+    },
+    {
+      "id": "openmetadata",
+      "name": "OpenMetadata",
+      "category": "metadata_catalogue",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "public_sector"
+      ],
+      "constraints": [
+        "self-hosted deployment requires Docker Compose or Kubernetes",
+        "smaller community than DataHub"
+      ],
+      "url": "https://open-metadata.org",
+      "one_line": "Full-featured open-source catalogue with built-in data quality, lineage, and a clean UI \u2014 a strong DataHub alternative with a more approachable setup."
+    },
+    {
+      "id": "amundsen",
+      "name": "Amundsen",
+      "category": "metadata_catalogue",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "requires Neo4j or Atlas as the metadata graph backend",
+        "development pace has slowed since Lyft open-sourced it",
+        "UI is functional but dated"
+      ],
+      "url": "https://www.amundsen.io",
+      "one_line": "Lyft's search-first data discovery tool built on a graph model \u2014 good for discovery but less capable on lineage and governance than newer alternatives."
+    },
+    {
+      "id": "atlan",
+      "name": "Atlan",
+      "category": "metadata_catalogue",
+      "licence": "Commercial",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "regulated_private"
+      ],
+      "constraints": [
+        "SaaS-only \u2014 data about your data assets leaves your environment",
+        "pricing scales with assets and users"
+      ],
+      "url": "https://atlan.com",
+      "one_line": "Modern commercial catalogue with strong UX, Slack-style collaboration, and broad connector coverage \u2014 aimed at teams who want fast time-to-value without self-hosting."
+    },
+    {
+      "id": "collibra",
+      "name": "Collibra",
+      "category": "metadata_catalogue",
+      "licence": "Commercial",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas",
+        "self_hosted"
+      ],
+      "good_for": [
+        "large_org",
+        "regulated_private",
+        "public_sector"
+      ],
+      "constraints": [
+        "enterprise pricing \u2014 significant budget required",
+        "implementation typically requires a partner or dedicated internal resource",
+        "complex to configure for smaller teams"
+      ],
+      "url": "https://www.collibra.com",
+      "one_line": "Enterprise governance and catalogue platform with deep workflow and policy capabilities \u2014 justified for large regulated organisations with complex compliance needs."
+    }
+  ]
 }
