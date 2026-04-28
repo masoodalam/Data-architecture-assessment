@@ -1,4 +1,155 @@
 {
   "_comment": "40 maturity questions, 5 per dimension. Each question maps answer options to DAMA-DMBOK maturity levels 1-5. See content/schemas/questions.schema.json for the full schema.",
-  "questions": []
+  "questions": [
+    {
+      "id": "gov_001",
+      "dimension": "governance",
+      "question": "Is there a named person accountable for each major data domain in your organisation?",
+      "help_text": "A data domain is a distinct subject area of data \u2014 for example, customer data, financial data, HR data, or operational data.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 nobody is formally responsible for any data domain. Ownership is unclear."
+        },
+        {
+          "level": 2,
+          "label": "Informally \u2014 a few people are known to look after certain data, but it is not documented or recognised as a role."
+        },
+        {
+          "level": 3,
+          "label": "Partially \u2014 named owners exist for our most important data domains, with documented responsibilities."
+        },
+        {
+          "level": 4,
+          "label": "Broadly \u2014 most domains have named owners within a defined accountability framework, with regular check-ins."
+        },
+        {
+          "level": 5,
+          "label": "Fully \u2014 every domain has a named owner with active stewardship duties, regular reviews, and clear escalation paths."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "gov_002",
+      "dimension": "governance",
+      "question": "Does your organisation have documented data policies covering access, quality, retention, and acceptable use?",
+      "help_text": "Policies don't need to be a single document \u2014 separate policies for each topic are fine. The question is whether they exist and people know where to find them.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No documented policies exist. Rules are communicated informally if at all."
+        },
+        {
+          "level": 2,
+          "label": "Some policies exist (often written for a compliance deadline) but they are hard to find and not widely read."
+        },
+        {
+          "level": 3,
+          "label": "Core policies are documented, accessible, and applied consistently across our main systems and teams."
+        },
+        {
+          "level": 4,
+          "label": "Policies are comprehensive, regularly reviewed on a set schedule, and ownership of each policy is clearly assigned."
+        },
+        {
+          "level": 5,
+          "label": "Policies are version-controlled, enforced through tooling where possible, and updated based on incidents and regulatory changes."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "gov_003",
+      "dimension": "governance",
+      "question": "Does your organisation have a data governance body \u2014 such as a committee, council, or working group \u2014 with real decision-making authority?",
+      "help_text": "This could be a formal Data Governance Board or an informal cross-functional group. The key question is whether it can make and enforce decisions about data.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No governance body exists. Data decisions are made ad hoc by whoever is available."
+        },
+        {
+          "level": 2,
+          "label": "There are occasional cross-team meetings about data, but no standing forum with a defined remit."
+        },
+        {
+          "level": 3,
+          "label": "A governance body exists with a defined remit, meets regularly, and has resolved at least some real data disputes."
+        },
+        {
+          "level": 4,
+          "label": "The governance body has documented authority, a published meeting schedule, minutes, and an active backlog of decisions."
+        },
+        {
+          "level": 5,
+          "label": "The governance body drives strategic data direction, reviews metrics, owns the policy framework, and reports to senior leadership."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "gov_004",
+      "dimension": "governance",
+      "question": "Does your organisation classify data by sensitivity \u2014 for example, distinguishing between public, internal, confidential, and sensitive personal data?",
+      "help_text": "A classification scheme means data assets are labelled or tagged with their sensitivity level, not just that the categories exist in a policy document.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No classification scheme. All data is treated the same regardless of sensitivity."
+        },
+        {
+          "level": 2,
+          "label": "Sensitivity categories exist on paper but data is not consistently labelled or tagged in practice."
+        },
+        {
+          "level": 3,
+          "label": "A classification scheme is in place and applied consistently to our most sensitive and highest-risk data assets."
+        },
+        {
+          "level": 4,
+          "label": "Classification is applied broadly across the estate and is integrated with access control \u2014 permissions reflect classification level."
+        },
+        {
+          "level": 5,
+          "label": "Classification is automated at ingestion, enforced by tooling, and linked to retention, masking, and audit policies."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "gov_005",
+      "dimension": "governance",
+      "question": "How does your organisation measure and track compliance with its data governance policies?",
+      "help_text": "This is about whether you know whether policies are being followed \u2014 not just whether the policies exist.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "We do not measure compliance. Policy adherence depends on individuals being aware of and choosing to follow the rules."
+        },
+        {
+          "level": 2,
+          "label": "Compliance is checked occasionally, usually before an audit or in response to an incident."
+        },
+        {
+          "level": 3,
+          "label": "Key compliance indicators are tracked and reported at least quarterly, with a process for raising and resolving breaches."
+        },
+        {
+          "level": 4,
+          "label": "Compliance metrics are part of regular governance reporting. Non-compliance triggers a formal triage and resolution process."
+        },
+        {
+          "level": 5,
+          "label": "Policy compliance is continuously monitored through automated tooling. Exceptions are detected and escalated in near real-time."
+        }
+      ],
+      "allow_unknown": true
+    }
+  ]
 }
