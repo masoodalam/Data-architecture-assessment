@@ -750,6 +750,156 @@
         }
       ],
       "allow_unknown": false
+    },
+    {
+      "id": "ana_001",
+      "dimension": "analytics",
+      "question": "When different teams or reports quote the same metric \u2014 such as 'monthly active users' or 'total revenue' \u2014 do they consistently arrive at the same number?",
+      "help_text": "Conflicting numbers in leadership meetings are a common sign that metric definitions are not agreed or enforced. This question is about whether your organisation has a 'single version of the truth' for key metrics.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 the same metric regularly produces different numbers depending on who calculated it and how. This causes confusion in meetings."
+        },
+        {
+          "level": 2,
+          "label": "Usually \u2014 most teams use the same source, but slight differences in calculation logic or date ranges cause occasional discrepancies."
+        },
+        {
+          "level": 3,
+          "label": "Yes for core metrics \u2014 key metrics have agreed definitions, documented calculation logic, and a single authoritative source."
+        },
+        {
+          "level": 4,
+          "label": "Yes consistently \u2014 metric definitions are enforced through a semantic or metric layer that all reports and dashboards reference."
+        },
+        {
+          "level": 5,
+          "label": "Yes everywhere \u2014 a governed semantic layer covers all business metrics, with version history and change management for definition updates."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ana_002",
+      "dimension": "analytics",
+      "question": "Can business users answer their own data questions without needing to request help from the data team for every query?",
+      "help_text": "Self-service analytics means business users can explore data, build their own views, and answer ad hoc questions \u2014 within guardrails \u2014 without waiting for a data engineer or analyst.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 all data questions go to the data team. Business users cannot access or query data independently."
+        },
+        {
+          "level": 2,
+          "label": "Limited \u2014 some pre-built dashboards exist, but any question outside the standard reports requires a data team request."
+        },
+        {
+          "level": 3,
+          "label": "Partially \u2014 a defined group of power users can explore data and build views. Most business users still rely on the data team."
+        },
+        {
+          "level": 4,
+          "label": "Broadly \u2014 most business users can answer common questions themselves using self-service tools, with the data team focused on harder problems."
+        },
+        {
+          "level": 5,
+          "label": "Fully embedded \u2014 self-service adoption is measured and high. The data team's role has shifted to building and maintaining the self-service infrastructure."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ana_003",
+      "dimension": "analytics",
+      "question": "Does your organisation manage the lifecycle of its reports and dashboards \u2014 retiring low-use or outdated ones and maintaining a curated, trusted set?",
+      "help_text": "Dashboard sprawl \u2014 hundreds of reports with overlapping or conflicting content \u2014 is a common problem. This question is about whether reports are treated as managed assets with owners and lifecycles.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No lifecycle management. Reports accumulate indefinitely. Nobody knows which reports are current or how many people use them."
+        },
+        {
+          "level": 2,
+          "label": "Some curation happens informally. Outdated reports are occasionally removed but there is no systematic process."
+        },
+        {
+          "level": 3,
+          "label": "Core reports have named owners and are reviewed periodically. Low-usage reports are candidates for deprecation."
+        },
+        {
+          "level": 4,
+          "label": "Dashboard usage is tracked. A regular review process retires low-use reports. A curated set of trusted reports is clearly signposted."
+        },
+        {
+          "level": 5,
+          "label": "Analytics delivery has a full product lifecycle \u2014 roadmap, usage metrics, SLAs, deprecation notices, and stakeholder sign-off for major changes."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ana_004",
+      "dimension": "analytics",
+      "question": "Does your organisation use a semantic layer or metric layer to define business metrics centrally \u2014 separate from individual reports and dashboards?",
+      "help_text": "A semantic layer (or metric layer) is a shared definition of business metrics \u2014 things like revenue, churn rate, or headcount \u2014 that all BI tools and reports reference. Examples include dbt Semantic Layer, Cube, or LookML.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 metrics are defined inside individual reports and dashboards. The same metric is calculated differently in different places."
+        },
+        {
+          "level": 2,
+          "label": "Informally \u2014 shared SQL views or tables act as a de facto shared layer for some metrics, but it is not formally governed."
+        },
+        {
+          "level": 3,
+          "label": "Partially \u2014 a semantic or metric layer exists for our most important KPIs (key performance indicators), used by most reports."
+        },
+        {
+          "level": 4,
+          "label": "Yes \u2014 a formal semantic layer governs all core metrics. Report authors reference it rather than writing their own metric logic."
+        },
+        {
+          "level": 5,
+          "label": "Yes, comprehensively \u2014 the semantic layer covers all business metrics, is versioned, tested, and accessible via multiple consumption surfaces (BI, notebooks, APIs)."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "ana_005",
+      "dimension": "analytics",
+      "question": "Does your organisation measure how its analytics products \u2014 dashboards, reports, and data tools \u2014 are actually used?",
+      "help_text": "Usage measurement might include: how many people viewed a dashboard this month, whether a report has any active users, or whether self-service queries are increasing over time.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 we do not track usage. We have no idea which reports are used frequently and which are never opened."
+        },
+        {
+          "level": 2,
+          "label": "We have rough visibility (e.g. from BI tool access logs) but it is not reviewed or acted on."
+        },
+        {
+          "level": 3,
+          "label": "Usage is tracked and reviewed periodically. High-usage and zero-usage reports are identifiable."
+        },
+        {
+          "level": 4,
+          "label": "Usage analytics inform prioritisation \u2014 we know which products are valuable and use that data to decide what to invest in next."
+        },
+        {
+          "level": 5,
+          "label": "Analytics product performance is tracked with OKRs (objectives and key results) \u2014 adoption rate, time-to-insight, and self-service ratio are all measured."
+        }
+      ],
+      "allow_unknown": true
     }
   ]
 }
