@@ -111,6 +111,135 @@
       ],
       "url": "https://www.collibra.com",
       "one_line": "Enterprise governance and catalogue platform with deep workflow and policy capabilities \u2014 justified for large regulated organisations with complex compliance needs."
+    },
+    {
+      "id": "great_expectations",
+      "name": "Great Expectations",
+      "category": "data_quality",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "public_sector",
+        "regulated_private"
+      ],
+      "constraints": [
+        "Python-centric \u2014 less accessible to SQL-only teams",
+        "configuration can be verbose",
+        "managed cloud offering (GX Cloud) is commercial"
+      ],
+      "url": "https://greatexpectations.io",
+      "one_line": "The most established open-source data quality framework \u2014 define expectations as code, run them in pipelines, and generate human-readable documentation of your data contracts."
+    },
+    {
+      "id": "soda_core",
+      "name": "Soda Core",
+      "category": "data_quality",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "Soda Cloud (managed monitoring UI) is commercial",
+        "community support only for Core"
+      ],
+      "url": "https://www.soda.io/core",
+      "one_line": "YAML-based quality checks that run against databases directly \u2014 lower barrier to entry than Great Expectations, especially for SQL-fluent teams."
+    },
+    {
+      "id": "dbt_tests",
+      "name": "dbt Tests",
+      "category": "data_quality",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "embedded"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org",
+        "low_ops_overhead"
+      ],
+      "constraints": [
+        "only applicable if you are already using dbt for transformation",
+        "limited to testing at transformation layer \u2014 not raw ingestion"
+      ],
+      "url": "https://docs.getdbt.com/docs/build/data-tests",
+      "one_line": "Built-in quality tests in dbt Core \u2014 if you are already using dbt, this is zero-cost quality coverage with no extra tooling required."
+    },
+    {
+      "id": "elementary",
+      "name": "Elementary",
+      "category": "data_quality",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org"
+      ],
+      "constraints": [
+        "designed as a dbt add-on \u2014 limited value outside a dbt workflow",
+        "anomaly detection quality improves with data volume and history"
+      ],
+      "url": "https://www.elementary-data.com",
+      "one_line": "Data observability layer that extends dbt \u2014 adds anomaly detection, lineage, and a monitoring UI on top of your existing dbt tests with minimal configuration."
+    },
+    {
+      "id": "monte_carlo",
+      "name": "Monte Carlo",
+      "category": "data_quality",
+      "licence": "Commercial",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas"
+      ],
+      "good_for": [
+        "large_org",
+        "regulated_private"
+      ],
+      "constraints": [
+        "SaaS only \u2014 metadata about your tables and pipelines is sent to Monte Carlo's platform",
+        "pricing reflects enterprise positioning"
+      ],
+      "url": "https://www.montecarlodata.com",
+      "one_line": "End-to-end data observability platform with ML-powered anomaly detection \u2014 strong on automated monitoring without requiring manual rule writing."
+    },
+    {
+      "id": "bigeye",
+      "name": "Bigeye",
+      "category": "data_quality",
+      "licence": "Commercial",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "SaaS only",
+        "focuses on monitoring rather than pipeline-embedded testing"
+      ],
+      "url": "https://www.bigeye.com",
+      "one_line": "Automated data quality monitoring that infers rules from historical patterns \u2014 reduces manual rule-writing effort but requires existing data history to be effective."
     }
   ]
 }
