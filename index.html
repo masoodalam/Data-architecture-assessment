@@ -4,41 +4,256 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Architecture Maturity Assessment</title>
-  <meta name="description" content="A free, open-source tool for assessing your organisation's data architecture maturity against the DAMA-DMBOK framework." />
+  <meta name="description" content="A free, open-source, browser-based tool for assessing your organisation's data architecture maturity against the DAMA-DMBOK framework. No data leaves your browser." />
 
   <!-- Tailwind CSS via CDN — no build step required -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Styles -->
+  <!-- Chart.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- Custom styles (colour palette, print stylesheet, component overrides) -->
   <link rel="stylesheet" href="assets/styles.css" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 </head>
-<body class="bg-gray-50 text-gray-900 min-h-screen flex items-center justify-center">
+<body class="bg-gray-50 text-gray-900 min-h-screen">
 
-  <main class="text-center px-6 py-12 max-w-xl">
+  <!-- Loading overlay -->
+  <div id="loading-overlay" class="fixed inset-0 bg-white flex flex-col items-center justify-center z-50" aria-live="polite" aria-label="Loading">
+    <div class="loading-spinner" aria-hidden="true"></div>
+    <p class="mt-4 text-gray-500 text-sm">Loading assessment…</p>
+  </div>
 
-    <!-- Saltire logo -->
-    <div class="flex justify-center mb-6" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="90" height="60"
-           role="img" aria-label="Flag of Scotland">
-        <title>Flag of Scotland (Saltire)</title>
-        <rect width="60" height="40" fill="#0065BD" rx="3"/>
-        <line x1="0" y1="0" x2="60" y2="40" stroke="white" stroke-width="8"/>
-        <line x1="60" y1="0" x2="0" y2="40" stroke="white" stroke-width="8"/>
-      </svg>
+  <!-- Fatal error (e.g. file:// protocol) -->
+  <div id="error-container" hidden class="fixed inset-0 bg-white flex items-center justify-center z-50 p-6">
+    <div class="max-w-lg w-full bg-red-50 border border-red-200 rounded-xl p-6">
+      <h1 class="text-lg font-semibold text-red-800 mb-2">Unable to load the assessment</h1>
+      <pre class="text-sm text-red-700 whitespace-pre-wrap font-mono bg-red-100 rounded p-3 mt-2"></pre>
     </div>
+  </div>
 
-    <h1 class="text-2xl font-bold text-gray-900 mb-2">
-      Data Architecture Maturity Assessment
-    </h1>
-    <p class="text-gray-500 mb-8">Coming soon — full tool under construction.</p>
+  <!-- ═══ Global header ══════════════════════════════════════════════════════ -->
+  <header class="site-header no-print" role="banner">
+    <div class="header-inner">
+      <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <p class="text-sm text-gray-400">
-      Open source · Client-side only · No data leaves your browser
-    </p>
+      <div class="flex items-center gap-3">
+        <!-- Saltire logo -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="45" height="30"
+             role="img" aria-label="Flag of Scotland" class="flex-shrink-0">
+          <title>Flag of Scotland (Saltire)</title>
+          <rect width="60" height="40" fill="#0065BD" rx="2"/>
+          <line x1="0" y1="0" x2="60" y2="40" stroke="white" stroke-width="8"/>
+          <line x1="60" y1="0" x2="0" y2="40" stroke="white" stroke-width="8"/>
+        </svg>
+        <span class="text-sm font-semibold text-gray-800 leading-tight">
+          Data Architecture<br class="sm:hidden"/> Maturity Assessment
+        </span>
+      </div>
+
+      <button id="btn-clear" type="button"
+              class="clear-btn no-print text-xs text-gray-400 hover:text-red-600 underline underline-offset-2 transition-colors"
+              aria-label="Clear all answers and start again">
+        Clear my answers
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ Main content ═══════════════════════════════════════════════════════ -->
+  <main id="main-content" class="main-container">
+
+    <!-- ── Screen: Landing ──────────────────────────────────────────────── -->
+    <div data-screen="landing" hidden>
+      <div class="landing-hero">
+
+        <!-- Hero copy -->
+        <div class="landing-copy">
+          <h1 class="landing-title">
+            How mature is your data architecture?
+          </h1>
+          <p class="landing-lead">
+            This free, open-source tool guides you through 40 questions across 8 dimensions,
+            scores your organisation against the DAMA-DMBOK 5-level maturity model, and produces
+            a prioritised report with open-source-first tooling recommendations.
+          </p>
+
+          <ul class="landing-features" role="list">
+            <li>
+              <svg class="feature-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              8 dimensions · 40 questions · ~15 minutes
+            </li>
+            <li>
+              <svg class="feature-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              No data leaves your browser — fully client-side
+            </li>
+            <li>
+              <svg class="feature-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              Download your report as PDF or Markdown
+            </li>
+            <li>
+              <svg class="feature-icon" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+              Open source · Apache 2.0 · No tracking
+            </li>
+          </ul>
+
+          <div class="landing-actions">
+            <button id="btn-start" type="button" class="btn btn-primary btn-lg">
+              Start assessment
+            </button>
+            <button id="btn-resume" type="button" class="btn btn-secondary btn-lg" hidden>
+              Resume where I left off
+            </button>
+          </div>
+        </div>
+
+        <!-- Dimensions preview -->
+        <div class="landing-dims" aria-hidden="true">
+          <div class="dims-grid">
+            <div class="dim-chip" style="--chip-color: #4F46E5">Governance</div>
+            <div class="dim-chip" style="--chip-color: #0891B2">Metadata</div>
+            <div class="dim-chip" style="--chip-color: #16A34A">Quality</div>
+            <div class="dim-chip" style="--chip-color: #CA8A04">Storage</div>
+            <div class="dim-chip" style="--chip-color: #EA580C">Pipelines</div>
+            <div class="dim-chip" style="--chip-color: #9333EA">Analytics</div>
+            <div class="dim-chip" style="--chip-color: #DC2626">Security</div>
+            <div class="dim-chip" style="--chip-color: #0D9488">Skills</div>
+          </div>
+          <p class="dims-label">8 dimensions assessed against the DAMA-DMBOK model</p>
+        </div>
+
+      </div>
+    </div>
+    <!-- /landing -->
+
+    <!-- ── Screen: Context questions ────────────────────────────────────── -->
+    <div data-screen="context" hidden>
+      <div class="screen-container">
+        <div class="screen-header">
+          <h1 class="screen-title">About your organisation</h1>
+          <p class="screen-subtitle">These 6 questions help tailor your recommendations. None of your answers are sent anywhere.</p>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-track" role="progressbar" aria-label="Context questions completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="context-progress-bar" class="progress-fill" style="width: 0%"></div>
+        </div>
+
+        <form id="context-form" class="context-form" novalidate aria-label="Context questions">
+          <!-- Populated by app.js -->
+        </form>
+
+        <div class="screen-nav no-print">
+          <button id="btn-context-back" type="button" class="btn btn-ghost">
+            &larr; Back
+          </button>
+          <button id="btn-context-next" type="button" class="btn btn-primary" disabled>
+            Start assessment &rarr;
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- /context -->
+
+    <!-- ── Screen: Assessment questions ─────────────────────────────────── -->
+    <div data-screen="assessment" hidden>
+      <div class="assessment-layout">
+
+        <!-- Dimension navigation sidebar -->
+        <nav id="dim-nav" class="dim-nav no-print" aria-label="Dimension navigation">
+          <!-- Populated by app.js -->
+        </nav>
+
+        <!-- Question panel -->
+        <div class="question-panel">
+
+          <!-- Progress header -->
+          <div class="assessment-header no-print">
+            <span id="current-dim-label" class="current-dim-label" aria-live="polite"></span>
+            <span id="q-counter" class="q-counter"></span>
+          </div>
+
+          <div class="progress-track no-print" role="progressbar" aria-label="Overall assessment progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="assessment-progress-bar" class="progress-fill" style="width: 0%"></div>
+          </div>
+          <p id="assessment-progress-label" class="sr-only" aria-live="polite"></p>
+
+          <!-- Current question -->
+          <div id="question-container" class="question-container">
+            <!-- Populated by app.js -->
+          </div>
+
+          <!-- Navigation buttons -->
+          <div class="question-nav no-print">
+            <button id="btn-q-back" type="button" class="btn btn-ghost" disabled>
+              &larr; Previous
+            </button>
+            <div class="flex gap-3">
+              <button id="btn-q-next" type="button" class="btn btn-secondary">
+                Next &rarr;
+              </button>
+              <button id="btn-finish" type="button" class="btn btn-primary" hidden>
+                Generate report &rarr;
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- /assessment -->
+
+    <!-- ── Screen: Report ────────────────────────────────────────────────── -->
+    <div data-screen="report" hidden>
+
+      <!-- Report action bar -->
+      <div class="report-actions no-print">
+        <div class="report-actions-inner">
+          <button id="btn-report-restart" type="button" class="btn btn-ghost btn-sm">
+            &larr; Start again
+          </button>
+          <div class="flex gap-2">
+            <button id="btn-download-md" type="button" class="btn btn-secondary btn-sm">
+              Download Markdown
+            </button>
+            <button id="btn-print" type="button" class="btn btn-primary btn-sm">
+              Print / Save PDF
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="report-container" class="report-container">
+        <!-- Populated by report.js -->
+      </div>
+
+    </div>
+    <!-- /report -->
+
   </main>
+
+  <!-- ═══ Footer ════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer no-print" role="contentinfo">
+    <div class="footer-inner">
+      <p class="text-xs text-gray-400">
+        Open source · Apache 2.0 ·
+        <a href="https://github.com/masoodalam/data-architecture-assessment" class="underline hover:text-gray-600">
+          GitHub
+        </a> ·
+        <a href="docs/methodology.md" class="underline hover:text-gray-600">Methodology</a>
+      </p>
+      <p class="text-xs text-gray-400">
+        No cookies · No tracking · No data leaves your browser
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap the app -->
+  <script type="module">
+    import { init } from './js/app.js';
+    init();
+  </script>
 
 </body>
 </html>
