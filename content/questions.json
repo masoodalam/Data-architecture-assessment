@@ -150,6 +150,156 @@
         }
       ],
       "allow_unknown": true
+    },
+    {
+      "id": "met_001",
+      "dimension": "metadata",
+      "question": "Can people in your organisation find out what data exists without asking a colleague?",
+      "help_text": "Think about how a new analyst would discover what datasets are available. Could they do it independently, or do they rely on asking someone who already knows?",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 discovery depends entirely on knowing the right person to ask. There is no central inventory."
+        },
+        {
+          "level": 2,
+          "label": "Partially \u2014 some teams maintain their own lists or wikis, but there is no shared starting point and coverage is patchy."
+        },
+        {
+          "level": 3,
+          "label": "Mostly \u2014 a catalogue or inventory covers our core datasets and most people know where to look."
+        },
+        {
+          "level": 4,
+          "label": "Yes \u2014 a maintained catalogue covers most of the estate and is the recognised first stop for data discovery."
+        },
+        {
+          "level": 5,
+          "label": "Fully \u2014 the catalogue is comprehensive, kept current automatically, and actively used by both technical and non-technical staff."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "met_002",
+      "dimension": "metadata",
+      "question": "Does your organisation maintain a business glossary \u2014 a shared, agreed definition of key business terms and metrics?",
+      "help_text": "A business glossary defines terms like 'active customer', 'revenue', or 'incident' so that everyone means the same thing. It is separate from technical documentation.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 definitions exist only in people's heads or vary between teams. The same term means different things in different places."
+        },
+        {
+          "level": 2,
+          "label": "Informally \u2014 some teams have agreed definitions internally, but there is no shared glossary and cross-team alignment is rare."
+        },
+        {
+          "level": 3,
+          "label": "Partially \u2014 a business glossary exists covering our most important terms and metrics, though it is incomplete and not always kept up to date."
+        },
+        {
+          "level": 4,
+          "label": "Broadly \u2014 the glossary covers most key terms, is linked to physical datasets in the catalogue, and is reviewed regularly."
+        },
+        {
+          "level": 5,
+          "label": "Comprehensively \u2014 the glossary is actively maintained, widely used, linked to metric definitions in our semantic layer, and governs how KPIs are defined."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "met_003",
+      "dimension": "metadata",
+      "question": "Can you trace where a piece of data came from and how it has been transformed before reaching a report or dashboard?",
+      "help_text": "This is called data lineage. For example: can you follow customer revenue from its source system through your pipelines to the finance dashboard?",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 lineage is unknown. When a number looks wrong, we cannot easily trace where it came from."
+        },
+        {
+          "level": 2,
+          "label": "Partially \u2014 lineage is documented informally (e.g. in a diagram or a README) for some pipelines, but not systematically."
+        },
+        {
+          "level": 3,
+          "label": "For key pipelines \u2014 lineage is captured and documented for our most critical data flows, making it possible to trace issues."
+        },
+        {
+          "level": 4,
+          "label": "Broadly \u2014 lineage is tracked automatically for most pipelines and is visible in our catalogue or orchestration tool."
+        },
+        {
+          "level": 5,
+          "label": "End-to-end \u2014 full column-level lineage is captured automatically across all pipelines, from source to dashboard, and is always current."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "met_004",
+      "dimension": "metadata",
+      "question": "How complete and useful is the documentation attached to your datasets \u2014 including owner, description, refresh frequency, and known issues?",
+      "help_text": "Think about the metadata quality of a typical important dataset, not just your best-documented one.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Datasets have little or no documentation. A new user has no way of knowing what a dataset contains or how to use it."
+        },
+        {
+          "level": 2,
+          "label": "Some datasets have basic descriptions, but coverage is inconsistent and documentation quickly goes out of date."
+        },
+        {
+          "level": 3,
+          "label": "Core datasets have documented owners, descriptions, and refresh cadences. Known quality issues are noted for the most critical datasets."
+        },
+        {
+          "level": 4,
+          "label": "Most datasets have rich documentation. Quality is measured and catalogue entries are kept current through a defined maintenance process."
+        },
+        {
+          "level": 5,
+          "label": "Documentation is a first-class deliverable. Pipeline automation populates metadata on publish. Entry quality is measured and feeds team objectives."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "met_005",
+      "dimension": "metadata",
+      "question": "Do business users \u2014 not just data engineers \u2014 actively contribute to or use your metadata catalogue?",
+      "help_text": "A catalogue maintained only by the data team tends to drift from business reality. This question is about whether the business has a voice in defining and describing data.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No catalogue exists, or only the data team can access it. Business users are not involved."
+        },
+        {
+          "level": 2,
+          "label": "The catalogue is technically available to all but in practice only used by technical staff. Business users do not contribute."
+        },
+        {
+          "level": 3,
+          "label": "Some business users are aware of the catalogue and occasionally update descriptions or flag issues."
+        },
+        {
+          "level": 4,
+          "label": "Business users regularly use the catalogue for discovery and contribute domain knowledge \u2014 descriptions, glossary terms, and usage notes."
+        },
+        {
+          "level": 5,
+          "label": "The catalogue is a shared workspace. Business owners curate their domain's assets. Usage analytics show broad, active adoption across the organisation."
+        }
+      ],
+      "allow_unknown": false
     }
   ]
 }
