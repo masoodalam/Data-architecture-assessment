@@ -904,6 +904,99 @@
       ],
       "url": "https://argoproj.github.io/workflows/",
       "one_line": "Kubernetes-native workflow engine \u2014 the right choice when you already run Kubernetes and want workload scheduling tightly integrated with your container platform."
+    },
+    {
+      "id": "apache_kafka",
+      "name": "Apache Kafka",
+      "category": "streaming",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas",
+        "aws_marketplace",
+        "azure_marketplace",
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "large_org",
+        "high_data_volume",
+        "regulated_private"
+      ],
+      "constraints": [
+        "significant operational complexity to self-host (ZooKeeper or KRaft, broker tuning, replication)",
+        "managed offerings (Confluent, MSK, Aiven) reduce ops burden at commercial cost",
+        "overkill for organisations without genuine high-throughput event streaming needs"
+      ],
+      "url": "https://kafka.apache.org",
+      "one_line": "The standard for high-throughput distributed event streaming \u2014 dominant in large-scale architectures, with a mature ecosystem and managed offerings on every major cloud."
+    },
+    {
+      "id": "redpanda",
+      "name": "Redpanda",
+      "category": "streaming",
+      "licence": "BSL 1.1 \u2014 converts to Apache 2.0 after 4 years; use as a managed service requires a commercial licence from Redpanda Inc",
+      "type": "source_available",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "BSL 1.1 is not OSI-approved open source \u2014 check licence if deploying as a service",
+        "ecosystem is Kafka-compatible but not identical \u2014 some Kafka tooling has edge-case incompatibilities"
+      ],
+      "url": "https://www.redpanda.com",
+      "one_line": "Kafka-compatible streaming broker written in C++ \u2014 lower latency and simpler operations than Kafka (no ZooKeeper/JVM), with BSL licence caveats to note."
+    },
+    {
+      "id": "apache_flink",
+      "name": "Apache Flink",
+      "category": "streaming",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas",
+        "aws_marketplace",
+        "azure_marketplace"
+      ],
+      "good_for": [
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "stateful stream processing is complex to operate \u2014 checkpointing, state backends, and fault tolerance require expertise",
+        "managed offerings (Confluent, Kinesis Data Analytics, Ververica) reduce operational overhead at cost"
+      ],
+      "url": "https://flink.apache.org",
+      "one_line": "The leading engine for stateful stream processing \u2014 the right choice when you need complex event processing, windowing, or joins across real-time streams."
+    },
+    {
+      "id": "materialize",
+      "name": "Materialize",
+      "category": "streaming",
+      "licence": "BSL 1.1 \u2014 converts to Apache 2.0 after 4 years; managed service use requires a commercial licence from Materialize Inc",
+      "type": "source_available",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "BSL 1.1 is not OSI-approved open source",
+        "primarily a managed cloud product \u2014 self-hosting is possible but not the intended deployment path"
+      ],
+      "url": "https://materialize.com",
+      "one_line": "Streaming SQL database that maintains incrementally updated views over live data \u2014 lets you write standard SQL against streaming data without learning a stream processing framework."
     }
   ]
 }
