@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "dimensions.schema.json",
+  "title": "Dimensions",
+  "description": "Schema for content/dimensions.json — the 8 assessment dimensions.",
+  "type": "array",
+  "items": {}
+}

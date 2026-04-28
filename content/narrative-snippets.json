@@ -1,0 +1,7 @@
+{
+  "_comment": "Templated narrative for the generated report. Structured by section (executive_summary, dimension_summaries, context_observations, closing_remarks). Multiple variants per band allow variety across different users with similar scores. See content/schemas/narrative-snippets.schema.json for the full schema.",
+  "executive_summary": {},
+  "dimension_summaries": {},
+  "context_observations": [],
+  "closing_remarks": []
+}

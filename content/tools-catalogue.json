@@ -1,0 +1,4 @@
+{
+  "_comment": "Open-source-first catalogue of data tooling, organised by category. Used to populate recommendation alternative_tools lists. See content/schemas/tools-catalogue.schema.json for the full schema.",
+  "tools": []
+}

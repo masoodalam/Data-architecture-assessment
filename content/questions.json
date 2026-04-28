@@ -1,0 +1,4 @@
+{
+  "_comment": "40 maturity questions, 5 per dimension. Each question maps answer options to DAMA-DMBOK maturity levels 1-5. See content/schemas/questions.schema.json for the full schema.",
+  "questions": []
+}

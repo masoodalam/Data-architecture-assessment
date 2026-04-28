@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "questions.schema.json",
+  "title": "Questions",
+  "description": "Schema for content/questions.json — the 40 maturity questions across 8 dimensions.",
+  "type": "object",
+  "properties": {
+    "questions": {
+      "type": "array",
+      "items": {}
+    }
+  }
+}

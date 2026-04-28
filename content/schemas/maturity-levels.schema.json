@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "maturity-levels.schema.json",
+  "title": "Maturity Levels",
+  "description": "Schema for content/maturity-levels.json — the 5-level DAMA-DMBOK maturity model with per-dimension descriptions.",
+  "type": "object",
+  "properties": {}
+}
