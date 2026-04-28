@@ -450,6 +450,156 @@
         }
       ],
       "allow_unknown": false
+    },
+    {
+      "id": "sto_001",
+      "dimension": "storage",
+      "question": "Does your organisation separate its analytical workloads from its operational systems \u2014 so that reporting and analysis do not run directly against production databases?",
+      "help_text": "Running reports against production databases causes performance problems for both operations and analysis. A separate analytical store \u2014 a data warehouse, lakehouse, or read replica \u2014 avoids this.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No separation. Reports and dashboards query production systems directly, causing performance issues."
+        },
+        {
+          "level": 2,
+          "label": "Partial \u2014 some analytical copies exist but they were built ad hoc and are not consistently maintained."
+        },
+        {
+          "level": 3,
+          "label": "Yes \u2014 a separate analytical store exists for most reporting, with a clear boundary between operational and analytical workloads."
+        },
+        {
+          "level": 4,
+          "label": "Fully separated \u2014 the architecture is documented, enforced, and covers all major reporting and analytical use cases."
+        },
+        {
+          "level": 5,
+          "label": "Fully separated with multiple tiers \u2014 hot, warm, and cold storage are used appropriately, with workload routing automated based on query patterns."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sto_002",
+      "dimension": "storage",
+      "question": "Is your data storage architecture documented \u2014 including what stores exist, what data lives where, and why those choices were made?",
+      "help_text": "This is about whether someone joining the team could understand the storage landscape from written documentation, rather than needing it explained by a colleague.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No documentation. The architecture exists only in the heads of the people who built it."
+        },
+        {
+          "level": 2,
+          "label": "Partially documented \u2014 some diagrams or notes exist but they are incomplete, outdated, or only cover part of the estate."
+        },
+        {
+          "level": 3,
+          "label": "The main architectural decisions are documented and reasonably current. New joiners can understand the landscape from the docs."
+        },
+        {
+          "level": 4,
+          "label": "Documentation is comprehensive, versioned, and kept up to date as the architecture evolves. Architectural decisions include documented rationale."
+        },
+        {
+          "level": 5,
+          "label": "Architecture documentation is living \u2014 auto-generated where possible, reviewed on a regular cadence, and linked to the data catalogue."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sto_003",
+      "dimension": "storage",
+      "question": "Does your organisation actively manage query performance \u2014 for example, through partitioning, indexing, caching, or materialisations?",
+      "help_text": "As data volumes grow, unmanaged queries become slow and expensive. Performance management means deliberately designing tables and views to make common queries fast.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 queries run as written. Slow dashboards or reports are accepted as normal."
+        },
+        {
+          "level": 2,
+          "label": "Ad hoc \u2014 performance issues are fixed reactively when they become bad enough to cause complaints, usually by adding an index or cache."
+        },
+        {
+          "level": 3,
+          "label": "Deliberately \u2014 key tables are partitioned and indexed thoughtfully. Materialised views or aggregates exist for the most expensive queries."
+        },
+        {
+          "level": 4,
+          "label": "Systematically \u2014 query performance is monitored with metrics. Slow queries trigger investigation. Optimisation is part of the standard development process."
+        },
+        {
+          "level": 5,
+          "label": "Continuously \u2014 query costs and performance are tracked per team or use case. Optimisation is automated where possible. Cost per query is a reported metric."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "sto_004",
+      "dimension": "storage",
+      "question": "Does your organisation have visibility of its data storage costs, and are those costs actively managed?",
+      "help_text": "This applies whether you are in the cloud (where storage and compute costs are metered) or on-premises (where storage capacity and hardware costs are budgeted).",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Storage costs are opaque. We do not know what we are spending or what is driving the cost."
+        },
+        {
+          "level": 2,
+          "label": "We have a rough sense of costs but no breakdown by team, use case, or dataset. Cost optimisation is not a regular activity."
+        },
+        {
+          "level": 3,
+          "label": "Storage costs are tracked at a reasonable level of detail. Basic cost controls exist \u2014 for example, lifecycle policies or reserved capacity."
+        },
+        {
+          "level": 4,
+          "label": "Costs are allocated by team or domain. Regular reviews identify waste. Tiering policies automatically move ageing data to cheaper storage."
+        },
+        {
+          "level": 5,
+          "label": "Cost per dataset and cost per query are tracked metrics. Automated policies govern storage lifecycle. Cost efficiency is part of data team OKRs."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "sto_005",
+      "dimension": "storage",
+      "question": "Does your organisation use open table formats \u2014 such as Apache Iceberg, Delta Lake, or Apache Hudi \u2014 or other modern approaches to managing large analytical datasets?",
+      "help_text": "Open table formats add features like time travel, schema evolution, and efficient upserts to data stored in object storage (e.g. S3 or Azure Data Lake). This question is more relevant for organisations handling large or complex datasets.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Not applicable or not considered \u2014 we store data in flat files, traditional databases, or managed warehouses without thinking about table formats."
+        },
+        {
+          "level": 2,
+          "label": "We are aware of open table formats but have not adopted them. Our analytical storage uses proprietary formats or simple Parquet/CSV."
+        },
+        {
+          "level": 3,
+          "label": "We have evaluated open table formats and adopted one for specific use cases where the benefits are clear."
+        },
+        {
+          "level": 4,
+          "label": "An open table format is part of our standard analytical storage layer, with compaction and maintenance processes in place."
+        },
+        {
+          "level": 5,
+          "label": "Our lakehouse architecture is built on an open table format with automated compaction, expiry, and format evolution managed as infrastructure."
+        }
+      ],
+      "allow_unknown": true
     }
   ]
 }
