@@ -745,6 +745,165 @@
       ],
       "url": "https://www.fivetran.com",
       "one_line": "Fully managed connector platform with high connector reliability and zero operational overhead \u2014 worth the cost for teams where data engineering time is more expensive than SaaS fees."
+    },
+    {
+      "id": "dbt_core",
+      "name": "dbt Core",
+      "category": "transformation",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "embedded"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org",
+        "low_ops_overhead"
+      ],
+      "constraints": [
+        "SQL-first \u2014 limited support for non-SQL transformations (Python models exist but are constrained by warehouse execution)",
+        "dbt Cloud (managed orchestration and IDE) is commercial; dbt Core requires your own scheduler"
+      ],
+      "url": "https://www.getdbt.com/product/dbt-core",
+      "one_line": "The de facto standard for SQL-based data transformation \u2014 version-controlled models, built-in testing, and automatic documentation make it the obvious default for most teams."
+    },
+    {
+      "id": "sqlmesh",
+      "name": "SQLMesh",
+      "category": "transformation",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "younger than dbt \u2014 smaller community and fewer third-party integrations",
+        "more opinionated about project structure than dbt",
+        "requires learning SQLMesh's specific model evaluation and state management concepts"
+      ],
+      "url": "https://sqlmesh.com",
+      "one_line": "A dbt alternative with first-class virtual environments, semantic understanding of SQL changes, and built-in CI/CD \u2014 worth evaluating if dbt's deployment model frustrates you."
+    },
+    {
+      "id": "apache_spark",
+      "name": "Apache Spark",
+      "category": "transformation",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "aws_marketplace",
+        "azure_marketplace",
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "significant operational complexity to self-host at scale",
+        "overkill for most organisations below 10TB of analytical data",
+        "Python (PySpark) and Scala APIs \u2014 not SQL-native, though Spark SQL exists"
+      ],
+      "url": "https://spark.apache.org",
+      "one_line": "The dominant distributed processing engine for large-scale transformation \u2014 necessary when data volumes exceed what a single-node SQL engine can handle."
+    },
+    {
+      "id": "apache_airflow",
+      "name": "Apache Airflow",
+      "category": "orchestration",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas",
+        "aws_marketplace",
+        "azure_marketplace",
+        "gcp_marketplace"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "Python DAGs (directed acyclic graphs) require developer maintenance \u2014 not low-code",
+        "self-hosted Airflow carries meaningful operational overhead (scheduler, workers, metadata DB)",
+        "dynamic DAGs and data-aware scheduling are more complex than in newer alternatives"
+      ],
+      "url": "https://airflow.apache.org",
+      "one_line": "The most widely deployed open-source workflow orchestrator \u2014 vast ecosystem and managed offerings on every cloud, but carries more operational weight than newer alternatives."
+    },
+    {
+      "id": "dagster",
+      "name": "Dagster",
+      "category": "orchestration",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "steeper learning curve than Airflow for teams new to asset-based orchestration",
+        "Dagster+ (managed cloud) is commercial",
+        "smaller ecosystem than Airflow for third-party integrations"
+      ],
+      "url": "https://dagster.io",
+      "one_line": "Asset-oriented orchestrator that models pipelines around data assets rather than tasks \u2014 strong on observability and testability, increasingly popular for modern data platforms."
+    },
+    {
+      "id": "prefect",
+      "name": "Prefect",
+      "category": "orchestration",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "Prefect Cloud (managed server) is commercial \u2014 self-hosting the server is possible but requires effort",
+        "Python-only"
+      ],
+      "url": "https://www.prefect.io",
+      "one_line": "Python-native orchestrator with a low barrier to entry and a clean API \u2014 easier to adopt than Airflow for pure Python workflows, with a generous managed free tier."
+    },
+    {
+      "id": "argo_workflows",
+      "name": "Argo Workflows",
+      "category": "orchestration",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "large_org",
+        "public_sector"
+      ],
+      "constraints": [
+        "Kubernetes-native \u2014 not appropriate for teams without Kubernetes infrastructure",
+        "YAML-heavy workflow definitions",
+        "more suited to container-based tasks than SQL/Python data pipelines"
+      ],
+      "url": "https://argoproj.github.io/workflows/",
+      "one_line": "Kubernetes-native workflow engine \u2014 the right choice when you already run Kubernetes and want workload scheduling tightly integrated with your container platform."
     }
   ]
 }
