@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "questions.schema.json",
+  "title": "Questions",
+  "description": "The 40 maturity questions (5 per dimension). Each question has 5 answer options mapping to DAMA-DMBOK maturity levels 1–5.",
+  "type": "object",
+  "required": ["questions"],
+  "additionalProperties": false,
+  "properties": {
+    "_comment": { "type": "string" },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "dimension", "question", "weight", "options", "allow_unknown"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z]{2,8}_[0-9]{3}$",
+            "description": "Unique ID in the form <dim_prefix>_<3-digit-number>, e.g. gov_001."
+          },
+          "dimension": {
+            "type": "string",
+            "enum": ["governance", "metadata", "quality", "storage", "pipelines", "analytics", "security", "skills"],
+            "description": "Dimension this question belongs to. Must match a dimension ID."
+          },
+          "question": {
+            "type": "string",
+            "minLength": 10,
+            "description": "The question text. Plain English, no unexplained jargon."
+          },
+          "help_text": {
+            "type": "string",
+            "description": "Optional clarifying text shown beneath the question in the UI."
+          },
+          "weight": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Relative weight of this question within its dimension. Default 1."
+          },
+          "options": {
+            "type": "array",
+            "minItems": 5,
+            "maxItems": 5,
+            "description": "Exactly 5 options, one per maturity level.",
+            "items": {
+              "type": "object",
+              "required": ["level", "label"],
+              "additionalProperties": false,
+              "properties": {
+                "level": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 5
+                },
+                "label": {
+                  "type": "string",
+                  "minLength": 5,
+                  "description": "Concrete, observable description of what this answer looks like in practice."
+                }
+              }
+            }
+          },
+          "allow_unknown": {
+            "type": "boolean",
+            "description": "Whether to show an 'I don't know' option. Questions marked true will be excluded from scoring if the user selects it."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "recommendations.schema.json",
+  "title": "Recommendations",
+  "description": "Prioritised recommendations triggered by dimension score bands and context answers. Grouped by horizon, sorted by priority.",
+  "type": "object",
+  "required": ["recommendations"],
+  "additionalProperties": false,
+  "properties": {
+    "_comment": { "type": "string" },
+    "recommendations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "dimension", "trigger", "priority", "effort", "horizon", "rationale", "first_steps"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^rec_[a-z][a-z0-9_]*$",
+            "description": "Unique recommendation ID."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 5
+          },
+          "dimension": {
+            "type": "string",
+            "enum": ["governance", "metadata", "quality", "storage", "pipelines", "analytics", "security", "skills", "cross_cutting"],
+            "description": "The primary dimension this recommendation addresses. Use cross_cutting for recommendations that span multiple dimensions."
+          },
+          "trigger": {
+            "type": "object",
+            "description": "Score conditions that activate this recommendation.",
+            "additionalProperties": false,
+            "properties": {
+              "minLevel": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 5,
+                "description": "Recommendation fires when the dimension score is >= this value."
+              },
+              "maxLevel": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 5,
+                "description": "Recommendation fires when the dimension score is <= this value."
+              }
+            }
+          },
+          "context": {
+            "type": "object",
+            "description": "Optional context conditions that further filter when this recommendation fires.",
+            "additionalProperties": false,
+            "properties": {
+              "anyOf": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Fires if context.sector matches any of these values."
+              },
+              "cloud": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Fires if context.cloud_posture matches any of these values."
+              },
+              "budget": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Fires if context.budget_posture matches any of these values."
+              },
+              "excludeIf": {
+                "type": "object",
+                "description": "Suppresses this recommendation if the given context key matches the given value.",
+                "additionalProperties": { "type": "string" }
+              }
+            }
+          },
+          "priority": {
+            "type": "string",
+            "enum": ["quick_win", "foundational", "strategic"]
+          },
+          "effort": {
+            "type": "string",
+            "enum": ["S", "M", "L"],
+            "description": "Relative implementation effort: S = days, M = weeks, L = months."
+          },
+          "horizon": {
+            "type": "string",
+            "enum": ["do_now", "next_6_months", "strategic"]
+          },
+          "primary_tool": {
+            "type": "string",
+            "description": "ID of the primary recommended tool from tools-catalogue.json."
+          },
+          "alternative_tools": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "IDs of alternative tools, in preference order."
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 20,
+            "description": "Why this recommendation matters at this maturity level. Should be honest and specific, not generic."
+          },
+          "first_steps": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 5,
+            "items": {
+              "type": "string",
+              "minLength": 5
+            },
+            "description": "Concrete, actionable first steps — not vague advice."
+          }
+        }
+      }
+    }
+  }
+}

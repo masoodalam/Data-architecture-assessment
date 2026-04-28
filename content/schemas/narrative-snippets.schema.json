@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "narrative-snippets.schema.json",
+  "title": "Narrative Snippets",
+  "description": "Templated narrative for report generation. Multiple variants per band ensure variety across different users with similar scores. A deterministic hash of the input selects the variant, so the same inputs always produce the same report.",
+  "type": "object",
+  "required": ["executive_summary", "dimension_summaries", "context_observations", "closing_remarks"],
+  "additionalProperties": false,
+  "properties": {
+    "_comment": { "type": "string" },
+    "executive_summary": {
+      "type": "object",
+      "description": "Snippets keyed by overall score band (e.g. '1-2', '2-3', '3-4', '4-5'). At least 3 variants per band.",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 3,
+        "items": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    },
+    "dimension_summaries": {
+      "type": "object",
+      "description": "Per-dimension, per-level narrative. Top-level keys are dimension IDs; values are objects keyed by maturity level ('1'–'5').",
+      "additionalProperties": {
+        "type": "object",
+        "description": "Keys are string maturity levels '1' through '5'.",
+        "additionalProperties": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "string",
+            "minLength": 20
+          }
+        }
+      }
+    },
+    "context_observations": {
+      "type": "array",
+      "description": "Score + context combination snippets (e.g. small org with low governance score).",
+      "items": {
+        "type": "object",
+        "required": ["id", "condition", "text"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^obs_[a-z][a-z0-9_]*$"
+          },
+          "condition": {
+            "type": "object",
+            "description": "Conditions that trigger this observation.",
+            "additionalProperties": true
+          },
+          "text": {
+            "type": "string",
+            "minLength": 20
+          }
+        }
+      }
+    },
+    "closing_remarks": {
+      "type": "array",
+      "minItems": 3,
+      "description": "Closing paragraph variants. At least 3.",
+      "items": {
+        "type": "string",
+        "minLength": 20
+      }
+    }
+  }
+}

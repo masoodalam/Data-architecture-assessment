@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "maturity-levels.schema.json",
+  "title": "Maturity Levels",
+  "description": "The 5-level DAMA-DMBOK maturity model. Top-level 'levels' array defines the global bands; 'dimensions' provides dimension-specific level descriptions.",
+  "type": "object",
+  "required": ["levels", "dimensions"],
+  "additionalProperties": false,
+  "properties": {
+    "levels": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "description": "The five global maturity bands, in ascending order.",
+      "items": {
+        "type": "object",
+        "required": ["level", "label", "colour", "summary"],
+        "additionalProperties": false,
+        "properties": {
+          "level": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Human-readable band name (e.g. Initial, Repeatable)."
+          },
+          "colour": {
+            "type": "string",
+            "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "description": "One-line summary of what this band means in practice."
+          }
+        }
+      }
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "Per-dimension level descriptions. Each key is a dimension ID; the value is an array of 5 level descriptions.",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 5,
+        "maxItems": 5,
+        "items": {
+          "type": "object",
+          "required": ["level", "description"],
+          "additionalProperties": false,
+          "properties": {
+            "level": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "description": {
+              "type": "string",
+              "minLength": 20,
+              "description": "Concrete, observable description of what this dimension looks like at this maturity level. Should describe specific, real-world states, not generic platitudes."
+            }
+          }
+        }
+      }
+    }
+  }
+}
