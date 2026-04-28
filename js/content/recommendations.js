@@ -1,0 +1,936 @@
+// Auto-generated from content/recommendations.json. Do not edit directly.
+export default {
+  "_comment": "40-60 prioritised recommendations triggered by dimension score bands and context answers. See content/schemas/recommendations.schema.json for the full schema.",
+  "recommendations": [
+    {
+      "id": "rec_gov_assign_owners",
+      "title": "Assign named owners to your most important data domains",
+      "dimension": "governance",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Without named ownership, data quality problems have no clear resolution path and governance conversations stall because nobody feels accountable. Ownership does not require a new hire — it means making existing accountability explicit and documented.",
+      "first_steps": [
+        "List your top 5-8 most business-critical data domains (e.g. customers, finance, HR, operations)",
+        "For each domain, agree on a named owner and document their responsibilities in a single shared page",
+        "Schedule a 30-minute monthly check-in per domain with the owner and key consumers",
+        "Review and expand domain coverage quarterly"
+      ]
+    },
+    {
+      "id": "rec_gov_write_policies",
+      "title": "Write and publish core data policies",
+      "dimension": "governance",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "rationale": "Policies do not need to be perfect to be useful. A two-page access policy and a one-page retention policy that people actually read are more valuable than a comprehensive document nobody has seen. Start with the policies that address your most immediate risks.",
+      "first_steps": [
+        "Draft a data access policy covering who can request access, how requests are approved, and how access is reviewed",
+        "Draft a data retention policy covering your legally required retention periods for key data types",
+        "Publish both policies in a place all staff can find (intranet, wiki, shared drive)",
+        "Assign an owner responsible for reviewing each policy annually"
+      ]
+    },
+    {
+      "id": "rec_gov_governance_body",
+      "title": "Establish a data governance working group",
+      "dimension": "governance",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "next_6_months",
+      "rationale": "Governance decisions made by the data team alone rarely stick — they need legitimacy from the business. A cross-functional working group, even meeting monthly, creates the accountability structure for resolving data disputes and enforcing policies.",
+      "first_steps": [
+        "Identify 4-6 stakeholders spanning data, finance, legal/compliance, and key operational business areas",
+        "Agree a quarterly meeting cadence with a published agenda template",
+        "Define the group's remit: what decisions can they make, what must they escalate?",
+        "Publish the first meeting minutes to demonstrate the group has real outputs"
+      ]
+    },
+    {
+      "id": "rec_gov_data_classification",
+      "title": "Implement a data classification scheme",
+      "dimension": "governance",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "public_sector",
+          "regulated_private"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "rationale": "Classification is the foundation of proportionate access control and retention. Without it, you cannot systematically apply different controls to personal data versus public statistics, which creates both compliance risk and excessive restriction of non-sensitive data.",
+      "first_steps": [
+        "Define 3-4 classification tiers (e.g. Public, Internal, Confidential, Sensitive Personal)",
+        "Write a one-page guide explaining each tier with examples from your own data",
+        "Apply classification tags to your 20 most-used datasets as a pilot",
+        "Link classification tier to access request process and retention period"
+      ]
+    },
+    {
+      "id": "rec_gov_automate_compliance",
+      "title": "Automate policy enforcement and compliance monitoring",
+      "dimension": "governance",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "L",
+      "horizon": "strategic",
+      "rationale": "At maturity level 4, governance is well-defined but still largely manual. The next step is embedding policy into tooling so compliance is the path of least resistance — access controls enforced by the platform, retention enforced by automated jobs, and policy adherence visible in dashboards without manual audits.",
+      "first_steps": [
+        "Identify the top 3 policies currently enforced manually and assess automation feasibility",
+        "Implement automated access review alerts (e.g. notify managers of stale access quarterly)",
+        "Configure automated retention enforcement for your highest-risk data stores",
+        "Build a governance metrics dashboard tracking access review completion rate, policy breach count, and domain ownership coverage"
+      ]
+    },
+    {
+      "id": "rec_met_deploy_catalogue",
+      "title": "Deploy a metadata catalogue",
+      "dimension": "metadata",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "openmetadata",
+      "alternative_tools": [
+        "datahub",
+        "amundsen"
+      ],
+      "rationale": "Data discovery via tribal knowledge breaks down as teams grow and rotate. A catalogue is the single highest-leverage metadata investment — it compounds: every dataset documented reduces the cost of every future project that uses it.",
+      "first_steps": [
+        "Identify your top 20 most-used datasets and document owner, description, source system, and refresh cadence for each",
+        "Stand up a catalogue tool in a non-production environment and connect it to your main data warehouse",
+        "Run a two-week trial with one or two teams before rolling out broadly",
+        "Make catalogue entry a mandatory checklist item when publishing a new dataset"
+      ]
+    },
+    {
+      "id": "rec_met_build_glossary",
+      "title": "Build a business glossary for core metrics and terms",
+      "dimension": "metadata",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Conflicting metric definitions are one of the most common causes of lost trust in data. A business glossary does not need a tool — a well-maintained wiki page covering your 20 most-contested terms eliminates most of the confusion.",
+      "first_steps": [
+        "Run a 1-hour workshop with representatives from finance, operations, and the data team to list the 10 metrics most often disputed in reports",
+        "For each metric, agree the definition, the calculation, the inclusion/exclusion rules, and the authoritative source",
+        "Publish the glossary somewhere all staff can access and link to it from every dashboard",
+        "Assign ownership: who updates the glossary when a definition changes?"
+      ]
+    },
+    {
+      "id": "rec_met_implement_lineage",
+      "title": "Implement automated data lineage for key pipelines",
+      "dimension": "metadata",
+      "trigger": {
+        "minLevel": 3,
+        "maxLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "openmetadata",
+      "alternative_tools": [
+        "datahub"
+      ],
+      "rationale": "Without lineage, a bad number in a dashboard triggers a detective investigation every time. With lineage, you trace the problem to its source in minutes. Automated lineage from your dbt or Airflow metadata is often the lowest-effort starting point.",
+      "first_steps": [
+        "Enable lineage extraction in your catalogue from your existing orchestrator (Airflow, Dagster) or transformation tool (dbt)",
+        "Map lineage for your top 10 most business-critical reports back to their source systems",
+        "Add lineage documentation as a requirement for all new pipelines",
+        "Review lineage coverage quarterly and prioritise gaps in high-risk domains"
+      ]
+    },
+    {
+      "id": "rec_met_automate_metadata",
+      "title": "Automate metadata population at pipeline publish time",
+      "dimension": "metadata",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "L",
+      "horizon": "strategic",
+      "primary_tool": "datahub",
+      "alternative_tools": [
+        "openmetadata"
+      ],
+      "rationale": "Manually maintained catalogues drift from reality within weeks. At scale, the only way to keep metadata current is to make it a side-effect of pipeline execution — every publish updates the catalogue automatically. This requires integration between your orchestrator and catalogue.",
+      "first_steps": [
+        "Instrument your pipeline framework to emit metadata events on each successful run",
+        "Configure catalogue ingestion from your orchestrator, dbt manifest, and warehouse schema",
+        "Set up data freshness monitoring so catalogue entries reflect actual last-updated timestamps",
+        "Measure catalogue coverage and staleness as team metrics"
+      ]
+    },
+    {
+      "id": "rec_qua_define_framework",
+      "title": "Define your data quality dimensions and set measurable thresholds",
+      "dimension": "quality",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "You cannot improve what you do not measure. Agreeing on what 'good quality' means for each critical dataset — and writing it down — is the prerequisite for everything else in this dimension. This is a conversation, not a technology problem.",
+      "first_steps": [
+        "Hold a 2-hour workshop with data consumers to define quality expectations for your 5 most critical datasets",
+        "For each dataset, agree thresholds for completeness, timeliness, and consistency at minimum",
+        "Document agreed thresholds in your data catalogue or a shared wiki",
+        "Review thresholds after 90 days to refine based on what failures you actually encounter"
+      ]
+    },
+    {
+      "id": "rec_qua_automate_checks",
+      "title": "Implement automated quality checks in your pipelines",
+      "dimension": "quality",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "dbt_tests",
+      "alternative_tools": [
+        "great_expectations",
+        "soda_core",
+        "elementary"
+      ],
+      "rationale": "Manual spot-checks before reports are a bottleneck and miss most problems. Automated checks that run on every load catch regressions before consumers see them, and free analysts to do analysis rather than data validation.",
+      "first_steps": [
+        "Start with the 5 datasets where quality failures have caused the most downstream pain",
+        "Write basic checks: row count not zero, no nulls in key columns, no duplicate primary keys, values within expected range",
+        "Configure pipeline to fail or alert when checks breach thresholds",
+        "Expand check coverage to 20 datasets within 3 months"
+      ]
+    },
+    {
+      "id": "rec_qua_incident_process",
+      "title": "Establish a data quality incident process",
+      "dimension": "quality",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Without a defined process, quality incidents are resolved inconsistently and the same issues recur. A lightweight process — log it, triage it, fix it, retrospect on it — reduces repeat incidents and builds trust with data consumers.",
+      "first_steps": [
+        "Define a simple incident severity scale: P1 (wrong numbers in leadership report), P2 (wrong numbers noticed by team), P3 (process concern not yet visible to consumers)",
+        "Create a shared log (a simple spreadsheet or ticketing system) for quality incidents",
+        "Agree target response times per severity level",
+        "Run a monthly retrospective on incidents to identify systemic causes"
+      ]
+    },
+    {
+      "id": "rec_qua_observability",
+      "title": "Invest in data observability to catch anomalies before consumers do",
+      "dimension": "quality",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "M",
+      "horizon": "strategic",
+      "primary_tool": "elementary",
+      "alternative_tools": [
+        "monte_carlo",
+        "bigeye",
+        "great_expectations"
+      ],
+      "rationale": "At maturity level 4, you have checks and an incident process. The next level is proactive detection — anomaly detection that surfaces issues nobody thought to write a rule for. This shifts quality from reactive to predictive.",
+      "first_steps": [
+        "Evaluate anomaly detection tools against your current stack — Elementary if you are on dbt, Monte Carlo or Bigeye if you need broader coverage",
+        "Start anomaly detection on your highest-traffic tables where unusual patterns are most meaningful",
+        "Tune sensitivity to reduce false positives before rolling out broadly",
+        "Measure the reduction in consumer-reported incidents as a success metric"
+      ]
+    },
+    {
+      "id": "rec_sto_separate_workloads",
+      "title": "Separate your analytical workloads from operational systems",
+      "dimension": "storage",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "primary_tool": "duckdb",
+      "alternative_tools": [
+        "postgresql",
+        "clickhouse"
+      ],
+      "rationale": "Running reports against production databases creates two problems at once: reports slow down as transaction volumes grow, and transactions slow down when analysts run heavy queries. Separation is the most foundational architectural decision in this dimension.",
+      "first_steps": [
+        "Identify which reports and dashboards currently query production databases directly",
+        "Start with a read replica or a nightly export into a separate analytical database for the highest-impact use cases",
+        "For small organisations: DuckDB on a local file export is a viable starting point with zero infrastructure cost",
+        "Document the separation boundary so new developers know which systems are for what"
+      ]
+    },
+    {
+      "id": "rec_sto_warehouse",
+      "title": "Deploy a dedicated analytical data store",
+      "dimension": "storage",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "duckdb",
+      "alternative_tools": [
+        "clickhouse",
+        "bigquery",
+        "snowflake"
+      ],
+      "context": {
+        "excludeIf": {
+          "team_maturity": "no_data_team"
+        }
+      },
+      "rationale": "A dedicated analytical store is the platform on which everything else is built. The right choice depends on your scale, cloud posture, and operational capacity — there is no universal answer, but there is always a better option than querying production.",
+      "first_steps": [
+        "Evaluate options against your data volume, cloud posture, and team operational capacity",
+        "For small orgs with <100GB: DuckDB is a serious option — zero infrastructure, SQL-native, file-based",
+        "For cloud-primary orgs: evaluate your cloud-native warehouse (BigQuery/Snowflake/Redshift/Synapse) before self-hosting",
+        "Run a 30-day proof of concept with your most important analytical workload before committing"
+      ]
+    },
+    {
+      "id": "rec_sto_cost_management",
+      "title": "Implement storage cost visibility and basic governance",
+      "dimension": "storage",
+      "trigger": {
+        "minLevel": 3,
+        "maxLevel": 4
+      },
+      "priority": "quick_win",
+      "effort": "S",
+      "horizon": "next_6_months",
+      "rationale": "Cloud storage costs that are not monitored tend to grow silently until they surprise someone in a budget review. Even basic tagging and lifecycle policies can reduce costs significantly with minimal effort.",
+      "first_steps": [
+        "Enable cost allocation tags by team or workload in your cloud account",
+        "Set up a cost alert threshold so you are notified before costs significantly exceed baseline",
+        "Configure lifecycle policies to move data older than 90 days to cheaper storage tiers",
+        "Review the largest cost contributors monthly and identify any data that is stored but never queried"
+      ]
+    },
+    {
+      "id": "rec_sto_open_table_format",
+      "title": "Evaluate Apache Iceberg as your lakehouse table format",
+      "dimension": "storage",
+      "trigger": {
+        "minLevel": 4
+      },
+      "context": {
+        "anyOf": [
+          "high_data_volume"
+        ]
+      },
+      "priority": "strategic",
+      "effort": "L",
+      "horizon": "strategic",
+      "primary_tool": "apache_iceberg",
+      "alternative_tools": [
+        "delta_lake",
+        "apache_hudi"
+      ],
+      "rationale": "At high data volumes, proprietary warehouse formats create lock-in and limit your ability to use best-of-breed compute engines. Open table formats give you format portability, ACID transactions, time travel, and efficient upserts across the lakehouse — without abandoning your object storage investment.",
+      "first_steps": [
+        "Assess whether your current data volumes and update patterns justify the operational investment",
+        "Run a proof of concept with Iceberg on a non-critical dataset using your existing object store and a query engine (Trino, DuckDB, or Spark)",
+        "Evaluate catalogue integration: Hive Metastore, AWS Glue, or a REST catalogue",
+        "Plan migration incrementally — new datasets first, then backfill historically"
+      ]
+    },
+    {
+      "id": "rec_pip_adopt_orchestrator",
+      "title": "Adopt a pipeline orchestration tool",
+      "dimension": "pipelines",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "primary_tool": "dagster",
+      "alternative_tools": [
+        "apache_airflow",
+        "prefect"
+      ],
+      "rationale": "Cron jobs and manual scripts are the most common single point of failure in data infrastructure. An orchestrator adds dependency management, retries, alerting, and observability — the difference between finding out a pipeline failed from a consumer complaint versus an automated alert.",
+      "first_steps": [
+        "List all current scheduled scripts and cron jobs — this is often more than people expect",
+        "Choose an orchestrator based on your team's Python familiarity and ops capacity (Dagster for asset-oriented, Airflow for legacy-ecosystem fit, Prefect for low barrier)",
+        "Migrate your 3 most critical pipelines first, validate alerting works, then expand",
+        "Document each pipeline as you migrate it — treat this as a documentation sprint"
+      ]
+    },
+    {
+      "id": "rec_pip_monitoring",
+      "title": "Implement pipeline monitoring and alerting",
+      "dimension": "pipelines",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "The first sign of a failed pipeline should be an automated alert to the data team, not a message from a business user. Monitoring is cheap to add to most orchestrators — it is mainly a configuration task, not a build task.",
+      "first_steps": [
+        "Configure failure alerts for all production pipelines — at minimum an email or Slack message on failure",
+        "Add row count and freshness checks as pipeline post-steps so silent failures (zero rows loaded) are caught",
+        "Assign on-call responsibility so alerts have a named person who will respond",
+        "Review alert noise monthly and tune to eliminate false positives that cause alert fatigue"
+      ]
+    },
+    {
+      "id": "rec_pip_version_control",
+      "title": "Move all pipeline code into version control",
+      "dimension": "pipelines",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Pipeline code not in version control cannot be reviewed, rolled back, or safely changed by anyone other than the original author. This is the single highest bus-factor risk in most data teams and one of the cheapest to fix.",
+      "first_steps": [
+        "Create a Git repository (private GitHub/GitLab/Azure DevOps repo) for all data pipeline code",
+        "Migrate existing scripts into the repository — even if they are messy, getting them into Git is the priority",
+        "Require all new pipeline work to be submitted as a pull request with at least one reviewer",
+        "Add a basic CI check that lints the code and runs unit tests if they exist"
+      ]
+    },
+    {
+      "id": "rec_pip_freshness_slas",
+      "title": "Define and track data freshness SLAs for critical pipelines",
+      "dimension": "pipelines",
+      "trigger": {
+        "minLevel": 3
+      },
+      "priority": "strategic",
+      "effort": "S",
+      "horizon": "next_6_months",
+      "rationale": "Without agreed freshness guarantees, consumers do not know whether to trust the data they see. SLAs create accountability and a measurable engineering objective. They also force a useful conversation about how fresh data actually needs to be — which is often less frequent than assumed.",
+      "first_steps": [
+        "Interview the top consumers of each critical dataset: how old can the data be before it causes problems?",
+        "Document agreed SLAs in your catalogue or pipeline documentation (e.g. 'finance dashboard reflects data as of midnight, available by 6:30am')",
+        "Configure freshness alerts in your orchestrator or catalogue tool",
+        "Track SLA breach rate monthly and treat repeated breaches as engineering debt"
+      ]
+    },
+    {
+      "id": "rec_ana_curate_trusted_reports",
+      "title": "Build a small curated set of trusted, authoritative reports",
+      "dimension": "analytics",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "primary_tool": "apache_superset",
+      "alternative_tools": [
+        "metabase",
+        "power_bi"
+      ],
+      "rationale": "A hundred reports of varying quality are less useful than ten that everyone trusts. The most impactful analytics investment at low maturity is reducing the number of conflicting numbers in leadership meetings — which requires fewer, better reports, not more reports.",
+      "first_steps": [
+        "Identify the 8-10 reports referenced most often in senior leadership or board-level meetings",
+        "Verify that these reports use the same metric definitions and source of truth — reconcile any discrepancies",
+        "Mark these reports as 'certified' or 'trusted' in your BI tool and publish the list to the organisation",
+        "Assign an owner to each trusted report who is responsible for its accuracy and freshness"
+      ]
+    },
+    {
+      "id": "rec_ana_semantic_layer",
+      "title": "Implement a semantic layer to centralise metric definitions",
+      "dimension": "analytics",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "cube",
+      "alternative_tools": [
+        "dbt_semantic_layer",
+        "malloy"
+      ],
+      "rationale": "When metric logic lives inside individual reports, every new report recreates it — with subtle variations that erode trust. A semantic layer defines each metric once and exposes it consistently to all consumers, making 'which report is right?' a question of the past.",
+      "first_steps": [
+        "Audit your 10 most-used metrics: identify all the places they are currently defined and any discrepancies",
+        "Choose a semantic layer approach that fits your stack — dbt Semantic Layer if you are on dbt Cloud, Cube if you need language-agnostic flexibility",
+        "Define your top 10 metrics in the semantic layer first before expanding coverage",
+        "Update your trusted reports to reference the semantic layer definitions rather than their own SQL logic"
+      ]
+    },
+    {
+      "id": "rec_ana_self_service",
+      "title": "Expand self-service analytics to reduce data team bottlenecks",
+      "dimension": "analytics",
+      "trigger": {
+        "minLevel": 3
+      },
+      "priority": "strategic",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "metabase",
+      "alternative_tools": [
+        "apache_superset",
+        "lightdash",
+        "power_bi"
+      ],
+      "rationale": "When every business question requires a data team request, analysts spend most of their time on report production rather than insight generation. Self-service does not mean giving everyone unrestricted access — it means building curated, governed data products that power users can explore safely.",
+      "first_steps": [
+        "Define which user personas are your target self-service audience — typically operational managers and senior analysts, not all staff",
+        "Build 2-3 exploratory data products (curated datasets with consistent definitions) designed for self-service use",
+        "Run a facilitated training session with power users — show them how to use the tool, not just that it exists",
+        "Track self-service query volume monthly to measure adoption"
+      ]
+    },
+    {
+      "id": "rec_ana_report_lifecycle",
+      "title": "Implement report lifecycle management to address dashboard sprawl",
+      "dimension": "analytics",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "S",
+      "horizon": "next_6_months",
+      "rationale": "Most mature analytics estates have accumulated hundreds of reports, many of which are rarely or never used. Dashboard sprawl wastes maintenance effort, confuses users, and dilutes trust in the reports that matter. A systematic retirement process fixes this.",
+      "first_steps": [
+        "Enable usage analytics in your BI tool — most tools provide view counts and last-accessed dates",
+        "Identify reports with zero views in the last 90 days and contact their owners before archiving",
+        "Establish a quarterly 'report health' review that checks usage, owner assignment, and freshness",
+        "Set a policy that new reports require an owner on creation — no owner, no publication"
+      ]
+    },
+    {
+      "id": "rec_sec_access_control",
+      "title": "Move to least-privilege access control for data assets",
+      "dimension": "security",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "rationale": "Broad data access is the most common cause of data breach exposure and the most common finding in regulatory audits. Restricting access to what each person needs for their role is not bureaucracy — it is the baseline of responsible data management.",
+      "first_steps": [
+        "Audit who currently has access to your most sensitive data stores — the result is often surprising",
+        "Remove access for leavers and people who have changed roles (stale access)",
+        "Implement a formal access request process: request, justification, approval, time-limited grant",
+        "Schedule a quarterly access review for sensitive data — automate the reminder if possible"
+      ]
+    },
+    {
+      "id": "rec_sec_pii_inventory",
+      "title": "Complete a PII (Personally Identifiable Information) inventory across your core systems",
+      "dimension": "security",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "public_sector",
+          "regulated_private"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "microsoft_presidio",
+      "rationale": "You cannot protect personal data you have not found. A PII inventory is a legal requirement under UK GDPR (General Data Protection Regulation) for most organisations and the prerequisite for meaningful data retention and access control. Starting with your top 10 most data-rich systems is sufficient to surface most risk.",
+      "first_steps": [
+        "List your top 10 systems most likely to hold personal data (CRM, HR, case management, operational databases)",
+        "For each system, document: what personal data it holds, the legal basis for processing it, who has access, and how long it is retained",
+        "Use Microsoft Presidio or a catalogue scanning tool to identify PII in analytical datasets",
+        "Tag identified PII in your data catalogue and link to retention and access policies"
+      ]
+    },
+    {
+      "id": "rec_sec_retention_enforcement",
+      "title": "Enforce your data retention policy through automated deletion",
+      "dimension": "security",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "rationale": "A retention policy that is not enforced is not a retention policy — it is a document. Unenforced retention creates accumulating liability as personal data is held beyond its legal basis. Automated deletion jobs are the most reliable enforcement mechanism.",
+      "first_steps": [
+        "Confirm legal retention periods for your most sensitive data types with your data protection officer or legal team",
+        "Build a scheduled job (or configure cloud lifecycle rules) to delete or anonymise records past their retention date",
+        "Test the deletion job in a non-production environment before running in production",
+        "Log all deletion runs and keep audit records — you may need to evidence this to a regulator"
+      ]
+    },
+    {
+      "id": "rec_sec_privacy_by_design",
+      "title": "Embed data protection assessments in your project delivery process",
+      "dimension": "security",
+      "trigger": {
+        "minLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "public_sector",
+          "regulated_private"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Security and privacy issues found at go-live are far more expensive to fix than those caught at design. A lightweight Data Protection Impact Assessment (DPIA) gate for any project touching personal data prevents most late-stage surprises.",
+      "first_steps": [
+        "Create a simple DPIA template covering: what data is processed, legal basis, retention, access controls, and third-party data sharing",
+        "Define which projects trigger a DPIA — typically any new system or significant change involving personal data",
+        "Make DPIA sign-off a prerequisite for go-live in your delivery governance",
+        "Assign a named person (DPO or equivalent) responsible for reviewing DPIAs"
+      ]
+    },
+    {
+      "id": "rec_sec_audit_trail",
+      "title": "Centralise audit logging for sensitive data access",
+      "dimension": "security",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "M",
+      "horizon": "strategic",
+      "rationale": "At maturity level 4, you have controls in place. The next step is continuous monitoring — knowing not just who has access, but who is using it and how. Centralised audit logs make investigations possible and regulatory evidence generation automatic.",
+      "first_steps": [
+        "Enable query logging on all data stores holding sensitive or personal data",
+        "Ship logs to a central SIEM (Security Information and Event Management) or log store with sufficient retention",
+        "Define alerting rules for suspicious patterns: access at unusual hours, bulk downloads, access to data outside a user's normal scope",
+        "Run a quarterly access behaviour review alongside your access rights review"
+      ]
+    },
+    {
+      "id": "rec_ski_define_roles",
+      "title": "Define data roles and formalise the data team structure",
+      "dimension": "skills",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Data work done by people with unclear roles is data work done inconsistently and without accountability. Even a small team benefits from explicit role definitions — it sets expectations, informs hiring, and helps stakeholders understand what to ask for and from whom.",
+      "first_steps": [
+        "Write a one-paragraph description of each current data role, including what they are responsible for and what they are not",
+        "Identify the most critical capability gaps — typically data engineering or data governance in early-stage teams",
+        "Share role descriptions with the data team and wider stakeholders to set expectations",
+        "Use role definitions to inform the next hiring decision or secondment"
+      ]
+    },
+    {
+      "id": "rec_ski_operating_model",
+      "title": "Define how the data team works with the rest of the organisation",
+      "dimension": "skills",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Teams that work reactively to whoever asks loudest never build strategic capability. A simple operating model — how to request work, how priorities are set, what to expect and when — reduces wasted time and stakeholder frustration on both sides.",
+      "first_steps": [
+        "Publish a 'how to work with the data team' page accessible to all staff",
+        "Define a standard intake process: how do you request data work, what information is needed, how long will it take?",
+        "Maintain a visible backlog so stakeholders can see where their request sits",
+        "Run a retrospective quarterly to refine the process based on feedback"
+      ]
+    },
+    {
+      "id": "rec_ski_training",
+      "title": "Establish a training budget and individual development plans for data staff",
+      "dimension": "skills",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "next_6_months",
+      "rationale": "Data tooling changes faster than almost any other technology domain. A team with no training budget falls behind within 12-18 months. A small, consistent investment — even 5% of a salary budget — compounds significantly over time.",
+      "first_steps": [
+        "Agree a per-head annual training budget with management — even a modest figure signals commitment",
+        "Ask each team member: what skill would most help you in the next 12 months?",
+        "Create a simple development plan for each person with 1-2 concrete learning goals per quarter",
+        "Budget time, not just money — training that requires weekend hours is not really training"
+      ]
+    },
+    {
+      "id": "rec_ski_data_literacy",
+      "title": "Launch a data literacy programme for the wider organisation",
+      "dimension": "skills",
+      "trigger": {
+        "minLevel": 3
+      },
+      "priority": "strategic",
+      "effort": "L",
+      "horizon": "strategic",
+      "rationale": "The value of good data infrastructure is only realised when business users can interpret and act on data confidently. Data literacy is the multiplier on every other investment in this assessment — a self-service tool nobody knows how to use delivers zero value.",
+      "first_steps": [
+        "Identify 2-3 business areas where low data literacy is causing the most decision-making pain",
+        "Design a short (2-3 hour) workshop covering: how to read a chart, how to identify misleading statistics, and how to use the self-service tools available",
+        "Run a pilot with one team, gather feedback, and iterate before rolling out broadly",
+        "Measure data literacy indirectly through self-service adoption rates and the volume of analyst time spent on report production vs insight generation"
+      ]
+    },
+    {
+      "id": "rec_ski_knowledge_management",
+      "title": "Implement structured knowledge capture for the data team",
+      "dimension": "skills",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "quick_win",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Most small data teams have critical knowledge concentrated in one or two people. A single resignation creates a crisis that could take months to recover from. Knowledge capture is not about documentation for its own sake — it is about team resilience.",
+      "first_steps": [
+        "Identify the two or three people whose departure would most damage the team's capability",
+        "Run a 'bus factor audit' — what does each person know that nobody else does?",
+        "Prioritise documenting the top five areas of concentrated knowledge (runbooks, architecture decisions, vendor contacts, key query logic)",
+        "Make documentation a delivery requirement — no new pipeline or dataset goes to production without a runbook"
+      ]
+    },
+    {
+      "id": "rec_cross_small_org_lightweight_stack",
+      "title": "Start with a lightweight, low-ops data stack appropriate for your scale",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "context": {
+        "anyOf": [
+          "small_org"
+        ],
+        "excludeIf": {
+          "team_maturity": "platform_team"
+        }
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "primary_tool": "duckdb",
+      "alternative_tools": [
+        "dbt_core",
+        "apache_superset",
+        "metabase"
+      ],
+      "rationale": "Small organisations rarely need enterprise-grade data infrastructure. The trap is adopting complex tools designed for large teams and spending all available capacity operating them. A well-chosen lightweight stack — DuckDB + dbt Core + Metabase, for example — can take an organisation from level 1 to level 3 across most dimensions with minimal operational overhead.",
+      "first_steps": [
+        "Resist the urge to start with a complex platform — pick the simplest tool that solves today's problem",
+        "A viable starting stack: DuckDB or PostgreSQL for storage, dbt Core for transformation, Metabase or Superset for reporting",
+        "Get one end-to-end pipeline working reliably before adding more tools",
+        "Document the stack decision and the reasoning — this helps when you revisit it in 18 months"
+      ]
+    },
+    {
+      "id": "rec_cross_no_data_team_first_hire",
+      "title": "Define what your first data hire should be able to do",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "context": {
+        "excludeIf": {
+          "team_maturity": "platform_team"
+        },
+        "anyOf": [
+          "no_data_team"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "The most common mistake when building a data capability from scratch is hiring a specialist before the generalist. An experienced data analyst or analytics engineer who can both build pipelines and produce reports will deliver more value in year one than a specialist data engineer who cannot answer business questions.",
+      "first_steps": [
+        "Write down the three data problems that cost the organisation most time or money today",
+        "Define the hire around solving those problems — the role title matters less than the skill profile",
+        "For most small organisations, the first hire should be a data generalist: someone who can wrangle data, build simple pipelines, and produce insights",
+        "Set the hire up for success: give them access to data, a clear first project, and executive sponsorship"
+      ]
+    },
+    {
+      "id": "rec_cross_public_sector_governance_first",
+      "title": "Prioritise governance and compliance before advanced analytics",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "public_sector"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "rationale": "Public sector organisations hold significant personal data and operate under UK GDPR, Data Protection Act 2018, and sector-specific obligations (DSPT for NHS, etc.). Building advanced analytics on top of ungoverned data creates regulatory exposure that no analytical benefit justifies. Get the foundation right first.",
+      "first_steps": [
+        "Complete a data protection impact assessment (DPIA) for your primary data processing activities if not already done",
+        "Confirm your data governance framework aligns with your sector's regulatory requirements",
+        "Ensure your PII inventory is current before expanding analytical use of personal data",
+        "Engage your Caldicott Guardian (NHS) or Data Protection Officer as a partner in the data strategy, not just a sign-off function"
+      ]
+    },
+    {
+      "id": "rec_cross_oss_first_strategy",
+      "title": "Build your open-source-first tooling strategy to avoid long-term lock-in",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "oss_preferred"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "dbt_core",
+      "alternative_tools": [
+        "dagster",
+        "apache_superset",
+        "openmetadata"
+      ],
+      "rationale": "An open-source-first strategy is not about avoiding all commercial software — it is about avoiding lock-in to proprietary formats and vendors where open alternatives are equally capable. The recommended stack can cover every dimension of this assessment without a mandatory commercial licence.",
+      "first_steps": [
+        "Audit your current tooling for proprietary lock-in risk: data formats, API dependencies, and vendor-specific query languages",
+        "Where commercial tools are in use, evaluate whether an OSS alternative meets your needs — do not switch without a reason, but know your options",
+        "Prefer open formats (Parquet, Iceberg, Delta) over proprietary storage formats",
+        "When evaluating new tools, add 'licence and lock-in risk' as a procurement criterion alongside capability and cost"
+      ]
+    },
+    {
+      "id": "rec_cross_azure_native_stack",
+      "title": "Leverage your existing Azure investment for a coherent data platform",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "cloud": [
+          "azure"
+        ]
+      },
+      "priority": "quick_win",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "azure_db_postgresql",
+      "alternative_tools": [
+        "power_bi",
+        "databricks_sql"
+      ],
+      "rationale": "Azure-primary organisations often have existing spend on Microsoft tooling that is underutilised for data purposes. Azure Data Lake Storage, Azure Data Factory, Synapse Analytics, and Power BI integrate natively with your existing identity and security infrastructure — reducing the friction of standing up a new platform.",
+      "first_steps": [
+        "Audit what Azure data services you are already licensed for or paying for but not using",
+        "Evaluate Azure Synapse Analytics or Fabric as your analytical layer before procuring an independent warehouse",
+        "Use Microsoft Purview for data governance if you are already in the Microsoft ecosystem",
+        "Ensure your data platform connects to Azure Active Directory for single sign-on and centralised access management"
+      ]
+    },
+    {
+      "id": "rec_cross_aws_native_stack",
+      "title": "Leverage your existing AWS investment for a coherent data platform",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "cloud": [
+          "aws"
+        ]
+      },
+      "priority": "quick_win",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "apache_iceberg",
+      "alternative_tools": [
+        "apache_airflow",
+        "dbt_core"
+      ],
+      "rationale": "AWS-primary organisations have access to a mature ecosystem of data services — S3, Glue, Athena, Redshift, and managed Airflow — that integrate with existing IAM (Identity and Access Management) and security controls. Building on these reduces infrastructure overhead compared to self-hosting everything.",
+      "first_steps": [
+        "Evaluate Amazon Redshift or Athena as your analytical layer depending on query pattern (structured vs ad hoc on S3)",
+        "Use AWS Glue Data Catalog as your metadata foundation — it integrates natively with Athena, EMR, and Iceberg",
+        "Deploy Amazon Managed Workflows for Apache Airflow (MWAA) rather than self-hosting Airflow if orchestration is needed",
+        "Ensure all data services connect to IAM for centralised access control"
+      ]
+    },
+    {
+      "id": "rec_cross_regulated_data_protection",
+      "title": "Treat data protection as an architectural requirement, not a compliance checkbox",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "regulated_private"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "rationale": "Regulated sectors (financial services, utilities, health, education) face material consequences for data protection failures — regulatory fines, operational restrictions, and reputational damage. Data protection cannot be retrofitted onto a mature analytics platform; it must be in the foundations.",
+      "first_steps": [
+        "Map your regulatory obligations specific to your sector (FCA for financial services, ICO for all UK organisations, sector-specific frameworks)",
+        "Ensure your data architecture documentation is audit-ready — regulators often ask to see it",
+        "Prioritise security and governance recommendations from this assessment before analytical capability improvements",
+        "Engage your compliance team as a partner in the data architecture — not just a sign-off gate"
+      ]
+    },
+    {
+      "id": "rec_cross_measure_maturity_progress",
+      "title": "Track your maturity improvement over time",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "minLevel": 2
+      },
+      "priority": "quick_win",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Improvement that is not tracked is improvement that is invisible to stakeholders and at risk of being reversed. Re-running this assessment every 6-12 months provides an objective record of progress and helps prioritise where investment has had the most impact.",
+      "first_steps": [
+        "Save or download this report — it is your baseline",
+        "Identify the 2-3 dimensions where you scored lowest and agree these as your priority focus areas",
+        "Schedule a reassessment in 6 months with the same respondents",
+        "Share progress with senior stakeholders — data maturity improvement is a business outcome, not just a technical one"
+      ]
+    }
+  ]
+};

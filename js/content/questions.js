@@ -1,0 +1,1206 @@
+// Auto-generated from content/questions.json. Do not edit directly.
+export default {
+  "_comment": "40 maturity questions, 5 per dimension. Each question maps answer options to DAMA-DMBOK maturity levels 1-5. See content/schemas/questions.schema.json for the full schema.",
+  "questions": [
+    {
+      "id": "gov_001",
+      "dimension": "governance",
+      "question": "Is there a named person accountable for each major data domain in your organisation?",
+      "help_text": "A data domain is a distinct subject area of data — for example, customer data, financial data, HR data, or operational data.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — nobody is formally responsible for any data domain. Ownership is unclear."
+        },
+        {
+          "level": 2,
+          "label": "Informally — a few people are known to look after certain data, but it is not documented or recognised as a role."
+        },
+        {
+          "level": 3,
+          "label": "Partially — named owners exist for our most important data domains, with documented responsibilities."
+        },
+        {
+          "level": 4,
+          "label": "Broadly — most domains have named owners within a defined accountability framework, with regular check-ins."
+        },
+        {
+          "level": 5,
+          "label": "Fully — every domain has a named owner with active stewardship duties, regular reviews, and clear escalation paths."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "gov_002",
+      "dimension": "governance",
+      "question": "Does your organisation have documented data policies covering access, quality, retention, and acceptable use?",
+      "help_text": "Policies don't need to be a single document — separate policies for each topic are fine. The question is whether they exist and people know where to find them.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No documented policies exist. Rules are communicated informally if at all."
+        },
+        {
+          "level": 2,
+          "label": "Some policies exist (often written for a compliance deadline) but they are hard to find and not widely read."
+        },
+        {
+          "level": 3,
+          "label": "Core policies are documented, accessible, and applied consistently across our main systems and teams."
+        },
+        {
+          "level": 4,
+          "label": "Policies are comprehensive, regularly reviewed on a set schedule, and ownership of each policy is clearly assigned."
+        },
+        {
+          "level": 5,
+          "label": "Policies are version-controlled, enforced through tooling where possible, and updated based on incidents and regulatory changes."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "gov_003",
+      "dimension": "governance",
+      "question": "Does your organisation have a data governance body — such as a committee, council, or working group — with real decision-making authority?",
+      "help_text": "This could be a formal Data Governance Board or an informal cross-functional group. The key question is whether it can make and enforce decisions about data.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No governance body exists. Data decisions are made ad hoc by whoever is available."
+        },
+        {
+          "level": 2,
+          "label": "There are occasional cross-team meetings about data, but no standing forum with a defined remit."
+        },
+        {
+          "level": 3,
+          "label": "A governance body exists with a defined remit, meets regularly, and has resolved at least some real data disputes."
+        },
+        {
+          "level": 4,
+          "label": "The governance body has documented authority, a published meeting schedule, minutes, and an active backlog of decisions."
+        },
+        {
+          "level": 5,
+          "label": "The governance body drives strategic data direction, reviews metrics, owns the policy framework, and reports to senior leadership."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "gov_004",
+      "dimension": "governance",
+      "question": "Does your organisation classify data by sensitivity — for example, distinguishing between public, internal, confidential, and sensitive personal data?",
+      "help_text": "A classification scheme means data assets are labelled or tagged with their sensitivity level, not just that the categories exist in a policy document.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No classification scheme. All data is treated the same regardless of sensitivity."
+        },
+        {
+          "level": 2,
+          "label": "Sensitivity categories exist on paper but data is not consistently labelled or tagged in practice."
+        },
+        {
+          "level": 3,
+          "label": "A classification scheme is in place and applied consistently to our most sensitive and highest-risk data assets."
+        },
+        {
+          "level": 4,
+          "label": "Classification is applied broadly across the estate and is integrated with access control — permissions reflect classification level."
+        },
+        {
+          "level": 5,
+          "label": "Classification is automated at ingestion, enforced by tooling, and linked to retention, masking, and audit policies."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "gov_005",
+      "dimension": "governance",
+      "question": "How does your organisation measure and track compliance with its data governance policies?",
+      "help_text": "This is about whether you know whether policies are being followed — not just whether the policies exist.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "We do not measure compliance. Policy adherence depends on individuals being aware of and choosing to follow the rules."
+        },
+        {
+          "level": 2,
+          "label": "Compliance is checked occasionally, usually before an audit or in response to an incident."
+        },
+        {
+          "level": 3,
+          "label": "Key compliance indicators are tracked and reported at least quarterly, with a process for raising and resolving breaches."
+        },
+        {
+          "level": 4,
+          "label": "Compliance metrics are part of regular governance reporting. Non-compliance triggers a formal triage and resolution process."
+        },
+        {
+          "level": 5,
+          "label": "Policy compliance is continuously monitored through automated tooling. Exceptions are detected and escalated in near real-time."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "met_001",
+      "dimension": "metadata",
+      "question": "Can people in your organisation find out what data exists without asking a colleague?",
+      "help_text": "Think about how a new analyst would discover what datasets are available. Could they do it independently, or do they rely on asking someone who already knows?",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — discovery depends entirely on knowing the right person to ask. There is no central inventory."
+        },
+        {
+          "level": 2,
+          "label": "Partially — some teams maintain their own lists or wikis, but there is no shared starting point and coverage is patchy."
+        },
+        {
+          "level": 3,
+          "label": "Mostly — a catalogue or inventory covers our core datasets and most people know where to look."
+        },
+        {
+          "level": 4,
+          "label": "Yes — a maintained catalogue covers most of the estate and is the recognised first stop for data discovery."
+        },
+        {
+          "level": 5,
+          "label": "Fully — the catalogue is comprehensive, kept current automatically, and actively used by both technical and non-technical staff."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "met_002",
+      "dimension": "metadata",
+      "question": "Does your organisation maintain a business glossary — a shared, agreed definition of key business terms and metrics?",
+      "help_text": "A business glossary defines terms like 'active customer', 'revenue', or 'incident' so that everyone means the same thing. It is separate from technical documentation.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — definitions exist only in people's heads or vary between teams. The same term means different things in different places."
+        },
+        {
+          "level": 2,
+          "label": "Informally — some teams have agreed definitions internally, but there is no shared glossary and cross-team alignment is rare."
+        },
+        {
+          "level": 3,
+          "label": "Partially — a business glossary exists covering our most important terms and metrics, though it is incomplete and not always kept up to date."
+        },
+        {
+          "level": 4,
+          "label": "Broadly — the glossary covers most key terms, is linked to physical datasets in the catalogue, and is reviewed regularly."
+        },
+        {
+          "level": 5,
+          "label": "Comprehensively — the glossary is actively maintained, widely used, linked to metric definitions in our semantic layer, and governs how KPIs are defined."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "met_003",
+      "dimension": "metadata",
+      "question": "Can you trace where a piece of data came from and how it has been transformed before reaching a report or dashboard?",
+      "help_text": "This is called data lineage. For example: can you follow customer revenue from its source system through your pipelines to the finance dashboard?",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — lineage is unknown. When a number looks wrong, we cannot easily trace where it came from."
+        },
+        {
+          "level": 2,
+          "label": "Partially — lineage is documented informally (e.g. in a diagram or a README) for some pipelines, but not systematically."
+        },
+        {
+          "level": 3,
+          "label": "For key pipelines — lineage is captured and documented for our most critical data flows, making it possible to trace issues."
+        },
+        {
+          "level": 4,
+          "label": "Broadly — lineage is tracked automatically for most pipelines and is visible in our catalogue or orchestration tool."
+        },
+        {
+          "level": 5,
+          "label": "End-to-end — full column-level lineage is captured automatically across all pipelines, from source to dashboard, and is always current."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "met_004",
+      "dimension": "metadata",
+      "question": "How complete and useful is the documentation attached to your datasets — including owner, description, refresh frequency, and known issues?",
+      "help_text": "Think about the metadata quality of a typical important dataset, not just your best-documented one.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Datasets have little or no documentation. A new user has no way of knowing what a dataset contains or how to use it."
+        },
+        {
+          "level": 2,
+          "label": "Some datasets have basic descriptions, but coverage is inconsistent and documentation quickly goes out of date."
+        },
+        {
+          "level": 3,
+          "label": "Core datasets have documented owners, descriptions, and refresh cadences. Known quality issues are noted for the most critical datasets."
+        },
+        {
+          "level": 4,
+          "label": "Most datasets have rich documentation. Quality is measured and catalogue entries are kept current through a defined maintenance process."
+        },
+        {
+          "level": 5,
+          "label": "Documentation is a first-class deliverable. Pipeline automation populates metadata on publish. Entry quality is measured and feeds team objectives."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "met_005",
+      "dimension": "metadata",
+      "question": "Do business users — not just data engineers — actively contribute to or use your metadata catalogue?",
+      "help_text": "A catalogue maintained only by the data team tends to drift from business reality. This question is about whether the business has a voice in defining and describing data.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No catalogue exists, or only the data team can access it. Business users are not involved."
+        },
+        {
+          "level": 2,
+          "label": "The catalogue is technically available to all but in practice only used by technical staff. Business users do not contribute."
+        },
+        {
+          "level": 3,
+          "label": "Some business users are aware of the catalogue and occasionally update descriptions or flag issues."
+        },
+        {
+          "level": 4,
+          "label": "Business users regularly use the catalogue for discovery and contribute domain knowledge — descriptions, glossary terms, and usage notes."
+        },
+        {
+          "level": 5,
+          "label": "The catalogue is a shared workspace. Business owners curate their domain's assets. Usage analytics show broad, active adoption across the organisation."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "qua_001",
+      "dimension": "quality",
+      "question": "How are data quality problems typically discovered in your organisation?",
+      "help_text": "Think about who spots quality issues and at what point in the process — before data is used, or after someone notices something is wrong.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "By end users noticing something looks wrong — a report breaks, a figure seems implausible, or a complaint arrives."
+        },
+        {
+          "level": 2,
+          "label": "By analysts running manual spot-checks before key reports are published, but not systematically or for all data."
+        },
+        {
+          "level": 3,
+          "label": "By automated checks that run on our most critical datasets and alert the data team when thresholds are breached."
+        },
+        {
+          "level": 4,
+          "label": "By a monitoring layer that continuously checks quality across most of the estate and routes alerts to the right owners."
+        },
+        {
+          "level": 5,
+          "label": "By anomaly detection that surfaces issues proactively — often before any downstream consumer has been affected."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "qua_002",
+      "dimension": "quality",
+      "question": "Does your organisation have defined quality dimensions — such as completeness, accuracy, timeliness, and consistency — applied to its data?",
+      "help_text": "Quality dimensions are the specific properties you measure. Without defining them, 'good quality' means different things to different people.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No defined quality dimensions. Quality is assessed informally based on whether data 'looks right'."
+        },
+        {
+          "level": 2,
+          "label": "Some teams have implicit quality expectations but they are not formally defined, documented, or consistently applied."
+        },
+        {
+          "level": 3,
+          "label": "A quality framework with defined dimensions is in place and applied to our most critical datasets with measurable thresholds."
+        },
+        {
+          "level": 4,
+          "label": "Quality dimensions are defined across most of the estate, with per-dataset thresholds, owners, and a formal breach process."
+        },
+        {
+          "level": 5,
+          "label": "Quality rules are codified as tests in our pipeline tooling, applied at every stage, and continuously refined based on incident data."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "qua_003",
+      "dimension": "quality",
+      "question": "When a data quality incident occurs, does your organisation have a defined process for triaging, fixing, and learning from it?",
+      "help_text": "A quality incident is any case where bad data reached a consumer — a wrong report, a broken dashboard, or incorrect data in a downstream system.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No process. Whoever notices the problem fixes it as best they can. The same issues recur regularly."
+        },
+        {
+          "level": 2,
+          "label": "The data team investigates when issues are reported, but there is no standard triage process and root causes are rarely documented."
+        },
+        {
+          "level": 3,
+          "label": "A defined incident process exists — issues are logged, triaged, assigned, and resolved within agreed timeframes for critical data."
+        },
+        {
+          "level": 4,
+          "label": "Incidents are tracked over time. Root cause analysis is performed for recurring issues. Quality debt is maintained as a visible backlog."
+        },
+        {
+          "level": 5,
+          "label": "Incident retrospectives feed directly into pipeline improvements and test coverage. The defect rate demonstrably decreases over time."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "qua_004",
+      "dimension": "quality",
+      "question": "Are data quality metrics reported to business stakeholders — not just tracked internally by the data team?",
+      "help_text": "This is about whether quality is treated as a shared concern, or as something the data team manages in private.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No quality metrics exist. Stakeholders have no visibility of data quality unless they raise an issue themselves."
+        },
+        {
+          "level": 2,
+          "label": "The data team tracks some quality stats internally but does not share them with business stakeholders in any regular way."
+        },
+        {
+          "level": 3,
+          "label": "Key quality metrics are reported to relevant stakeholders at least monthly, with context on trends and outstanding issues."
+        },
+        {
+          "level": 4,
+          "label": "Quality scorecards are part of regular data reporting. SLAs (service level agreements) for critical datasets are agreed and tracked."
+        },
+        {
+          "level": 5,
+          "label": "Quality metrics are embedded in data product dashboards. Stakeholders can self-serve quality information. SLA performance is publicly visible within the organisation."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "qua_005",
+      "dimension": "quality",
+      "question": "Are data quality checks embedded as automated tests in your data pipelines — running on every load, not just on demand?",
+      "help_text": "For example, using tools like dbt tests, Great Expectations, or Soda Core to validate data as it flows through the pipeline rather than checking it manually afterwards.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No automated tests. Quality is checked manually, if at all, after data has already been loaded."
+        },
+        {
+          "level": 2,
+          "label": "Some ad hoc SQL checks or scripts exist but they are not part of the pipeline and must be run manually."
+        },
+        {
+          "level": 3,
+          "label": "Automated tests run on our most critical pipelines and block a load from completing if key checks fail."
+        },
+        {
+          "level": 4,
+          "label": "Automated tests are standard practice across most pipelines. Test results are logged and visible in a monitoring dashboard."
+        },
+        {
+          "level": 5,
+          "label": "Every pipeline stage has automated quality gates. Test coverage is measured and tracked. Failed tests trigger automated alerts and rollback where possible."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sto_001",
+      "dimension": "storage",
+      "question": "Does your organisation separate its analytical workloads from its operational systems — so that reporting and analysis do not run directly against production databases?",
+      "help_text": "Running reports against production databases causes performance problems for both operations and analysis. A separate analytical store — a data warehouse, lakehouse, or read replica — avoids this.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No separation. Reports and dashboards query production systems directly, causing performance issues."
+        },
+        {
+          "level": 2,
+          "label": "Partial — some analytical copies exist but they were built ad hoc and are not consistently maintained."
+        },
+        {
+          "level": 3,
+          "label": "Yes — a separate analytical store exists for most reporting, with a clear boundary between operational and analytical workloads."
+        },
+        {
+          "level": 4,
+          "label": "Fully separated — the architecture is documented, enforced, and covers all major reporting and analytical use cases."
+        },
+        {
+          "level": 5,
+          "label": "Fully separated with multiple tiers — hot, warm, and cold storage are used appropriately, with workload routing automated based on query patterns."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sto_002",
+      "dimension": "storage",
+      "question": "Is your data storage architecture documented — including what stores exist, what data lives where, and why those choices were made?",
+      "help_text": "This is about whether someone joining the team could understand the storage landscape from written documentation, rather than needing it explained by a colleague.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No documentation. The architecture exists only in the heads of the people who built it."
+        },
+        {
+          "level": 2,
+          "label": "Partially documented — some diagrams or notes exist but they are incomplete, outdated, or only cover part of the estate."
+        },
+        {
+          "level": 3,
+          "label": "The main architectural decisions are documented and reasonably current. New joiners can understand the landscape from the docs."
+        },
+        {
+          "level": 4,
+          "label": "Documentation is comprehensive, versioned, and kept up to date as the architecture evolves. Architectural decisions include documented rationale."
+        },
+        {
+          "level": 5,
+          "label": "Architecture documentation is living — auto-generated where possible, reviewed on a regular cadence, and linked to the data catalogue."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sto_003",
+      "dimension": "storage",
+      "question": "Does your organisation actively manage query performance — for example, through partitioning, indexing, caching, or materialisations?",
+      "help_text": "As data volumes grow, unmanaged queries become slow and expensive. Performance management means deliberately designing tables and views to make common queries fast.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — queries run as written. Slow dashboards or reports are accepted as normal."
+        },
+        {
+          "level": 2,
+          "label": "Ad hoc — performance issues are fixed reactively when they become bad enough to cause complaints, usually by adding an index or cache."
+        },
+        {
+          "level": 3,
+          "label": "Deliberately — key tables are partitioned and indexed thoughtfully. Materialised views or aggregates exist for the most expensive queries."
+        },
+        {
+          "level": 4,
+          "label": "Systematically — query performance is monitored with metrics. Slow queries trigger investigation. Optimisation is part of the standard development process."
+        },
+        {
+          "level": 5,
+          "label": "Continuously — query costs and performance are tracked per team or use case. Optimisation is automated where possible. Cost per query is a reported metric."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "sto_004",
+      "dimension": "storage",
+      "question": "Does your organisation have visibility of its data storage costs, and are those costs actively managed?",
+      "help_text": "This applies whether you are in the cloud (where storage and compute costs are metered) or on-premises (where storage capacity and hardware costs are budgeted).",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Storage costs are opaque. We do not know what we are spending or what is driving the cost."
+        },
+        {
+          "level": 2,
+          "label": "We have a rough sense of costs but no breakdown by team, use case, or dataset. Cost optimisation is not a regular activity."
+        },
+        {
+          "level": 3,
+          "label": "Storage costs are tracked at a reasonable level of detail. Basic cost controls exist — for example, lifecycle policies or reserved capacity."
+        },
+        {
+          "level": 4,
+          "label": "Costs are allocated by team or domain. Regular reviews identify waste. Tiering policies automatically move ageing data to cheaper storage."
+        },
+        {
+          "level": 5,
+          "label": "Cost per dataset and cost per query are tracked metrics. Automated policies govern storage lifecycle. Cost efficiency is part of data team OKRs."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "sto_005",
+      "dimension": "storage",
+      "question": "Does your organisation use open table formats — such as Apache Iceberg, Delta Lake, or Apache Hudi — or other modern approaches to managing large analytical datasets?",
+      "help_text": "Open table formats add features like time travel, schema evolution, and efficient upserts to data stored in object storage (e.g. S3 or Azure Data Lake). This question is more relevant for organisations handling large or complex datasets.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Not applicable or not considered — we store data in flat files, traditional databases, or managed warehouses without thinking about table formats."
+        },
+        {
+          "level": 2,
+          "label": "We are aware of open table formats but have not adopted them. Our analytical storage uses proprietary formats or simple Parquet/CSV."
+        },
+        {
+          "level": 3,
+          "label": "We have evaluated open table formats and adopted one for specific use cases where the benefits are clear."
+        },
+        {
+          "level": 4,
+          "label": "An open table format is part of our standard analytical storage layer, with compaction and maintenance processes in place."
+        },
+        {
+          "level": 5,
+          "label": "Our lakehouse architecture is built on an open table format with automated compaction, expiry, and format evolution managed as infrastructure."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "pip_001",
+      "dimension": "pipelines",
+      "question": "How are data pipelines built and scheduled in your organisation?",
+      "help_text": "A pipeline is any process that moves or transforms data — from a nightly export to a real-time stream. This question is about how that work is automated and managed.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Largely manual — data is moved by exporting files and uploading them, or running scripts by hand on an ad hoc basis."
+        },
+        {
+          "level": 2,
+          "label": "Some scheduled automation exists (cron jobs, simple scripts) but it is fragile, not monitored, and only the original author can maintain it."
+        },
+        {
+          "level": 3,
+          "label": "Pipelines are built using a consistent framework and managed by an orchestration tool that handles scheduling and dependencies."
+        },
+        {
+          "level": 4,
+          "label": "All significant pipelines run through an orchestrator. Dependencies are explicit. Failures are retried automatically and alert the on-call team."
+        },
+        {
+          "level": 5,
+          "label": "Pipelines are declaratively defined, version-controlled, and self-healing where possible. New source onboarding follows a repeatable, documented process."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "pip_002",
+      "dimension": "pipelines",
+      "question": "How does your organisation find out when a data pipeline has failed or produced unexpected results?",
+      "help_text": "Pipeline failures include: a job not running, a job running but producing no rows, a job completing but loading corrupt or duplicated data.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "We find out when a downstream consumer notices — a dashboard is empty, a report looks wrong, or someone complains."
+        },
+        {
+          "level": 2,
+          "label": "The pipeline logs failures but someone has to check the logs manually. There are no automated alerts."
+        },
+        {
+          "level": 3,
+          "label": "Automated alerts notify the data team when pipelines fail. Someone is responsible for responding within a defined timeframe."
+        },
+        {
+          "level": 4,
+          "label": "Monitoring covers failures and anomalies (e.g. row count drops, late arrivals). Alerts are routed to the right owner. SLAs are tracked."
+        },
+        {
+          "level": 5,
+          "label": "Observability is end-to-end — freshness, volume, and schema changes are all monitored. Alerts are actionable and rarely false-positive."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "pip_003",
+      "dimension": "pipelines",
+      "question": "Are your data pipelines version-controlled and tested before being deployed to production?",
+      "help_text": "Version control means pipeline code is stored in a system like Git. Testing means there is some check — automated or manual — that a change works before it goes live.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — pipeline code is not version-controlled. Changes are made directly in production. There is no testing step."
+        },
+        {
+          "level": 2,
+          "label": "Some pipeline code is in version control but it is not consistent. Changes go to production with minimal or no testing."
+        },
+        {
+          "level": 3,
+          "label": "Pipeline code is version-controlled and goes through a review process. Basic tests run before deployment to catch obvious breakage."
+        },
+        {
+          "level": 4,
+          "label": "All pipeline changes are reviewed, tested, and deployed through a consistent CI/CD (continuous integration and deployment) process."
+        },
+        {
+          "level": 5,
+          "label": "Pipelines have automated test suites covering ingestion, transformation, and loading. Test coverage is measured. Deployments are fully automated."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "pip_004",
+      "dimension": "pipelines",
+      "question": "Are your data pipelines documented so that someone other than the original author can understand, maintain, and debug them?",
+      "help_text": "Documentation here means anything that helps an unfamiliar engineer — comments in code, a README, a runbook, or entries in a data catalogue.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No documentation. Only the person who built a pipeline can maintain it. Bus-factor (single point of knowledge) is high throughout."
+        },
+        {
+          "level": 2,
+          "label": "Some pipelines have comments or a brief description, but it is inconsistent and often out of date."
+        },
+        {
+          "level": 3,
+          "label": "Key pipelines are documented with enough context for another engineer to maintain them. Documentation is a checklist item for new pipelines."
+        },
+        {
+          "level": 4,
+          "label": "All production pipelines are documented. Documentation includes data sources, transformation logic, dependencies, and known issues."
+        },
+        {
+          "level": 5,
+          "label": "Pipeline documentation is auto-generated where possible and linked to the data catalogue. New engineers can onboard to the pipeline estate independently."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "pip_005",
+      "dimension": "pipelines",
+      "question": "Do your most important data pipelines have agreed freshness guarantees — a defined time by which data must be available — and are those guarantees met consistently?",
+      "help_text": "Freshness guarantees (sometimes called SLAs — service level agreements) define when data consumers can expect data to be ready. For example: 'the finance dashboard reflects data as of midnight, available by 6am'.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No freshness guarantees. Consumers do not know when data will be ready and are often surprised by delays."
+        },
+        {
+          "level": 2,
+          "label": "Informal expectations exist ('it usually runs overnight') but they are not documented or measured."
+        },
+        {
+          "level": 3,
+          "label": "Freshness SLAs are defined and documented for our most critical pipelines and are met most of the time."
+        },
+        {
+          "level": 4,
+          "label": "SLAs are defined for all significant pipelines, tracked as metrics, and reported when breached. Breach rates are improving over time."
+        },
+        {
+          "level": 5,
+          "label": "Freshness SLAs are contractually agreed with data consumers, automatically monitored, and breaches trigger real-time alerts and root cause investigation."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ana_001",
+      "dimension": "analytics",
+      "question": "When different teams or reports quote the same metric — such as 'monthly active users' or 'total revenue' — do they consistently arrive at the same number?",
+      "help_text": "Conflicting numbers in leadership meetings are a common sign that metric definitions are not agreed or enforced. This question is about whether your organisation has a 'single version of the truth' for key metrics.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — the same metric regularly produces different numbers depending on who calculated it and how. This causes confusion in meetings."
+        },
+        {
+          "level": 2,
+          "label": "Usually — most teams use the same source, but slight differences in calculation logic or date ranges cause occasional discrepancies."
+        },
+        {
+          "level": 3,
+          "label": "Yes for core metrics — key metrics have agreed definitions, documented calculation logic, and a single authoritative source."
+        },
+        {
+          "level": 4,
+          "label": "Yes consistently — metric definitions are enforced through a semantic or metric layer that all reports and dashboards reference."
+        },
+        {
+          "level": 5,
+          "label": "Yes everywhere — a governed semantic layer covers all business metrics, with version history and change management for definition updates."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ana_002",
+      "dimension": "analytics",
+      "question": "Can business users answer their own data questions without needing to request help from the data team for every query?",
+      "help_text": "Self-service analytics means business users can explore data, build their own views, and answer ad hoc questions — within guardrails — without waiting for a data engineer or analyst.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — all data questions go to the data team. Business users cannot access or query data independently."
+        },
+        {
+          "level": 2,
+          "label": "Limited — some pre-built dashboards exist, but any question outside the standard reports requires a data team request."
+        },
+        {
+          "level": 3,
+          "label": "Partially — a defined group of power users can explore data and build views. Most business users still rely on the data team."
+        },
+        {
+          "level": 4,
+          "label": "Broadly — most business users can answer common questions themselves using self-service tools, with the data team focused on harder problems."
+        },
+        {
+          "level": 5,
+          "label": "Fully embedded — self-service adoption is measured and high. The data team's role has shifted to building and maintaining the self-service infrastructure."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ana_003",
+      "dimension": "analytics",
+      "question": "Does your organisation manage the lifecycle of its reports and dashboards — retiring low-use or outdated ones and maintaining a curated, trusted set?",
+      "help_text": "Dashboard sprawl — hundreds of reports with overlapping or conflicting content — is a common problem. This question is about whether reports are treated as managed assets with owners and lifecycles.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No lifecycle management. Reports accumulate indefinitely. Nobody knows which reports are current or how many people use them."
+        },
+        {
+          "level": 2,
+          "label": "Some curation happens informally. Outdated reports are occasionally removed but there is no systematic process."
+        },
+        {
+          "level": 3,
+          "label": "Core reports have named owners and are reviewed periodically. Low-usage reports are candidates for deprecation."
+        },
+        {
+          "level": 4,
+          "label": "Dashboard usage is tracked. A regular review process retires low-use reports. A curated set of trusted reports is clearly signposted."
+        },
+        {
+          "level": 5,
+          "label": "Analytics delivery has a full product lifecycle — roadmap, usage metrics, SLAs, deprecation notices, and stakeholder sign-off for major changes."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ana_004",
+      "dimension": "analytics",
+      "question": "Does your organisation use a semantic layer or metric layer to define business metrics centrally — separate from individual reports and dashboards?",
+      "help_text": "A semantic layer (or metric layer) is a shared definition of business metrics — things like revenue, churn rate, or headcount — that all BI tools and reports reference. Examples include dbt Semantic Layer, Cube, or LookML.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — metrics are defined inside individual reports and dashboards. The same metric is calculated differently in different places."
+        },
+        {
+          "level": 2,
+          "label": "Informally — shared SQL views or tables act as a de facto shared layer for some metrics, but it is not formally governed."
+        },
+        {
+          "level": 3,
+          "label": "Partially — a semantic or metric layer exists for our most important KPIs (key performance indicators), used by most reports."
+        },
+        {
+          "level": 4,
+          "label": "Yes — a formal semantic layer governs all core metrics. Report authors reference it rather than writing their own metric logic."
+        },
+        {
+          "level": 5,
+          "label": "Yes, comprehensively — the semantic layer covers all business metrics, is versioned, tested, and accessible via multiple consumption surfaces (BI, notebooks, APIs)."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "ana_005",
+      "dimension": "analytics",
+      "question": "Does your organisation measure how its analytics products — dashboards, reports, and data tools — are actually used?",
+      "help_text": "Usage measurement might include: how many people viewed a dashboard this month, whether a report has any active users, or whether self-service queries are increasing over time.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — we do not track usage. We have no idea which reports are used frequently and which are never opened."
+        },
+        {
+          "level": 2,
+          "label": "We have rough visibility (e.g. from BI tool access logs) but it is not reviewed or acted on."
+        },
+        {
+          "level": 3,
+          "label": "Usage is tracked and reviewed periodically. High-usage and zero-usage reports are identifiable."
+        },
+        {
+          "level": 4,
+          "label": "Usage analytics inform prioritisation — we know which products are valuable and use that data to decide what to invest in next."
+        },
+        {
+          "level": 5,
+          "label": "Analytics product performance is tracked with OKRs (objectives and key results) — adoption rate, time-to-insight, and self-service ratio are all measured."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "sec_001",
+      "dimension": "security",
+      "question": "How does your organisation manage access to data — particularly sensitive or personal data?",
+      "help_text": "Least-privilege access means people can only access the data they need for their role. This question asks how deliberately and consistently that principle is applied.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Broadly permissive — most people have access to most data. Access is rarely reviewed or revoked."
+        },
+        {
+          "level": 2,
+          "label": "Basic controls exist (database permissions, folder access) but they are not consistently managed and access is rarely reviewed."
+        },
+        {
+          "level": 3,
+          "label": "Access is granted on a least-privilege basis through a formal request process. Access rights are reviewed at least annually."
+        },
+        {
+          "level": 4,
+          "label": "Access is regularly audited. Stale or excess access is automatically flagged and revoked. Role-based access control is consistently applied."
+        },
+        {
+          "level": 5,
+          "label": "Fine-grained, attribute-based access control is enforced at column and row level. Access is dynamically adjusted based on role, context, and data classification."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sec_002",
+      "dimension": "security",
+      "question": "Has your organisation identified and catalogued where personal data (PII — Personally Identifiable Information) is stored across its systems?",
+      "help_text": "PII includes names, email addresses, national insurance numbers, health data, and any other information that could identify an individual. You cannot protect what you haven't found.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — we have not systematically identified where personal data lives. It exists across many systems but is not catalogued."
+        },
+        {
+          "level": 2,
+          "label": "Partially — we know PII is in our main operational systems but have not mapped it comprehensively or confirmed all locations."
+        },
+        {
+          "level": 3,
+          "label": "Mostly — PII has been identified and documented across our core systems, with sensitivity tagging applied to the most important datasets."
+        },
+        {
+          "level": 4,
+          "label": "Comprehensively — PII is catalogued across the estate, tagged in the data catalogue, and linked to access and retention controls."
+        },
+        {
+          "level": 5,
+          "label": "Fully automated — PII detection runs at ingestion, new personal data is automatically flagged and classified, and the inventory is always current."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sec_003",
+      "dimension": "security",
+      "question": "Does your organisation have a data retention policy, and is it reliably enforced — meaning data is actually deleted or anonymised when its retention period expires?",
+      "help_text": "Keeping data longer than necessary increases privacy risk and storage cost. A policy that exists but is not enforced offers little protection.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No retention policy. Data is kept indefinitely unless someone manually deletes it. Most historical data is never purged."
+        },
+        {
+          "level": 2,
+          "label": "A retention policy exists on paper but enforcement is inconsistent — data is rarely deleted and the policy is mainly used for compliance documentation."
+        },
+        {
+          "level": 3,
+          "label": "Retention periods are defined for key data types and enforced for most critical or sensitive datasets, though some gaps remain."
+        },
+        {
+          "level": 4,
+          "label": "Retention policies are applied across the estate and enforced through automated deletion or anonymisation jobs. Compliance is audited."
+        },
+        {
+          "level": 5,
+          "label": "Retention is fully automated — data is deleted or anonymised on schedule without manual intervention. Privacy impact assessments inform retention decisions."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sec_004",
+      "dimension": "security",
+      "question": "Are data security and privacy considerations built into your project delivery process — not just reviewed at the end?",
+      "help_text": "Privacy by design means security and privacy are considered at the start of a project, not bolted on before go-live. A Data Protection Impact Assessment (DPIA) is a common mechanism for this.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — security and privacy are not part of our project process. They are addressed reactively if a problem is spotted or an audit requires it."
+        },
+        {
+          "level": 2,
+          "label": "Sometimes — a security review happens near the end of some projects, but it is not standard practice and is often skipped under time pressure."
+        },
+        {
+          "level": 3,
+          "label": "Yes for significant projects — data protection impact assessments and security reviews are a required step for projects handling personal or sensitive data."
+        },
+        {
+          "level": 4,
+          "label": "Consistently — privacy and security reviews are embedded in our standard project delivery checklist and completed before go-live for all relevant work."
+        },
+        {
+          "level": 5,
+          "label": "Privacy by design is embedded from day one. Security requirements are defined at the design stage. Reviews are automated where possible and block release if incomplete."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sec_005",
+      "dimension": "security",
+      "question": "Does your organisation maintain an audit trail of who accessed or changed sensitive data, and is that trail used for security monitoring?",
+      "help_text": "An audit trail records who accessed what data, when, and what they did. It is essential for detecting breaches and demonstrating compliance to regulators.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No audit trail. We cannot determine who accessed sensitive data or when, unless the system itself logs it by default."
+        },
+        {
+          "level": 2,
+          "label": "Basic logging exists in some systems (e.g. database query logs) but the logs are not reviewed and access is not monitored."
+        },
+        {
+          "level": 3,
+          "label": "Audit logging is enabled for systems holding sensitive data. Logs are retained for a defined period and reviewed when an incident occurs."
+        },
+        {
+          "level": 4,
+          "label": "Audit logs are centralised, reviewed regularly, and used for active monitoring. Unusual access patterns trigger alerts."
+        },
+        {
+          "level": 5,
+          "label": "Comprehensive audit trails are automatically generated, immutable, and used for continuous security monitoring. Compliance evidence is produced automatically for regulatory reviews."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "ski_001",
+      "dimension": "skills",
+      "question": "Does your organisation have a defined data team with named roles — such as data engineers, data analysts, or data platform engineers?",
+      "help_text": "This is about whether data work is done by people with clear, recognised data roles, or whether it falls to whoever has the technical skills, alongside their main job.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No dedicated data team or roles. Data work is done by whoever has the time and technical capability alongside their primary role."
+        },
+        {
+          "level": 2,
+          "label": "Some analytical roles exist (analysts, BI developers) but the team is small and mostly reactive to report requests."
+        },
+        {
+          "level": 3,
+          "label": "A data team exists with defined roles covering analysis, engineering, and at least some governance. Responsibilities are documented."
+        },
+        {
+          "level": 4,
+          "label": "The data team has a range of specialisms — engineering, analytics, governance, and product. Roles are clearly defined and career paths exist."
+        },
+        {
+          "level": 5,
+          "label": "Data capability is distributed across the organisation, with a central platform team enabling embedded data professionals in each business domain."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ski_002",
+      "dimension": "skills",
+      "question": "Does your organisation invest in training and skills development for its data team members?",
+      "help_text": "The data tooling and practice landscape changes quickly. Without active investment in learning, skills drift. This question is about whether training is resourced and expected, not just permitted.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No training investment. Learning happens informally if individuals find time, but there is no budget or encouragement."
+        },
+        {
+          "level": 2,
+          "label": "Occasional training — sometimes funded when a specific need arises, but it is not systematic or planned."
+        },
+        {
+          "level": 3,
+          "label": "A training budget exists. Team members are expected to spend some time on learning each quarter, with manager support."
+        },
+        {
+          "level": 4,
+          "label": "Skills gaps are assessed regularly. Training plans are aligned to both individual development and team capability needs."
+        },
+        {
+          "level": 5,
+          "label": "Continuous learning is embedded in the operating model. The team contributes to communities and conferences. Internal knowledge sharing is structured and regular."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ski_003",
+      "dimension": "skills",
+      "question": "Does your data team have a clear operating model — defining how it works with the rest of the organisation, how requests are prioritised, and who is accountable for what?",
+      "help_text": "An operating model might include: a service catalogue, a backlog process, defined SLAs for requests, and clear points of contact for different types of data need.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No operating model. The data team works reactively, responding to whoever asks loudest. There is no defined way to request data work."
+        },
+        {
+          "level": 2,
+          "label": "Informal — the team has a rough sense of priorities but there is no documented process and stakeholders are unsure how to engage."
+        },
+        {
+          "level": 3,
+          "label": "Defined — the data team has a managed backlog, a way for stakeholders to submit requests, and a roughly understood prioritisation approach."
+        },
+        {
+          "level": 4,
+          "label": "Structured — the operating model is documented and communicated. Stakeholders know how to engage, what to expect, and who to contact."
+        },
+        {
+          "level": 5,
+          "label": "Product-driven — the data function operates like a product team. It has a roadmap, stakeholder SLAs, published team norms, and regular retrospectives."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ski_004",
+      "dimension": "skills",
+      "question": "How would you describe data literacy across your wider organisation — beyond the data team itself?",
+      "help_text": "Data literacy means the ability of non-data-specialists to read, interpret, and critically question data. A data-literate organisation makes better decisions and gets more value from its data investments.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Low — most staff outside the data team are uncomfortable with data. Decisions are rarely data-informed."
+        },
+        {
+          "level": 2,
+          "label": "Variable — some teams or individuals are data-savvy, but it depends on personal interest rather than any structured effort."
+        },
+        {
+          "level": 3,
+          "label": "Growing — a data literacy programme exists or is planned. Key business teams are being upskilled and data is increasingly used in decisions."
+        },
+        {
+          "level": 4,
+          "label": "Broad — most managers and many staff can interpret data confidently. Data literacy is part of induction and ongoing development."
+        },
+        {
+          "level": 5,
+          "label": "Embedded — data literacy is treated as a core organisational capability. Programmes reach all levels. The data team is a valued strategic partner, not just a report factory."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ski_005",
+      "dimension": "skills",
+      "question": "Does your organisation systematically capture and share data knowledge — so that expertise is not lost when people leave or move roles?",
+      "help_text": "Knowledge capture might include: documented runbooks, architecture decision records, onboarding guides, internal wikis, or recorded demos. The risk is that critical knowledge lives only in specific people's heads.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No — knowledge is concentrated in specific individuals. When someone leaves, critical expertise goes with them."
+        },
+        {
+          "level": 2,
+          "label": "Some documentation exists, but it is created inconsistently and often goes out of date. Knowledge sharing depends on individuals' initiative."
+        },
+        {
+          "level": 3,
+          "label": "Key knowledge is documented — runbooks, architecture notes, onboarding guides — and these are actively used by new starters and during incidents."
+        },
+        {
+          "level": 4,
+          "label": "Knowledge sharing is systematic — documentation standards are set, knowledge is reviewed for currency, and sharing sessions (demos, guilds) are regular."
+        },
+        {
+          "level": 5,
+          "label": "Knowledge management is a team value. Documentation is a delivery requirement. The team contributes to external communities. Institutional knowledge is resilient to turnover."
+        }
+      ],
+      "allow_unknown": false
+    }
+  ]
+};
