@@ -66,7 +66,7 @@ dimension_score = sum(answered_question_scores) / count(answered_questions)
 
 If fewer than **50%** of a dimension's questions are answered (including `unknown` responses), the dimension is flagged as **"Insufficient data"** and no numeric score is shown. This prevents misleading high scores from very sparse data.
 
-The dimension **level** is the integer nearest to the dimension score, rounded down (floor). A score of 2.7 maps to Level 2.
+The dimension **level** is the dimension score rounded to the nearest integer (`Math.round`). A score of 2.7 maps to Level 3; a score of 2.4 maps to Level 2.
 
 ### Overall score
 
@@ -82,10 +82,10 @@ Scores are mapped to a narrative band for executive summary selection:
 
 | Band | Score range |
 |------|-------------|
-| `1-2` | 1.0 – 2.4 |
-| `2-3` | 2.5 – 3.4 |
-| `3-4` | 3.5 – 4.4 |
-| `4-5` | 4.5 – 5.0 |
+| `1-2` | 1.0 – 1.99 |
+| `2-3` | 2.0 – 2.99 |
+| `3-4` | 3.0 – 3.99 |
+| `4-5` | 4.0 – 5.0  |
 
 ---
 
