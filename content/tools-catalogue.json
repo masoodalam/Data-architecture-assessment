@@ -615,6 +615,136 @@
       ],
       "url": "https://min.io",
       "one_line": "S3-compatible object storage you can self-host \u2014 the standard choice for building an on-premises lakehouse storage layer without cloud vendor dependency."
+    },
+    {
+      "id": "airbyte",
+      "name": "Airbyte",
+      "category": "ingestion",
+      "licence": "Elastic Licence 2.0 (ELv2) \u2014 source available but NOT OSI-approved open source; cannot be offered as a managed service by third parties",
+      "type": "source_available",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "ELv2 licence prohibits offering Airbyte as a managed service \u2014 check licence compatibility before commercial embedding",
+        "Airbyte Cloud is the managed offering from Airbyte Inc",
+        "connector quality varies \u2014 community connectors may be unmaintained"
+      ],
+      "url": "https://airbyte.com",
+      "one_line": "The widest connector library in the ingestion space (700+ connectors) \u2014 note the ELv2 licence is not open source and restricts hosting it as a service."
+    },
+    {
+      "id": "meltano",
+      "name": "Meltano",
+      "category": "ingestion",
+      "licence": "MIT",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org"
+      ],
+      "constraints": [
+        "primarily a CLI and orchestration wrapper around Singer taps \u2014 connector ecosystem depends on Singer community maintenance",
+        "less polish than Airbyte's UI-driven approach"
+      ],
+      "url": "https://meltano.com",
+      "one_line": "True MIT-licensed ETL tool built on the Singer protocol \u2014 the right choice when open-source licensing matters and you prefer code-first pipeline configuration."
+    },
+    {
+      "id": "dlt",
+      "name": "dlt (data load tool)",
+      "category": "ingestion",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "embedded"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "low_ops_overhead"
+      ],
+      "constraints": [
+        "Python library \u2014 requires Python pipeline code rather than a UI-driven connector approach",
+        "younger project \u2014 ecosystem still growing"
+      ],
+      "url": "https://dlthub.com",
+      "one_line": "Python library for building self-normalising data pipelines \u2014 exceptionally low setup overhead and a natural fit for data engineers who want pipelines as code without a heavy platform."
+    },
+    {
+      "id": "debezium",
+      "name": "Debezium",
+      "category": "ingestion",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "high_data_volume"
+      ],
+      "constraints": [
+        "CDC (change data capture) specialist \u2014 not a general-purpose ETL tool",
+        "requires Kafka or a Kafka-compatible broker as the event bus",
+        "database source configuration (log-based CDC) requires DBA-level access"
+      ],
+      "url": "https://debezium.io",
+      "one_line": "The standard open-source CDC tool \u2014 streams row-level changes from databases (PostgreSQL, MySQL, Oracle, MongoDB) into Kafka topics in near real-time."
+    },
+    {
+      "id": "apache_nifi",
+      "name": "Apache NiFi",
+      "category": "ingestion",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "large_org",
+        "public_sector",
+        "on_prem"
+      ],
+      "constraints": [
+        "heavy Java-based system with significant infrastructure requirements",
+        "UI-based flow design does not translate well to version control",
+        "best suited to complex, heterogeneous data routing rather than simple ELT"
+      ],
+      "url": "https://nifi.apache.org",
+      "one_line": "Mature, visual data routing and transformation platform \u2014 strong in public sector and government contexts for regulated, heterogeneous data flows; heavy to operate."
+    },
+    {
+      "id": "fivetran",
+      "name": "Fivetran",
+      "category": "ingestion",
+      "licence": "Commercial",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "per-connector or MAR (monthly active rows) pricing can become expensive as data volumes grow",
+        "limited customisation \u2014 connectors do what they do, difficult to extend",
+        "SaaS-only"
+      ],
+      "url": "https://www.fivetran.com",
+      "one_line": "Fully managed connector platform with high connector reliability and zero operational overhead \u2014 worth the cost for teams where data engineering time is more expensive than SaaS fees."
     }
   ]
 }
