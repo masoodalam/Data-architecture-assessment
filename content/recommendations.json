@@ -442,6 +442,197 @@
         "Configure freshness alerts in your orchestrator or catalogue tool",
         "Track SLA breach rate monthly and treat repeated breaches as engineering debt"
       ]
+    },
+    {
+      "id": "rec_ana_curate_trusted_reports",
+      "title": "Build a small curated set of trusted, authoritative reports",
+      "dimension": "analytics",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "primary_tool": "apache_superset",
+      "alternative_tools": [
+        "metabase",
+        "power_bi"
+      ],
+      "rationale": "A hundred reports of varying quality are less useful than ten that everyone trusts. The most impactful analytics investment at low maturity is reducing the number of conflicting numbers in leadership meetings \u2014 which requires fewer, better reports, not more reports.",
+      "first_steps": [
+        "Identify the 8-10 reports referenced most often in senior leadership or board-level meetings",
+        "Verify that these reports use the same metric definitions and source of truth \u2014 reconcile any discrepancies",
+        "Mark these reports as 'certified' or 'trusted' in your BI tool and publish the list to the organisation",
+        "Assign an owner to each trusted report who is responsible for its accuracy and freshness"
+      ]
+    },
+    {
+      "id": "rec_ana_semantic_layer",
+      "title": "Implement a semantic layer to centralise metric definitions",
+      "dimension": "analytics",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "cube",
+      "alternative_tools": [
+        "dbt_semantic_layer",
+        "malloy"
+      ],
+      "rationale": "When metric logic lives inside individual reports, every new report recreates it \u2014 with subtle variations that erode trust. A semantic layer defines each metric once and exposes it consistently to all consumers, making 'which report is right?' a question of the past.",
+      "first_steps": [
+        "Audit your 10 most-used metrics: identify all the places they are currently defined and any discrepancies",
+        "Choose a semantic layer approach that fits your stack \u2014 dbt Semantic Layer if you are on dbt Cloud, Cube if you need language-agnostic flexibility",
+        "Define your top 10 metrics in the semantic layer first before expanding coverage",
+        "Update your trusted reports to reference the semantic layer definitions rather than their own SQL logic"
+      ]
+    },
+    {
+      "id": "rec_ana_self_service",
+      "title": "Expand self-service analytics to reduce data team bottlenecks",
+      "dimension": "analytics",
+      "trigger": {
+        "minLevel": 3
+      },
+      "priority": "strategic",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "metabase",
+      "alternative_tools": [
+        "apache_superset",
+        "lightdash",
+        "power_bi"
+      ],
+      "rationale": "When every business question requires a data team request, analysts spend most of their time on report production rather than insight generation. Self-service does not mean giving everyone unrestricted access \u2014 it means building curated, governed data products that power users can explore safely.",
+      "first_steps": [
+        "Define which user personas are your target self-service audience \u2014 typically operational managers and senior analysts, not all staff",
+        "Build 2-3 exploratory data products (curated datasets with consistent definitions) designed for self-service use",
+        "Run a facilitated training session with power users \u2014 show them how to use the tool, not just that it exists",
+        "Track self-service query volume monthly to measure adoption"
+      ]
+    },
+    {
+      "id": "rec_ana_report_lifecycle",
+      "title": "Implement report lifecycle management to address dashboard sprawl",
+      "dimension": "analytics",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "S",
+      "horizon": "next_6_months",
+      "rationale": "Most mature analytics estates have accumulated hundreds of reports, many of which are rarely or never used. Dashboard sprawl wastes maintenance effort, confuses users, and dilutes trust in the reports that matter. A systematic retirement process fixes this.",
+      "first_steps": [
+        "Enable usage analytics in your BI tool \u2014 most tools provide view counts and last-accessed dates",
+        "Identify reports with zero views in the last 90 days and contact their owners before archiving",
+        "Establish a quarterly 'report health' review that checks usage, owner assignment, and freshness",
+        "Set a policy that new reports require an owner on creation \u2014 no owner, no publication"
+      ]
+    },
+    {
+      "id": "rec_sec_access_control",
+      "title": "Move to least-privilege access control for data assets",
+      "dimension": "security",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "rationale": "Broad data access is the most common cause of data breach exposure and the most common finding in regulatory audits. Restricting access to what each person needs for their role is not bureaucracy \u2014 it is the baseline of responsible data management.",
+      "first_steps": [
+        "Audit who currently has access to your most sensitive data stores \u2014 the result is often surprising",
+        "Remove access for leavers and people who have changed roles (stale access)",
+        "Implement a formal access request process: request, justification, approval, time-limited grant",
+        "Schedule a quarterly access review for sensitive data \u2014 automate the reminder if possible"
+      ]
+    },
+    {
+      "id": "rec_sec_pii_inventory",
+      "title": "Complete a PII (Personally Identifiable Information) inventory across your core systems",
+      "dimension": "security",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "public_sector",
+          "regulated_private"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "microsoft_presidio",
+      "rationale": "You cannot protect personal data you have not found. A PII inventory is a legal requirement under UK GDPR (General Data Protection Regulation) for most organisations and the prerequisite for meaningful data retention and access control. Starting with your top 10 most data-rich systems is sufficient to surface most risk.",
+      "first_steps": [
+        "List your top 10 systems most likely to hold personal data (CRM, HR, case management, operational databases)",
+        "For each system, document: what personal data it holds, the legal basis for processing it, who has access, and how long it is retained",
+        "Use Microsoft Presidio or a catalogue scanning tool to identify PII in analytical datasets",
+        "Tag identified PII in your data catalogue and link to retention and access policies"
+      ]
+    },
+    {
+      "id": "rec_sec_retention_enforcement",
+      "title": "Enforce your data retention policy through automated deletion",
+      "dimension": "security",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "rationale": "A retention policy that is not enforced is not a retention policy \u2014 it is a document. Unenforced retention creates accumulating liability as personal data is held beyond its legal basis. Automated deletion jobs are the most reliable enforcement mechanism.",
+      "first_steps": [
+        "Confirm legal retention periods for your most sensitive data types with your data protection officer or legal team",
+        "Build a scheduled job (or configure cloud lifecycle rules) to delete or anonymise records past their retention date",
+        "Test the deletion job in a non-production environment before running in production",
+        "Log all deletion runs and keep audit records \u2014 you may need to evidence this to a regulator"
+      ]
+    },
+    {
+      "id": "rec_sec_privacy_by_design",
+      "title": "Embed data protection assessments in your project delivery process",
+      "dimension": "security",
+      "trigger": {
+        "minLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "public_sector",
+          "regulated_private"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Security and privacy issues found at go-live are far more expensive to fix than those caught at design. A lightweight Data Protection Impact Assessment (DPIA) gate for any project touching personal data prevents most late-stage surprises.",
+      "first_steps": [
+        "Create a simple DPIA template covering: what data is processed, legal basis, retention, access controls, and third-party data sharing",
+        "Define which projects trigger a DPIA \u2014 typically any new system or significant change involving personal data",
+        "Make DPIA sign-off a prerequisite for go-live in your delivery governance",
+        "Assign a named person (DPO or equivalent) responsible for reviewing DPIAs"
+      ]
+    },
+    {
+      "id": "rec_sec_audit_trail",
+      "title": "Centralise audit logging for sensitive data access",
+      "dimension": "security",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "M",
+      "horizon": "strategic",
+      "rationale": "At maturity level 4, you have controls in place. The next step is continuous monitoring \u2014 knowing not just who has access, but who is using it and how. Centralised audit logs make investigations possible and regulatory evidence generation automatic.",
+      "first_steps": [
+        "Enable query logging on all data stores holding sensitive or personal data",
+        "Ship logs to a central SIEM (Security Information and Event Management) or log store with sufficient retention",
+        "Define alerting rules for suspicious patterns: access at unusual hours, bulk downloads, access to data outside a user's normal scope",
+        "Run a quarterly access behaviour review alongside your access rights review"
+      ]
     }
   ]
 }
