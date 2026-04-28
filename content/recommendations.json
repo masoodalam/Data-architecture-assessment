@@ -96,6 +96,176 @@
         "Configure automated retention enforcement for your highest-risk data stores",
         "Build a governance metrics dashboard tracking access review completion rate, policy breach count, and domain ownership coverage"
       ]
+    },
+    {
+      "id": "rec_met_deploy_catalogue",
+      "title": "Deploy a metadata catalogue",
+      "dimension": "metadata",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "openmetadata",
+      "alternative_tools": [
+        "datahub",
+        "amundsen"
+      ],
+      "rationale": "Data discovery via tribal knowledge breaks down as teams grow and rotate. A catalogue is the single highest-leverage metadata investment \u2014 it compounds: every dataset documented reduces the cost of every future project that uses it.",
+      "first_steps": [
+        "Identify your top 20 most-used datasets and document owner, description, source system, and refresh cadence for each",
+        "Stand up a catalogue tool in a non-production environment and connect it to your main data warehouse",
+        "Run a two-week trial with one or two teams before rolling out broadly",
+        "Make catalogue entry a mandatory checklist item when publishing a new dataset"
+      ]
+    },
+    {
+      "id": "rec_met_build_glossary",
+      "title": "Build a business glossary for core metrics and terms",
+      "dimension": "metadata",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Conflicting metric definitions are one of the most common causes of lost trust in data. A business glossary does not need a tool \u2014 a well-maintained wiki page covering your 20 most-contested terms eliminates most of the confusion.",
+      "first_steps": [
+        "Run a 1-hour workshop with representatives from finance, operations, and the data team to list the 10 metrics most often disputed in reports",
+        "For each metric, agree the definition, the calculation, the inclusion/exclusion rules, and the authoritative source",
+        "Publish the glossary somewhere all staff can access and link to it from every dashboard",
+        "Assign ownership: who updates the glossary when a definition changes?"
+      ]
+    },
+    {
+      "id": "rec_met_implement_lineage",
+      "title": "Implement automated data lineage for key pipelines",
+      "dimension": "metadata",
+      "trigger": {
+        "minLevel": 3,
+        "maxLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "openmetadata",
+      "alternative_tools": [
+        "datahub"
+      ],
+      "rationale": "Without lineage, a bad number in a dashboard triggers a detective investigation every time. With lineage, you trace the problem to its source in minutes. Automated lineage from your dbt or Airflow metadata is often the lowest-effort starting point.",
+      "first_steps": [
+        "Enable lineage extraction in your catalogue from your existing orchestrator (Airflow, Dagster) or transformation tool (dbt)",
+        "Map lineage for your top 10 most business-critical reports back to their source systems",
+        "Add lineage documentation as a requirement for all new pipelines",
+        "Review lineage coverage quarterly and prioritise gaps in high-risk domains"
+      ]
+    },
+    {
+      "id": "rec_met_automate_metadata",
+      "title": "Automate metadata population at pipeline publish time",
+      "dimension": "metadata",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "L",
+      "horizon": "strategic",
+      "primary_tool": "datahub",
+      "alternative_tools": [
+        "openmetadata"
+      ],
+      "rationale": "Manually maintained catalogues drift from reality within weeks. At scale, the only way to keep metadata current is to make it a side-effect of pipeline execution \u2014 every publish updates the catalogue automatically. This requires integration between your orchestrator and catalogue.",
+      "first_steps": [
+        "Instrument your pipeline framework to emit metadata events on each successful run",
+        "Configure catalogue ingestion from your orchestrator, dbt manifest, and warehouse schema",
+        "Set up data freshness monitoring so catalogue entries reflect actual last-updated timestamps",
+        "Measure catalogue coverage and staleness as team metrics"
+      ]
+    },
+    {
+      "id": "rec_qua_define_framework",
+      "title": "Define your data quality dimensions and set measurable thresholds",
+      "dimension": "quality",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "You cannot improve what you do not measure. Agreeing on what 'good quality' means for each critical dataset \u2014 and writing it down \u2014 is the prerequisite for everything else in this dimension. This is a conversation, not a technology problem.",
+      "first_steps": [
+        "Hold a 2-hour workshop with data consumers to define quality expectations for your 5 most critical datasets",
+        "For each dataset, agree thresholds for completeness, timeliness, and consistency at minimum",
+        "Document agreed thresholds in your data catalogue or a shared wiki",
+        "Review thresholds after 90 days to refine based on what failures you actually encounter"
+      ]
+    },
+    {
+      "id": "rec_qua_automate_checks",
+      "title": "Implement automated quality checks in your pipelines",
+      "dimension": "quality",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "dbt_tests",
+      "alternative_tools": [
+        "great_expectations",
+        "soda_core",
+        "elementary"
+      ],
+      "rationale": "Manual spot-checks before reports are a bottleneck and miss most problems. Automated checks that run on every load catch regressions before consumers see them, and free analysts to do analysis rather than data validation.",
+      "first_steps": [
+        "Start with the 5 datasets where quality failures have caused the most downstream pain",
+        "Write basic checks: row count not zero, no nulls in key columns, no duplicate primary keys, values within expected range",
+        "Configure pipeline to fail or alert when checks breach thresholds",
+        "Expand check coverage to 20 datasets within 3 months"
+      ]
+    },
+    {
+      "id": "rec_qua_incident_process",
+      "title": "Establish a data quality incident process",
+      "dimension": "quality",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Without a defined process, quality incidents are resolved inconsistently and the same issues recur. A lightweight process \u2014 log it, triage it, fix it, retrospect on it \u2014 reduces repeat incidents and builds trust with data consumers.",
+      "first_steps": [
+        "Define a simple incident severity scale: P1 (wrong numbers in leadership report), P2 (wrong numbers noticed by team), P3 (process concern not yet visible to consumers)",
+        "Create a shared log (a simple spreadsheet or ticketing system) for quality incidents",
+        "Agree target response times per severity level",
+        "Run a monthly retrospective on incidents to identify systemic causes"
+      ]
+    },
+    {
+      "id": "rec_qua_observability",
+      "title": "Invest in data observability to catch anomalies before consumers do",
+      "dimension": "quality",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "M",
+      "horizon": "strategic",
+      "primary_tool": "elementary",
+      "alternative_tools": [
+        "monte_carlo",
+        "bigeye",
+        "great_expectations"
+      ],
+      "rationale": "At maturity level 4, you have checks and an incident process. The next level is proactive detection \u2014 anomaly detection that surfaces issues nobody thought to write a rule for. This shifts quality from reactive to predictive.",
+      "first_steps": [
+        "Evaluate anomaly detection tools against your current stack \u2014 Elementary if you are on dbt, Monte Carlo or Bigeye if you need broader coverage",
+        "Start anomaly detection on your highest-traffic tables where unusual patterns are most meaningful",
+        "Tune sensitivity to reduce false positives before rolling out broadly",
+        "Measure the reduction in consumer-reported incidents as a success metric"
+      ]
     }
   ]
 }
