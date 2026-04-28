@@ -900,6 +900,156 @@
         }
       ],
       "allow_unknown": true
+    },
+    {
+      "id": "sec_001",
+      "dimension": "security",
+      "question": "How does your organisation manage access to data \u2014 particularly sensitive or personal data?",
+      "help_text": "Least-privilege access means people can only access the data they need for their role. This question asks how deliberately and consistently that principle is applied.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Broadly permissive \u2014 most people have access to most data. Access is rarely reviewed or revoked."
+        },
+        {
+          "level": 2,
+          "label": "Basic controls exist (database permissions, folder access) but they are not consistently managed and access is rarely reviewed."
+        },
+        {
+          "level": 3,
+          "label": "Access is granted on a least-privilege basis through a formal request process. Access rights are reviewed at least annually."
+        },
+        {
+          "level": 4,
+          "label": "Access is regularly audited. Stale or excess access is automatically flagged and revoked. Role-based access control is consistently applied."
+        },
+        {
+          "level": 5,
+          "label": "Fine-grained, attribute-based access control is enforced at column and row level. Access is dynamically adjusted based on role, context, and data classification."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sec_002",
+      "dimension": "security",
+      "question": "Has your organisation identified and catalogued where personal data (PII \u2014 Personally Identifiable Information) is stored across its systems?",
+      "help_text": "PII includes names, email addresses, national insurance numbers, health data, and any other information that could identify an individual. You cannot protect what you haven't found.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 we have not systematically identified where personal data lives. It exists across many systems but is not catalogued."
+        },
+        {
+          "level": 2,
+          "label": "Partially \u2014 we know PII is in our main operational systems but have not mapped it comprehensively or confirmed all locations."
+        },
+        {
+          "level": 3,
+          "label": "Mostly \u2014 PII has been identified and documented across our core systems, with sensitivity tagging applied to the most important datasets."
+        },
+        {
+          "level": 4,
+          "label": "Comprehensively \u2014 PII is catalogued across the estate, tagged in the data catalogue, and linked to access and retention controls."
+        },
+        {
+          "level": 5,
+          "label": "Fully automated \u2014 PII detection runs at ingestion, new personal data is automatically flagged and classified, and the inventory is always current."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sec_003",
+      "dimension": "security",
+      "question": "Does your organisation have a data retention policy, and is it reliably enforced \u2014 meaning data is actually deleted or anonymised when its retention period expires?",
+      "help_text": "Keeping data longer than necessary increases privacy risk and storage cost. A policy that exists but is not enforced offers little protection.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No retention policy. Data is kept indefinitely unless someone manually deletes it. Most historical data is never purged."
+        },
+        {
+          "level": 2,
+          "label": "A retention policy exists on paper but enforcement is inconsistent \u2014 data is rarely deleted and the policy is mainly used for compliance documentation."
+        },
+        {
+          "level": 3,
+          "label": "Retention periods are defined for key data types and enforced for most critical or sensitive datasets, though some gaps remain."
+        },
+        {
+          "level": 4,
+          "label": "Retention policies are applied across the estate and enforced through automated deletion or anonymisation jobs. Compliance is audited."
+        },
+        {
+          "level": 5,
+          "label": "Retention is fully automated \u2014 data is deleted or anonymised on schedule without manual intervention. Privacy impact assessments inform retention decisions."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sec_004",
+      "dimension": "security",
+      "question": "Are data security and privacy considerations built into your project delivery process \u2014 not just reviewed at the end?",
+      "help_text": "Privacy by design means security and privacy are considered at the start of a project, not bolted on before go-live. A Data Protection Impact Assessment (DPIA) is a common mechanism for this.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 security and privacy are not part of our project process. They are addressed reactively if a problem is spotted or an audit requires it."
+        },
+        {
+          "level": 2,
+          "label": "Sometimes \u2014 a security review happens near the end of some projects, but it is not standard practice and is often skipped under time pressure."
+        },
+        {
+          "level": 3,
+          "label": "Yes for significant projects \u2014 data protection impact assessments and security reviews are a required step for projects handling personal or sensitive data."
+        },
+        {
+          "level": 4,
+          "label": "Consistently \u2014 privacy and security reviews are embedded in our standard project delivery checklist and completed before go-live for all relevant work."
+        },
+        {
+          "level": 5,
+          "label": "Privacy by design is embedded from day one. Security requirements are defined at the design stage. Reviews are automated where possible and block release if incomplete."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "sec_005",
+      "dimension": "security",
+      "question": "Does your organisation maintain an audit trail of who accessed or changed sensitive data, and is that trail used for security monitoring?",
+      "help_text": "An audit trail records who accessed what data, when, and what they did. It is essential for detecting breaches and demonstrating compliance to regulators.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No audit trail. We cannot determine who accessed sensitive data or when, unless the system itself logs it by default."
+        },
+        {
+          "level": 2,
+          "label": "Basic logging exists in some systems (e.g. database query logs) but the logs are not reviewed and access is not monitored."
+        },
+        {
+          "level": 3,
+          "label": "Audit logging is enabled for systems holding sensitive data. Logs are retained for a defined period and reviewed when an incident occurs."
+        },
+        {
+          "level": 4,
+          "label": "Audit logs are centralised, reviewed regularly, and used for active monitoring. Unusual access patterns trigger alerts."
+        },
+        {
+          "level": 5,
+          "label": "Comprehensive audit trails are automatically generated, immutable, and used for continuous security monitoring. Compliance evidence is produced automatically for regulatory reviews."
+        }
+      ],
+      "allow_unknown": true
     }
   ]
 }
