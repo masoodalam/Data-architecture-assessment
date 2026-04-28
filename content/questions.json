@@ -1050,6 +1050,156 @@
         }
       ],
       "allow_unknown": true
+    },
+    {
+      "id": "ski_001",
+      "dimension": "skills",
+      "question": "Does your organisation have a defined data team with named roles \u2014 such as data engineers, data analysts, or data platform engineers?",
+      "help_text": "This is about whether data work is done by people with clear, recognised data roles, or whether it falls to whoever has the technical skills, alongside their main job.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No dedicated data team or roles. Data work is done by whoever has the time and technical capability alongside their primary role."
+        },
+        {
+          "level": 2,
+          "label": "Some analytical roles exist (analysts, BI developers) but the team is small and mostly reactive to report requests."
+        },
+        {
+          "level": 3,
+          "label": "A data team exists with defined roles covering analysis, engineering, and at least some governance. Responsibilities are documented."
+        },
+        {
+          "level": 4,
+          "label": "The data team has a range of specialisms \u2014 engineering, analytics, governance, and product. Roles are clearly defined and career paths exist."
+        },
+        {
+          "level": 5,
+          "label": "Data capability is distributed across the organisation, with a central platform team enabling embedded data professionals in each business domain."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ski_002",
+      "dimension": "skills",
+      "question": "Does your organisation invest in training and skills development for its data team members?",
+      "help_text": "The data tooling and practice landscape changes quickly. Without active investment in learning, skills drift. This question is about whether training is resourced and expected, not just permitted.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No training investment. Learning happens informally if individuals find time, but there is no budget or encouragement."
+        },
+        {
+          "level": 2,
+          "label": "Occasional training \u2014 sometimes funded when a specific need arises, but it is not systematic or planned."
+        },
+        {
+          "level": 3,
+          "label": "A training budget exists. Team members are expected to spend some time on learning each quarter, with manager support."
+        },
+        {
+          "level": 4,
+          "label": "Skills gaps are assessed regularly. Training plans are aligned to both individual development and team capability needs."
+        },
+        {
+          "level": 5,
+          "label": "Continuous learning is embedded in the operating model. The team contributes to communities and conferences. Internal knowledge sharing is structured and regular."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ski_003",
+      "dimension": "skills",
+      "question": "Does your data team have a clear operating model \u2014 defining how it works with the rest of the organisation, how requests are prioritised, and who is accountable for what?",
+      "help_text": "An operating model might include: a service catalogue, a backlog process, defined SLAs for requests, and clear points of contact for different types of data need.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No operating model. The data team works reactively, responding to whoever asks loudest. There is no defined way to request data work."
+        },
+        {
+          "level": 2,
+          "label": "Informal \u2014 the team has a rough sense of priorities but there is no documented process and stakeholders are unsure how to engage."
+        },
+        {
+          "level": 3,
+          "label": "Defined \u2014 the data team has a managed backlog, a way for stakeholders to submit requests, and a roughly understood prioritisation approach."
+        },
+        {
+          "level": 4,
+          "label": "Structured \u2014 the operating model is documented and communicated. Stakeholders know how to engage, what to expect, and who to contact."
+        },
+        {
+          "level": 5,
+          "label": "Product-driven \u2014 the data function operates like a product team. It has a roadmap, stakeholder SLAs, published team norms, and regular retrospectives."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ski_004",
+      "dimension": "skills",
+      "question": "How would you describe data literacy across your wider organisation \u2014 beyond the data team itself?",
+      "help_text": "Data literacy means the ability of non-data-specialists to read, interpret, and critically question data. A data-literate organisation makes better decisions and gets more value from its data investments.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "Low \u2014 most staff outside the data team are uncomfortable with data. Decisions are rarely data-informed."
+        },
+        {
+          "level": 2,
+          "label": "Variable \u2014 some teams or individuals are data-savvy, but it depends on personal interest rather than any structured effort."
+        },
+        {
+          "level": 3,
+          "label": "Growing \u2014 a data literacy programme exists or is planned. Key business teams are being upskilled and data is increasingly used in decisions."
+        },
+        {
+          "level": 4,
+          "label": "Broad \u2014 most managers and many staff can interpret data confidently. Data literacy is part of induction and ongoing development."
+        },
+        {
+          "level": 5,
+          "label": "Embedded \u2014 data literacy is treated as a core organisational capability. Programmes reach all levels. The data team is a valued strategic partner, not just a report factory."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "ski_005",
+      "dimension": "skills",
+      "question": "Does your organisation systematically capture and share data knowledge \u2014 so that expertise is not lost when people leave or move roles?",
+      "help_text": "Knowledge capture might include: documented runbooks, architecture decision records, onboarding guides, internal wikis, or recorded demos. The risk is that critical knowledge lives only in specific people's heads.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No \u2014 knowledge is concentrated in specific individuals. When someone leaves, critical expertise goes with them."
+        },
+        {
+          "level": 2,
+          "label": "Some documentation exists, but it is created inconsistently and often goes out of date. Knowledge sharing depends on individuals' initiative."
+        },
+        {
+          "level": 3,
+          "label": "Key knowledge is documented \u2014 runbooks, architecture notes, onboarding guides \u2014 and these are actively used by new starters and during incidents."
+        },
+        {
+          "level": 4,
+          "label": "Knowledge sharing is systematic \u2014 documentation standards are set, knowledge is reviewed for currency, and sharing sessions (demos, guilds) are regular."
+        },
+        {
+          "level": 5,
+          "label": "Knowledge management is a team value. Documentation is a delivery requirement. The team contributes to external communities. Institutional knowledge is resilient to turnover."
+        }
+      ],
+      "allow_unknown": false
     }
   ]
 }
