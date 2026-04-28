@@ -1153,6 +1153,159 @@
       ],
       "url": "https://www.tableau.com",
       "one_line": "Premium BI platform with outstanding visualisation capabilities and a mature enterprise feature set \u2014 the benchmark for visual analytics, but priced accordingly."
+    },
+    {
+      "id": "cube",
+      "name": "Cube",
+      "category": "semantic_layer",
+      "licence": "MIT (Cube Core) / Commercial (Cube Cloud)",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "requires a separate API layer in front of your data warehouse \u2014 adds infrastructure to maintain",
+        "JavaScript/TypeScript schema definition \u2014 not purely SQL",
+        "Cube Cloud is the managed offering; self-hosting the full stack requires effort"
+      ],
+      "url": "https://cube.dev",
+      "one_line": "Semantic layer and API gateway for analytical data \u2014 exposes consistent metric definitions to BI tools, notebooks, and applications through a single governed API."
+    },
+    {
+      "id": "dbt_semantic_layer",
+      "name": "dbt Semantic Layer",
+      "category": "semantic_layer",
+      "licence": "Commercial (requires dbt Cloud \u2014 not available in dbt Core)",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "dbt Cloud subscription required \u2014 not available in the open-source dbt Core",
+        "BI tool integration requires MetricFlow-compatible connectors \u2014 adoption still growing"
+      ],
+      "url": "https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl",
+      "one_line": "Metric definitions in dbt models surfaced to BI tools via a governed API \u2014 the cleanest path to a semantic layer if you are already on dbt Cloud."
+    },
+    {
+      "id": "malloy",
+      "name": "Malloy",
+      "category": "semantic_layer",
+      "licence": "MIT",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "embedded"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org"
+      ],
+      "constraints": [
+        "new language to learn \u2014 Malloy is not SQL and has a learning curve",
+        "small community and ecosystem \u2014 limited third-party integrations",
+        "primarily a Google/Looker project \u2014 community adoption is still early"
+      ],
+      "url": "https://www.malloydata.dev",
+      "one_line": "Open-source analytical language and semantic model from Google \u2014 an interesting alternative to SQL for composable metric definitions, but early-stage adoption."
+    },
+    {
+      "id": "apache_ranger",
+      "name": "Apache Ranger",
+      "category": "security_access",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "large_org",
+        "public_sector",
+        "on_prem"
+      ],
+      "constraints": [
+        "primarily designed for Hadoop ecosystem (HDFS, Hive, HBase) \u2014 integration with modern lakehouse platforms requires configuration effort",
+        "complex to set up and administer",
+        "lighter-touch alternatives exist for non-Hadoop environments"
+      ],
+      "url": "https://ranger.apache.org",
+      "one_line": "Centralised access control and auditing for Hadoop ecosystem components \u2014 the established choice for large on-premises data platforms, but heavy outside that context."
+    },
+    {
+      "id": "openfga",
+      "name": "OpenFGA",
+      "category": "security_access",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org"
+      ],
+      "constraints": [
+        "a fine-grained authorisation engine, not a data platform access control tool per se \u2014 requires integration with your application or data platform APIs",
+        "requires development effort to implement the authorisation model"
+      ],
+      "url": "https://openfga.dev",
+      "one_line": "CNCF-hosted fine-grained authorisation engine (originated at Auth0) \u2014 implements relationship-based access control (ReBAC) as a service, useful for attribute-based data access control."
+    },
+    {
+      "id": "hashicorp_vault",
+      "name": "HashiCorp Vault Community",
+      "category": "security_access",
+      "licence": "BSL 1.1 (since August 2023) \u2014 was MPL 2.0; OpenBao is the MPL 2.0 community fork",
+      "type": "source_available",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "regulated_private"
+      ],
+      "constraints": [
+        "BSL 1.1 change in 2023 \u2014 if OSI-approved open source matters, consider OpenBao (MPL 2.0 fork)",
+        "significant operational complexity to run in HA (high-availability) mode",
+        "primarily a secrets manager, not a data access control platform"
+      ],
+      "url": "https://www.vaultproject.io",
+      "one_line": "The standard secrets management platform for storing credentials, API keys, and certificates \u2014 essential infrastructure for any organisation handling sensitive connection strings and service tokens."
+    },
+    {
+      "id": "keycloak",
+      "name": "Keycloak",
+      "category": "security_access",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "public_sector",
+        "on_prem"
+      ],
+      "constraints": [
+        "identity and access management (IAM) platform \u2014 provides authentication/SSO, not fine-grained data access control",
+        "operationally complex to run in production with HA"
+      ],
+      "url": "https://www.keycloak.org",
+      "one_line": "Open-source identity and access management \u2014 the standard self-hosted alternative to Okta or Azure AD for SSO, OAuth2, and OIDC integration across your data platform."
     }
   ]
 }
