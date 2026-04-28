@@ -2,7 +2,54 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "dimensions.schema.json",
   "title": "Dimensions",
-  "description": "Schema for content/dimensions.json — the 8 assessment dimensions.",
+  "description": "The 8 assessment dimensions. Each has a unique ID, display name, icon, weight, and description.",
   "type": "array",
-  "items": {}
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "required": ["id", "name", "label", "shortLabel", "icon", "weight", "description", "color"],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$",
+        "description": "Unique snake_case identifier used as a key throughout the application."
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Full dimension name, used in schema documentation and alt text."
+      },
+      "label": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Full display label shown in the UI."
+      },
+      "shortLabel": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Short label used in compact UI contexts (radar chart axis labels, mobile)."
+      },
+      "icon": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Lucide icon name (kebab-case). See https://lucide.dev/icons/ for valid names."
+      },
+      "weight": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "Relative weight applied when computing the overall score. Default is 1.0."
+      },
+      "description": {
+        "type": "string",
+        "minLength": 10,
+        "description": "Two-sentence description of what this dimension covers and why it matters."
+      },
+      "color": {
+        "type": "string",
+        "pattern": "^#[0-9A-Fa-f]{6}$",
+        "description": "Hex colour used for this dimension in charts and UI accents."
+      }
+    }
+  }
 }
