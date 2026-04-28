@@ -300,6 +300,156 @@
         }
       ],
       "allow_unknown": false
+    },
+    {
+      "id": "qua_001",
+      "dimension": "quality",
+      "question": "How are data quality problems typically discovered in your organisation?",
+      "help_text": "Think about who spots quality issues and at what point in the process \u2014 before data is used, or after someone notices something is wrong.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "By end users noticing something looks wrong \u2014 a report breaks, a figure seems implausible, or a complaint arrives."
+        },
+        {
+          "level": 2,
+          "label": "By analysts running manual spot-checks before key reports are published, but not systematically or for all data."
+        },
+        {
+          "level": 3,
+          "label": "By automated checks that run on our most critical datasets and alert the data team when thresholds are breached."
+        },
+        {
+          "level": 4,
+          "label": "By a monitoring layer that continuously checks quality across most of the estate and routes alerts to the right owners."
+        },
+        {
+          "level": 5,
+          "label": "By anomaly detection that surfaces issues proactively \u2014 often before any downstream consumer has been affected."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "qua_002",
+      "dimension": "quality",
+      "question": "Does your organisation have defined quality dimensions \u2014 such as completeness, accuracy, timeliness, and consistency \u2014 applied to its data?",
+      "help_text": "Quality dimensions are the specific properties you measure. Without defining them, 'good quality' means different things to different people.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No defined quality dimensions. Quality is assessed informally based on whether data 'looks right'."
+        },
+        {
+          "level": 2,
+          "label": "Some teams have implicit quality expectations but they are not formally defined, documented, or consistently applied."
+        },
+        {
+          "level": 3,
+          "label": "A quality framework with defined dimensions is in place and applied to our most critical datasets with measurable thresholds."
+        },
+        {
+          "level": 4,
+          "label": "Quality dimensions are defined across most of the estate, with per-dataset thresholds, owners, and a formal breach process."
+        },
+        {
+          "level": 5,
+          "label": "Quality rules are codified as tests in our pipeline tooling, applied at every stage, and continuously refined based on incident data."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "qua_003",
+      "dimension": "quality",
+      "question": "When a data quality incident occurs, does your organisation have a defined process for triaging, fixing, and learning from it?",
+      "help_text": "A quality incident is any case where bad data reached a consumer \u2014 a wrong report, a broken dashboard, or incorrect data in a downstream system.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No process. Whoever notices the problem fixes it as best they can. The same issues recur regularly."
+        },
+        {
+          "level": 2,
+          "label": "The data team investigates when issues are reported, but there is no standard triage process and root causes are rarely documented."
+        },
+        {
+          "level": 3,
+          "label": "A defined incident process exists \u2014 issues are logged, triaged, assigned, and resolved within agreed timeframes for critical data."
+        },
+        {
+          "level": 4,
+          "label": "Incidents are tracked over time. Root cause analysis is performed for recurring issues. Quality debt is maintained as a visible backlog."
+        },
+        {
+          "level": 5,
+          "label": "Incident retrospectives feed directly into pipeline improvements and test coverage. The defect rate demonstrably decreases over time."
+        }
+      ],
+      "allow_unknown": false
+    },
+    {
+      "id": "qua_004",
+      "dimension": "quality",
+      "question": "Are data quality metrics reported to business stakeholders \u2014 not just tracked internally by the data team?",
+      "help_text": "This is about whether quality is treated as a shared concern, or as something the data team manages in private.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No quality metrics exist. Stakeholders have no visibility of data quality unless they raise an issue themselves."
+        },
+        {
+          "level": 2,
+          "label": "The data team tracks some quality stats internally but does not share them with business stakeholders in any regular way."
+        },
+        {
+          "level": 3,
+          "label": "Key quality metrics are reported to relevant stakeholders at least monthly, with context on trends and outstanding issues."
+        },
+        {
+          "level": 4,
+          "label": "Quality scorecards are part of regular data reporting. SLAs (service level agreements) for critical datasets are agreed and tracked."
+        },
+        {
+          "level": 5,
+          "label": "Quality metrics are embedded in data product dashboards. Stakeholders can self-serve quality information. SLA performance is publicly visible within the organisation."
+        }
+      ],
+      "allow_unknown": true
+    },
+    {
+      "id": "qua_005",
+      "dimension": "quality",
+      "question": "Are data quality checks embedded as automated tests in your data pipelines \u2014 running on every load, not just on demand?",
+      "help_text": "For example, using tools like dbt tests, Great Expectations, or Soda Core to validate data as it flows through the pipeline rather than checking it manually afterwards.",
+      "weight": 1,
+      "options": [
+        {
+          "level": 1,
+          "label": "No automated tests. Quality is checked manually, if at all, after data has already been loaded."
+        },
+        {
+          "level": 2,
+          "label": "Some ad hoc SQL checks or scripts exist but they are not part of the pipeline and must be run manually."
+        },
+        {
+          "level": 3,
+          "label": "Automated tests run on our most critical pipelines and block a load from completing if key checks fail."
+        },
+        {
+          "level": 4,
+          "label": "Automated tests are standard practice across most pipelines. Test results are logged and visible in a monitoring dashboard."
+        },
+        {
+          "level": 5,
+          "label": "Every pipeline stage has automated quality gates. Test coverage is measured and tracked. Failed tests trigger automated alerts and rollback where possible."
+        }
+      ],
+      "allow_unknown": false
     }
   ]
 }
