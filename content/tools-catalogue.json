@@ -997,6 +997,162 @@
       ],
       "url": "https://materialize.com",
       "one_line": "Streaming SQL database that maintains incrementally updated views over live data \u2014 lets you write standard SQL against streaming data without learning a stream processing framework."
+    },
+    {
+      "id": "apache_superset",
+      "name": "Apache Superset",
+      "category": "bi_analytics",
+      "licence": "Apache 2.0",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "large_org",
+        "public_sector"
+      ],
+      "constraints": [
+        "self-hosting requires operational effort (Redis, Celery workers, database)",
+        "row-level security configuration is complex",
+        "no native scheduling of email/Slack report delivery without additional setup"
+      ],
+      "url": "https://superset.apache.org",
+      "one_line": "The leading open-source BI platform \u2014 broad database support, capable dashboards, and an active Apache community; operationally heavier than Metabase but more powerful."
+    },
+    {
+      "id": "metabase",
+      "name": "Metabase",
+      "category": "bi_analytics",
+      "licence": "AGPL 3.0 (open-source edition) / Commercial licence for embedding or removing copyleft obligations",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org",
+        "low_ops_overhead"
+      ],
+      "constraints": [
+        "AGPL 3.0 copyleft applies to the open-source edition \u2014 embedding in proprietary software requires a commercial licence",
+        "advanced features (SSO, sandboxing, serialisation) are Pro/Enterprise only"
+      ],
+      "url": "https://www.metabase.com",
+      "one_line": "The easiest self-hostable BI tool to get started with \u2014 intuitive question-builder for non-technical users, with AGPL/commercial licence split worth understanding before embedding."
+    },
+    {
+      "id": "lightdash",
+      "name": "Lightdash",
+      "category": "bi_analytics",
+      "licence": "MIT",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org"
+      ],
+      "constraints": [
+        "requires dbt \u2014 Lightdash reads your dbt project directly and is not useful without it",
+        "younger product \u2014 some features still maturing"
+      ],
+      "url": "https://www.lightdash.com",
+      "one_line": "BI tool built on top of dbt \u2014 exposes your dbt models and metrics directly to business users without re-defining logic, eliminating metric duplication by design."
+    },
+    {
+      "id": "evidence",
+      "name": "Evidence",
+      "category": "bi_analytics",
+      "licence": "MIT",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted"
+      ],
+      "good_for": [
+        "small_org",
+        "medium_org"
+      ],
+      "constraints": [
+        "Markdown-and-SQL report authoring \u2014 requires developer involvement for report creation, not self-service for non-technical users",
+        "static site output \u2014 live filtering and exploration are limited compared to full BI tools"
+      ],
+      "url": "https://evidence.dev",
+      "one_line": "Code-first reporting tool that generates fast, beautiful data reports from SQL and Markdown \u2014 ideal for data teams who want version-controlled reports as code."
+    },
+    {
+      "id": "grafana",
+      "name": "Grafana",
+      "category": "bi_analytics",
+      "licence": "AGPL 3.0 (Grafana OSS) / Commercial (Grafana Enterprise)",
+      "type": "open_source",
+      "deployment": [
+        "self_hosted",
+        "managed_saas"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "public_sector"
+      ],
+      "constraints": [
+        "designed primarily for time-series and operational metrics \u2014 less suited to ad hoc business analytics than Superset or Metabase",
+        "AGPL 3.0 licence applies to OSS edition"
+      ],
+      "url": "https://grafana.com",
+      "one_line": "The standard for operational and infrastructure dashboards \u2014 excellent for time-series monitoring and metrics, less ideal for business intelligence reporting on tabular data."
+    },
+    {
+      "id": "power_bi",
+      "name": "Power BI",
+      "category": "bi_analytics",
+      "licence": "Commercial (Microsoft 365 / Power BI Pro / Premium)",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas",
+        "self_hosted"
+      ],
+      "good_for": [
+        "medium_org",
+        "large_org",
+        "public_sector",
+        "azure"
+      ],
+      "constraints": [
+        "deep Microsoft ecosystem integration \u2014 best value if already in Microsoft 365",
+        "Power BI Desktop is Windows-only",
+        "data capacity limits at lower licence tiers",
+        "Report Server (on-premises) is a separate, limited product"
+      ],
+      "url": "https://powerbi.microsoft.com",
+      "one_line": "Microsoft's BI platform \u2014 dominant in organisations already using Microsoft 365, with strong self-service capability and tight Azure integration."
+    },
+    {
+      "id": "tableau",
+      "name": "Tableau",
+      "category": "bi_analytics",
+      "licence": "Commercial (Salesforce)",
+      "type": "commercial",
+      "deployment": [
+        "managed_saas",
+        "self_hosted"
+      ],
+      "good_for": [
+        "large_org",
+        "regulated_private"
+      ],
+      "constraints": [
+        "premium commercial pricing \u2014 one of the more expensive BI options",
+        "Salesforce acquisition has influenced roadmap direction",
+        "Tableau Public is free but publishes data publicly"
+      ],
+      "url": "https://www.tableau.com",
+      "one_line": "Premium BI platform with outstanding visualisation capabilities and a mature enterprise feature set \u2014 the benchmark for visual analytics, but priced accordingly."
     }
   ]
 }
