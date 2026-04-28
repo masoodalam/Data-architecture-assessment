@@ -1,4 +1,101 @@
 {
   "_comment": "40-60 prioritised recommendations triggered by dimension score bands and context answers. See content/schemas/recommendations.schema.json for the full schema.",
-  "recommendations": []
+  "recommendations": [
+    {
+      "id": "rec_gov_assign_owners",
+      "title": "Assign named owners to your most important data domains",
+      "dimension": "governance",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Without named ownership, data quality problems have no clear resolution path and governance conversations stall because nobody feels accountable. Ownership does not require a new hire \u2014 it means making existing accountability explicit and documented.",
+      "first_steps": [
+        "List your top 5-8 most business-critical data domains (e.g. customers, finance, HR, operations)",
+        "For each domain, agree on a named owner and document their responsibilities in a single shared page",
+        "Schedule a 30-minute monthly check-in per domain with the owner and key consumers",
+        "Review and expand domain coverage quarterly"
+      ]
+    },
+    {
+      "id": "rec_gov_write_policies",
+      "title": "Write and publish core data policies",
+      "dimension": "governance",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "rationale": "Policies do not need to be perfect to be useful. A two-page access policy and a one-page retention policy that people actually read are more valuable than a comprehensive document nobody has seen. Start with the policies that address your most immediate risks.",
+      "first_steps": [
+        "Draft a data access policy covering who can request access, how requests are approved, and how access is reviewed",
+        "Draft a data retention policy covering your legally required retention periods for key data types",
+        "Publish both policies in a place all staff can find (intranet, wiki, shared drive)",
+        "Assign an owner responsible for reviewing each policy annually"
+      ]
+    },
+    {
+      "id": "rec_gov_governance_body",
+      "title": "Establish a data governance working group",
+      "dimension": "governance",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "next_6_months",
+      "rationale": "Governance decisions made by the data team alone rarely stick \u2014 they need legitimacy from the business. A cross-functional working group, even meeting monthly, creates the accountability structure for resolving data disputes and enforcing policies.",
+      "first_steps": [
+        "Identify 4-6 stakeholders spanning data, finance, legal/compliance, and key operational business areas",
+        "Agree a quarterly meeting cadence with a published agenda template",
+        "Define the group's remit: what decisions can they make, what must they escalate?",
+        "Publish the first meeting minutes to demonstrate the group has real outputs"
+      ]
+    },
+    {
+      "id": "rec_gov_data_classification",
+      "title": "Implement a data classification scheme",
+      "dimension": "governance",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "public_sector",
+          "regulated_private"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "rationale": "Classification is the foundation of proportionate access control and retention. Without it, you cannot systematically apply different controls to personal data versus public statistics, which creates both compliance risk and excessive restriction of non-sensitive data.",
+      "first_steps": [
+        "Define 3-4 classification tiers (e.g. Public, Internal, Confidential, Sensitive Personal)",
+        "Write a one-page guide explaining each tier with examples from your own data",
+        "Apply classification tags to your 20 most-used datasets as a pilot",
+        "Link classification tier to access request process and retention period"
+      ]
+    },
+    {
+      "id": "rec_gov_automate_compliance",
+      "title": "Automate policy enforcement and compliance monitoring",
+      "dimension": "governance",
+      "trigger": {
+        "minLevel": 4
+      },
+      "priority": "strategic",
+      "effort": "L",
+      "horizon": "strategic",
+      "rationale": "At maturity level 4, governance is well-defined but still largely manual. The next step is embedding policy into tooling so compliance is the path of least resistance \u2014 access controls enforced by the platform, retention enforced by automated jobs, and policy adherence visible in dashboards without manual audits.",
+      "first_steps": [
+        "Identify the top 3 policies currently enforced manually and assess automation feasibility",
+        "Implement automated access review alerts (e.g. notify managers of stale access quarterly)",
+        "Configure automated retention enforcement for your highest-risk data stores",
+        "Build a governance metrics dashboard tracking access review completion rate, policy breach count, and domain ownership coverage"
+      ]
+    }
+  ]
 }
