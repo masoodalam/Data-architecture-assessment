@@ -1,0 +1,66 @@
+[
+  {
+    "id": "governance",
+    "label": "Data Governance & Ownership",
+    "shortLabel": "Governance",
+    "weight": 1.2,
+    "description": "The policies, roles, and accountability structures that determine how data decisions are made and enforced across the organisation.",
+    "color": "#4F46E5"
+  },
+  {
+    "id": "metadata",
+    "label": "Metadata & Cataloguing",
+    "shortLabel": "Metadata",
+    "weight": 1.0,
+    "description": "The organisation's ability to document, discover, and understand its data assets — what exists, what it means, where it came from, and how it is used.",
+    "color": "#0891B2"
+  },
+  {
+    "id": "quality",
+    "label": "Data Quality & Observability",
+    "shortLabel": "Quality",
+    "weight": 1.1,
+    "description": "The practices and tooling used to measure, monitor, and improve the accuracy, completeness, timeliness, and consistency of data.",
+    "color": "#16A34A"
+  },
+  {
+    "id": "storage",
+    "label": "Storage & Compute Architecture",
+    "shortLabel": "Storage",
+    "weight": 1.0,
+    "description": "How data is stored, structured, and made available for query — spanning operational databases, analytical stores, lakehouses, and object storage.",
+    "color": "#CA8A04"
+  },
+  {
+    "id": "pipelines",
+    "label": "Ingestion & Pipelines",
+    "shortLabel": "Pipelines",
+    "weight": 1.0,
+    "description": "The processes and tooling that move data from sources into analytical and operational systems, including batch ingestion, streaming, and change data capture.",
+    "color": "#EA580C"
+  },
+  {
+    "id": "analytics",
+    "label": "Analytics & BI Delivery",
+    "shortLabel": "Analytics",
+    "weight": 1.0,
+    "description": "How the organisation transforms data into insights — including reporting, dashboards, self-service analytics, and the semantic layer that makes data meaningful to business users.",
+    "color": "#9333EA"
+  },
+  {
+    "id": "security",
+    "label": "Security, Privacy & Compliance",
+    "shortLabel": "Security",
+    "weight": 1.1,
+    "description": "The controls, policies, and tooling that protect data from unauthorised access, ensure privacy obligations are met, and evidence compliance with regulatory requirements.",
+    "color": "#DC2626"
+  },
+  {
+    "id": "skills",
+    "label": "Team Skills & Operating Model",
+    "shortLabel": "Skills",
+    "weight": 1.0,
+    "description": "The human dimension: the skills, roles, and organisational structures that enable the data function to operate effectively and improve over time.",
+    "color": "#0D9488"
+  }
+]
