@@ -633,6 +633,303 @@
         "Define alerting rules for suspicious patterns: access at unusual hours, bulk downloads, access to data outside a user's normal scope",
         "Run a quarterly access behaviour review alongside your access rights review"
       ]
+    },
+    {
+      "id": "rec_ski_define_roles",
+      "title": "Define data roles and formalise the data team structure",
+      "dimension": "skills",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Data work done by people with unclear roles is data work done inconsistently and without accountability. Even a small team benefits from explicit role definitions \u2014 it sets expectations, informs hiring, and helps stakeholders understand what to ask for and from whom.",
+      "first_steps": [
+        "Write a one-paragraph description of each current data role, including what they are responsible for and what they are not",
+        "Identify the most critical capability gaps \u2014 typically data engineering or data governance in early-stage teams",
+        "Share role descriptions with the data team and wider stakeholders to set expectations",
+        "Use role definitions to inform the next hiring decision or secondment"
+      ]
+    },
+    {
+      "id": "rec_ski_operating_model",
+      "title": "Define how the data team works with the rest of the organisation",
+      "dimension": "skills",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Teams that work reactively to whoever asks loudest never build strategic capability. A simple operating model \u2014 how to request work, how priorities are set, what to expect and when \u2014 reduces wasted time and stakeholder frustration on both sides.",
+      "first_steps": [
+        "Publish a 'how to work with the data team' page accessible to all staff",
+        "Define a standard intake process: how do you request data work, what information is needed, how long will it take?",
+        "Maintain a visible backlog so stakeholders can see where their request sits",
+        "Run a retrospective quarterly to refine the process based on feedback"
+      ]
+    },
+    {
+      "id": "rec_ski_training",
+      "title": "Establish a training budget and individual development plans for data staff",
+      "dimension": "skills",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "next_6_months",
+      "rationale": "Data tooling changes faster than almost any other technology domain. A team with no training budget falls behind within 12-18 months. A small, consistent investment \u2014 even 5% of a salary budget \u2014 compounds significantly over time.",
+      "first_steps": [
+        "Agree a per-head annual training budget with management \u2014 even a modest figure signals commitment",
+        "Ask each team member: what skill would most help you in the next 12 months?",
+        "Create a simple development plan for each person with 1-2 concrete learning goals per quarter",
+        "Budget time, not just money \u2014 training that requires weekend hours is not really training"
+      ]
+    },
+    {
+      "id": "rec_ski_data_literacy",
+      "title": "Launch a data literacy programme for the wider organisation",
+      "dimension": "skills",
+      "trigger": {
+        "minLevel": 3
+      },
+      "priority": "strategic",
+      "effort": "L",
+      "horizon": "strategic",
+      "rationale": "The value of good data infrastructure is only realised when business users can interpret and act on data confidently. Data literacy is the multiplier on every other investment in this assessment \u2014 a self-service tool nobody knows how to use delivers zero value.",
+      "first_steps": [
+        "Identify 2-3 business areas where low data literacy is causing the most decision-making pain",
+        "Design a short (2-3 hour) workshop covering: how to read a chart, how to identify misleading statistics, and how to use the self-service tools available",
+        "Run a pilot with one team, gather feedback, and iterate before rolling out broadly",
+        "Measure data literacy indirectly through self-service adoption rates and the volume of analyst time spent on report production vs insight generation"
+      ]
+    },
+    {
+      "id": "rec_ski_knowledge_management",
+      "title": "Implement structured knowledge capture for the data team",
+      "dimension": "skills",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "priority": "quick_win",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Most small data teams have critical knowledge concentrated in one or two people. A single resignation creates a crisis that could take months to recover from. Knowledge capture is not about documentation for its own sake \u2014 it is about team resilience.",
+      "first_steps": [
+        "Identify the two or three people whose departure would most damage the team's capability",
+        "Run a 'bus factor audit' \u2014 what does each person know that nobody else does?",
+        "Prioritise documenting the top five areas of concentrated knowledge (runbooks, architecture decisions, vendor contacts, key query logic)",
+        "Make documentation a delivery requirement \u2014 no new pipeline or dataset goes to production without a runbook"
+      ]
+    },
+    {
+      "id": "rec_cross_small_org_lightweight_stack",
+      "title": "Start with a lightweight, low-ops data stack appropriate for your scale",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "context": {
+        "anyOf": [
+          "small_org"
+        ],
+        "excludeIf": {
+          "team_maturity": "platform_team"
+        }
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "primary_tool": "duckdb",
+      "alternative_tools": [
+        "dbt_core",
+        "apache_superset",
+        "metabase"
+      ],
+      "rationale": "Small organisations rarely need enterprise-grade data infrastructure. The trap is adopting complex tools designed for large teams and spending all available capacity operating them. A well-chosen lightweight stack \u2014 DuckDB + dbt Core + Metabase, for example \u2014 can take an organisation from level 1 to level 3 across most dimensions with minimal operational overhead.",
+      "first_steps": [
+        "Resist the urge to start with a complex platform \u2014 pick the simplest tool that solves today's problem",
+        "A viable starting stack: DuckDB or PostgreSQL for storage, dbt Core for transformation, Metabase or Superset for reporting",
+        "Get one end-to-end pipeline working reliably before adding more tools",
+        "Document the stack decision and the reasoning \u2014 this helps when you revisit it in 18 months"
+      ]
+    },
+    {
+      "id": "rec_cross_no_data_team_first_hire",
+      "title": "Define what your first data hire should be able to do",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 2
+      },
+      "context": {
+        "excludeIf": {
+          "team_maturity": "platform_team"
+        },
+        "anyOf": [
+          "no_data_team"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "The most common mistake when building a data capability from scratch is hiring a specialist before the generalist. An experienced data analyst or analytics engineer who can both build pipelines and produce reports will deliver more value in year one than a specialist data engineer who cannot answer business questions.",
+      "first_steps": [
+        "Write down the three data problems that cost the organisation most time or money today",
+        "Define the hire around solving those problems \u2014 the role title matters less than the skill profile",
+        "For most small organisations, the first hire should be a data generalist: someone who can wrangle data, build simple pipelines, and produce insights",
+        "Set the hire up for success: give them access to data, a clear first project, and executive sponsorship"
+      ]
+    },
+    {
+      "id": "rec_cross_public_sector_governance_first",
+      "title": "Prioritise governance and compliance before advanced analytics",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "public_sector"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "rationale": "Public sector organisations hold significant personal data and operate under UK GDPR, Data Protection Act 2018, and sector-specific obligations (DSPT for NHS, etc.). Building advanced analytics on top of ungoverned data creates regulatory exposure that no analytical benefit justifies. Get the foundation right first.",
+      "first_steps": [
+        "Complete a data protection impact assessment (DPIA) for your primary data processing activities if not already done",
+        "Confirm your data governance framework aligns with your sector's regulatory requirements",
+        "Ensure your PII inventory is current before expanding analytical use of personal data",
+        "Engage your Caldicott Guardian (NHS) or Data Protection Officer as a partner in the data strategy, not just a sign-off function"
+      ]
+    },
+    {
+      "id": "rec_cross_oss_first_strategy",
+      "title": "Build your open-source-first tooling strategy to avoid long-term lock-in",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "oss_preferred"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "dbt_core",
+      "alternative_tools": [
+        "dagster",
+        "apache_superset",
+        "openmetadata"
+      ],
+      "rationale": "An open-source-first strategy is not about avoiding all commercial software \u2014 it is about avoiding lock-in to proprietary formats and vendors where open alternatives are equally capable. The recommended stack can cover every dimension of this assessment without a mandatory commercial licence.",
+      "first_steps": [
+        "Audit your current tooling for proprietary lock-in risk: data formats, API dependencies, and vendor-specific query languages",
+        "Where commercial tools are in use, evaluate whether an OSS alternative meets your needs \u2014 do not switch without a reason, but know your options",
+        "Prefer open formats (Parquet, Iceberg, Delta) over proprietary storage formats",
+        "When evaluating new tools, add 'licence and lock-in risk' as a procurement criterion alongside capability and cost"
+      ]
+    },
+    {
+      "id": "rec_cross_azure_native_stack",
+      "title": "Leverage your existing Azure investment for a coherent data platform",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "cloud": [
+          "azure"
+        ]
+      },
+      "priority": "quick_win",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "azure_db_postgresql",
+      "alternative_tools": [
+        "power_bi",
+        "databricks_sql"
+      ],
+      "rationale": "Azure-primary organisations often have existing spend on Microsoft tooling that is underutilised for data purposes. Azure Data Lake Storage, Azure Data Factory, Synapse Analytics, and Power BI integrate natively with your existing identity and security infrastructure \u2014 reducing the friction of standing up a new platform.",
+      "first_steps": [
+        "Audit what Azure data services you are already licensed for or paying for but not using",
+        "Evaluate Azure Synapse Analytics or Fabric as your analytical layer before procuring an independent warehouse",
+        "Use Microsoft Purview for data governance if you are already in the Microsoft ecosystem",
+        "Ensure your data platform connects to Azure Active Directory for single sign-on and centralised access management"
+      ]
+    },
+    {
+      "id": "rec_cross_aws_native_stack",
+      "title": "Leverage your existing AWS investment for a coherent data platform",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "cloud": [
+          "aws"
+        ]
+      },
+      "priority": "quick_win",
+      "effort": "M",
+      "horizon": "next_6_months",
+      "primary_tool": "apache_iceberg",
+      "alternative_tools": [
+        "apache_airflow",
+        "dbt_core"
+      ],
+      "rationale": "AWS-primary organisations have access to a mature ecosystem of data services \u2014 S3, Glue, Athena, Redshift, and managed Airflow \u2014 that integrate with existing IAM (Identity and Access Management) and security controls. Building on these reduces infrastructure overhead compared to self-hosting everything.",
+      "first_steps": [
+        "Evaluate Amazon Redshift or Athena as your analytical layer depending on query pattern (structured vs ad hoc on S3)",
+        "Use AWS Glue Data Catalog as your metadata foundation \u2014 it integrates natively with Athena, EMR, and Iceberg",
+        "Deploy Amazon Managed Workflows for Apache Airflow (MWAA) rather than self-hosting Airflow if orchestration is needed",
+        "Ensure all data services connect to IAM for centralised access control"
+      ]
+    },
+    {
+      "id": "rec_cross_regulated_data_protection",
+      "title": "Treat data protection as an architectural requirement, not a compliance checkbox",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "maxLevel": 3
+      },
+      "context": {
+        "anyOf": [
+          "regulated_private"
+        ]
+      },
+      "priority": "foundational",
+      "effort": "M",
+      "horizon": "do_now",
+      "rationale": "Regulated sectors (financial services, utilities, health, education) face material consequences for data protection failures \u2014 regulatory fines, operational restrictions, and reputational damage. Data protection cannot be retrofitted onto a mature analytics platform; it must be in the foundations.",
+      "first_steps": [
+        "Map your regulatory obligations specific to your sector (FCA for financial services, ICO for all UK organisations, sector-specific frameworks)",
+        "Ensure your data architecture documentation is audit-ready \u2014 regulators often ask to see it",
+        "Prioritise security and governance recommendations from this assessment before analytical capability improvements",
+        "Engage your compliance team as a partner in the data architecture \u2014 not just a sign-off gate"
+      ]
+    },
+    {
+      "id": "rec_cross_measure_maturity_progress",
+      "title": "Track your maturity improvement over time",
+      "dimension": "cross_cutting",
+      "trigger": {
+        "minLevel": 2
+      },
+      "priority": "quick_win",
+      "effort": "S",
+      "horizon": "do_now",
+      "rationale": "Improvement that is not tracked is improvement that is invisible to stakeholders and at risk of being reversed. Re-running this assessment every 6-12 months provides an objective record of progress and helps prioritise where investment has had the most impact.",
+      "first_steps": [
+        "Save or download this report \u2014 it is your baseline",
+        "Identify the 2-3 dimensions where you scored lowest and agree these as your priority focus areas",
+        "Schedule a reassessment in 6 months with the same respondents",
+        "Share progress with senior stakeholders \u2014 data maturity improvement is a business outcome, not just a technical one"
+      ]
     }
   ]
 }
